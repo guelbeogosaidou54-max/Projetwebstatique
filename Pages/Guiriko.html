@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guiriko — Burkina Faso</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- ===== LIENS CSS EXTERNES ===== -->
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/region.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --rouge: #C1272D; --vert: #009A44; --or: #F7B731;
+  --nuit: #12100A; --creme: #FDF8F0; --sable: #E8D5A8;
+  --terre: #7A4E2D; --gris: #6B5744; --blanc: #FFFFFF;
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--creme); color: var(--nuit); line-height: 1.7; }
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(18,16,10,0.95); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 60px;
+}
+.nav-logo { font-family: 'Playfair Display', serif; color: var(--or); font-size: 1.1rem; font-weight: 700; text-decoration: none; }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.75); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--or); }
+.region-hero { min-height: 60vh; background: linear-gradient(160deg, #0a0a1a, #20206b); display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: 5rem 3rem 4rem; position: relative; }
+.hero-badge { background: var(--rouge); color: white; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 2px; margin-bottom: 1.2rem; }
+.hero-titre { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 7vw, 5rem); font-weight: 900; color: var(--blanc); line-height: 1.05; }
+.hero-slogan { font-size: 1.1rem; color: var(--or); margin-top: 0.8rem; font-style: italic; }
+.infos-section { background: var(--nuit); padding: 2.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); border-bottom: 3px solid var(--rouge); }
+.info-item { padding: 1rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+.info-item:last-child { border-right: none; }
+.info-val { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--or); display: block; }
+.info-label { font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* SECTION ADMINISTRATION & GÉOGRAPHIE (NOUVELLE) */
+.details-section {
+  background: var(--blanc);
+  padding: 2.5rem;
+  margin: 2rem auto;
+  max-width: 1100px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+.details-category h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--rouge);
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--or);
+  padding-left: 0.75rem;
+}
+.details-category p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--gris);
+}
+.details-category strong {
+  color: var(--nuit);
+}
+
+.section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rouge); font-weight: 500; margin-bottom: 0.5rem; }
+.section-titre { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+.section-titre span { color: var(--rouge); }
+.trait { width: 50px; height: 3px; background: var(--or); margin-bottom: 2rem; }
+.img-principale { width: 100%; height: 400px; background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Grande_mosque_Bobo.jpg/1280px-Grande_mosque_Bobo.jpg') center/cover; position: relative; margin: 2rem 0; }
+.img-legende { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: white; padding: 1rem; font-size: 0.8rem; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1.5rem; }
+.card { background: var(--blanc); border-radius: 10px; border: 1px solid var(--sable); overflow: hidden; transition: transform 0.2s; }
+.card:hover { transform: translateY(-4px); }
+.card-img { height: 150px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; font-size: 3rem; background-color: var(--sable); }
+.card-body { padding: 1.2rem; }
+.card-cat { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--rouge); font-weight: 500; }
+.card-titre { font-size: 1rem; font-weight: 600; margin: 0.4rem 0; }
+.card-desc { font-size: 0.85rem; color: var(--gris); }
+.galerie-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; margin-top: 2rem; }
+.galerie-item { height: 180px; background: var(--sable); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2rem; background-size: cover; background-position: center; }
+.agri-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 2rem; }
+.agri-bloc { background: var(--blanc); border-radius: 10px; padding: 1.5rem; border-top: 4px solid var(--vert); }
+.agri-liste { list-style: none; }
+.agri-liste li { padding: 0.5rem 0; border-bottom: 1px solid #f0ebe0; }
+.agri-liste li::before { content: "▸"; color: var(--vert); margin-right: 0.5rem; }
+.btn-retour { display: inline-block; background: var(--rouge); color: var(--blanc); padding: 0.8rem 2rem; border-radius: 3px; text-decoration: none; margin-top: 2rem; }
+.btn-retour:hover { background: #a01f24; }
+footer { background: #0A0805; text-align: center; padding: 2rem; color: rgba(255,255,255,0.35); font-size: 0.78rem; }
+footer span { color: var(--or); }
+@media (max-width: 768px) { nav { padding: 0 1rem; } .nav-links { display: none; } .section { padding: 2rem 1rem; } .hero-titre { font-size: 2rem; } .infos-section { grid-template-columns: repeat(2,1fr); } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">🇧🇫 Burkina Faso</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#regions">← Toutes les régions</a></li>
+    <li><a href="#tourisme">Tourisme</a></li>
+    <li><a href="#agricole">Agriculture</a></li>
+    <li><a href="#educatif">Éducation</a></li>
+  </ul>
+</nav>
+
+<!-- 1. EN-TÊTE -->
+<section class="region-hero">
+  <div class="hero-badge">Région du Burkina Faso</div>
+  <h1 class="hero-titre">Guiriko</h1>
+  <p class="hero-slogan">« Là où le fleuve rencontre la culture »</p>
+</section>
+
+<!-- 2. INFORMATIONS GÉNÉRALES -->
+<div class="infos-section">
+  <div class="info-item"><span class="info-val">Bobo-Dioulasso</span><span class="info-label">Chef-lieu</span></div>
+  <div class="info-item"><span class="info-val">25 344 km²</span><span class="info-label">Superficie</span></div>
+  <div class="info-item"><span class="info-val">2 572 600</span><span class="info-label">Population (2024)</span></div>
+  <div class="info-item"><span class="info-val">3</span><span class="info-label">Provinces</span></div>
+  <div class="info-item"><span class="info-val">Bobolais(e)</span><span class="info-label">Gentilé</span></div>
+</div>
+
+<!-- ===== NOUVEAU : ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
+<div class="details-section">
+  <div class="details-grid">
+    <!-- Administration -->
+    <div class="details-category">
+      <h3>🏛️ Administration</h3>
+      <p><strong>Pays :</strong> Burkina Faso</p>
+      <p><strong>Statut :</strong> Région</p>
+      <p><strong>Provinces :</strong> 3</p>
+      <p><strong>Départements :</strong> 33</p>
+      <p><strong>Chef-lieu :</strong> Bobo-Dioulasso</p>
+      <p><strong>Gouverneur :</strong> Antoine Atiou (depuis le 7 mars 2012)</p>
+      <p><strong>Code ISO 3166-2 :</strong> BF-09</p>
+      <p><strong>Code INSD :</strong> 01</p>
+    </div>
+    <!-- Démographie -->
+    <div class="details-category">
+      <h3>👥 Démographie</h3>
+      <p><strong>Population (2024) :</strong> 2 572 600 hab.</p>
+      <p><strong>Densité :</strong> 102 hab./km²</p>
+    </div>
+    <!-- Géographie & Divers -->
+    <div class="details-category">
+      <h3>🗺️ Géographie & Divers</h3>
+      <p><strong>Coordonnées :</strong> 11°15'N, 4°30'O</p>
+      <p><strong>Superficie :</strong> 25 344 km²</p>
+      <p><strong>Fuseau horaire :</strong> UTC+0</p>
+      <p><strong>Indicatif téléphonique :</strong> +226</p>
+    </div>
+  </div>
+</div>
+
+<!-- 3. IMAGE PRINCIPALE -->
+<div class="img-principale">
+  <img src="img12.jpg" alt="LA vile de BOBO" width="1000" height="400"><br>
+  <div class="img-legende"></div>
+</div>
+
+<!-- 4. PRÉSENTATION COURTE -->
+<div class="section">
+  <p class="section-label">Présentation</p>
+  <h2 class="section-titre">La région de Guiriko</h2>
+  <div class="trait"></div>
+  <p>À l’ouest du Burkina Faso, au carrefour de plusieurs civilisations, s’étend une région dont le nom résonne encore dans la mémoire collective : Guiriko. Héritage d’un ancien royaume fondé au XVIIIe siècle par les Marka, ce territoire fut autrefois une puissance économique, politique et culturelle. Sa capitale, Sya, est aujourd’hui connue sous le nom de Bobo-Dioulasso, deuxième plus grande ville du pays et capitale culturelle par excellence.</p><br>
+  <p>Pendant plusieurs décennies, le royaume de Guiriko a joué un rôle clé dans le commerce régional, reliant les forêts du Sud aux marchés du Sahel. Or, sel, coton, bétail, mais aussi savoirs et traditions y circulaient. Si l’histoire du royaume n’est plus enseignée avec l’intensité qu’elle mérite, ses traces sont encore bien vivantes dans les récits oraux, les pratiques sociales et les sites historiques que la région conserve jalousement</p><br>
+  <p>La région de Guiriko est un véritable vivier culturel. Elle rassemble une diversité ethnique rare Bobo, Dioula, Marka, Bwaba, Peuls, Sénoufo qui continue de faire vivre des traditions ancestrales. Les musiques rituelles, les danses masquées et les fêtes coutumières témoignent d’un attachement profond à l’identité locale. Le balafon, joué lors des cérémonies de réjouissance ou d’initiation, incarne cet héritage vivant ; il est d’ailleurs reconnu par l’UNESCO comme patrimoine culturel immatériel de l’humanité</p><br>
+<img src="img6.jpeg" alt="Image" width="1000" height="700"><br>
+<p>À Bobo-Dioulasso, la culture est omniprésente. La ville abrite des structures culturelles majeures comme la Maison de la Culture, le Centre Siraba, ou encore de nombreux studios et ateliers d’artistes. Chaque année, des événements artistiques d’envergure s’y tiennent, attirant créateurs, chercheurs et touristes.
+Outre son patrimoine immatériel, Guiriko offre une diversité de sites touristiques à forte valeur symbolique. La vieille mosquée de Dioulassoba, avec son architecture soudano-sahélienne, fascine par sa simplicité majestueuse. Le vieux quartier de Sya, avec ses ruelles étroites, ses autels sacrés et ses familles anciennes, transporte le visiteur dans une autre époque et le musée Sogossira. D’autres espaces naturels, comme la forêt classée de Kou ou la mare aux hippopotames de Bala, située dans la province du Houet, permettent de découvrir une nature préservée tout en s’ouvrant à un tourisme écologique de proximité
+</p><br>
+<img src="img7.jpeg" alt="Image" width="1000" height="700"><br>
+<p>Pour accueillir les visiteurs, la région, surtout dans sa capitale culturelle, dispose d’une offre hôtelière relativement développée. À Bobo-Dioulasso, on trouve des établissements modernes comme Laïco Hôtel Ouest, Pacific Hôtel, ou encore le Sissiman, aux côtés d’auberges et maisons d’hôtes comme La Villa Rose ou Le Baobab. Les services y sont en amélioration constante, même si certaines zones rurales restent encore peu couvertes.
+La restauration locale, riche et savoureuse, constitue aussi un atout majeur. Riz gras, tô à la sauce gombo, poisson braisé, brochettes, dolo traditionnel et chitoumou (chenilles riches en protéines, typiques de la région) complètent le tableau d’un accueil à la bobolaise, chaleureux et généreux.
+
+</p><br>
+<img src="img8.jpeg" alt="Image" width="1000" height="700"><br>
+<p>Malgré ce potentiel considérable, la région de Guiriko reste encore trop en marge des grands circuits touristiques. L’insuffisance des infrastructures routières, le manque de formation des guides, ou encore la faible promotion institutionnelle de la région constituent des freins à son essor. Il convient également de mieux clarifier et valoriser l’identité historique de Guiriko, qui dépasse les seules limites administratives actuelles.</p><br>
+<img src="img9.jpeg" alt="Image" width="1000" height="700"><br>
+
+
+
+
+</div>
+
+<!-- 5. TOURISME & CULTURE -->
+<div class="section" id="tourisme">
+  <p class="section-label">Tourisme & Culture</p>
+  <h2 class="section-titre">À <span>découvrir</span> absolument</h2>
+  <div class="trait"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-img">🕌</div><div class="card-body"><div class="card-cat">Monument</div><div class="card-titre">Grande Mosquée de Bobo</div><div class="card-desc">Architecture soudano-sahélienne, construite en 1880.</div></div></div>
+    <div class="card"><div class="card-img">🐊</div><div class="card-body"><div class="card-cat">Site sacré</div><div class="card-titre">Mare aux Caïmans Dafra</div><div class="card-desc">Crocodiles sacrés, site mystique et touristique.</div></div></div>
+    <div class="card"><div class="card-img">🏛️</div><div class="card-body"><div class="card-cat">Musée</div><div class="card-titre">Musée Provincial du Houet</div><div class="card-desc">Masques, instruments, art traditionnel.</div></div></div>
+    <div class="card"><div class="card-img">🎡</div><div class="card-body"><div class="card-cat">Foire</div><div class="card-titre">FIBAO</div><div class="card-desc">Foire internationale de Bobo, biennale.</div></div></div>
+  </div>
+</div>
+
+<!-- 6. RESSOURCES NATURELLES -->
+<div class="section" style="background:#0D2B1A; margin:0; border-radius:0; color:white;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <p class="section-label" style="color:var(--vert);">Ressources naturelles</p>
+    <h2 class="section-titre" style="color:white;"><span style="color:var(--vert);">Sites</span> et richesses</h2>
+    <div class="trait" style="background:var(--vert);"></div>
+    <div class="cards-grid">
+      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌊 Fleuve Mouhoun</strong><br>Principal cours d'eau de l'ouest</div></div>
+      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌿 Forêt de Dinderesso</strong><br>6 200 ha, poumon vert de Bobo</div></div>
+      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>💧 Fleuve Comoé</strong><br>Frontière avec la Côte d'Ivoire</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 7. POTENTIEL AGRICOLE -->
+<div class="section" id="agricole">
+  <p class="section-label">Potentiel agricole 🌾</p>
+  <h2 class="section-titre">Ce que produit la <span>région</span></h2>
+  <div class="trait"></div>
+  <div class="agri-grid">
+    <div class="agri-bloc"><h3>🌱 Cultures principales</h3><ul class="agri-liste"><li>Mangues (1er producteur)</li><li>Canne à sucre (SOSUCO)</li><li>Coton</li><li>Maïs, riz</li></ul></div>
+    <div class="agri-bloc"><h3>🐄 Élevage</h3><ul class="agri-liste"><li>Bovins, ovins</li><li>Porcins</li><li>Aviculture industrielle</li></ul></div>
+    <div class="agri-bloc"><h3>🐟 Pêche</h3><ul class="agri-liste"><li>Pêche sur le Mouhoun</li><li>Pisciculture</li></ul></div>
+  </div>
+</div>
+
+<!-- 8. POTENTIEL ÉDUCATIF -->
+<div class="section" style="background:#EEF3FA;">
+  <p class="section-label">Potentiel éducatif 🏫</p>
+  <h2 class="section-titre"><span>Former</span> les talents de demain</h2>
+  <div class="trait"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-body"><strong>Université Nazi Boni</strong><br>2ᵉ université publique du pays</div></div>
+    <div class="card"><div class="card-body"><strong>IUFP</strong><br>Formation des enseignants</div></div>
+    <div class="card"><div class="card-body"><strong>Lycée technique de Bobo</strong><br>Formation professionnelle</div></div>
+    <div class="card"><div class="card-body"><strong>ENSP</strong><br>École nationale de santé publique</div></div>
+  </div>
+</div>
+
+<!-- 9. POTENTIEL COMMERCIAL -->
+<div class="section">
+  <p class="section-label">Potentiel commercial 🛒</p>
+  <h2 class="section-titre">Échanges et <span>marchés</span></h2>
+  <div class="trait"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-body"><strong>Marché central de Bobo (Rood-So)</strong><br>Samedi — tissus, épices, artisanat</div></div>
+    <div class="card"><div class="card-body"><strong>Zone industrielle SOSUCO</strong><br>Sucrerie, minoteries, brasseries</div></div>
+    <div class="card"><div class="card-body"><strong>FIBAO</strong><br>Foire internationale biennale</div></div>
+  </div>
+</div>
+
+<!-- 10. ARTISANAT -->
+<div class="section" style="background:#2A1506; color:white;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <p class="section-label" style="color:var(--or);">Artisanat traditionnel</p>
+    <h2 class="section-titre" style="color:white;"><span style="color:var(--or);">Savoir-faire</span> ancestraux</h2>
+    <div class="trait"></div>
+    <div class="cards-grid">
+      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🎭 Masques Bobo</strong><br>Masques-feuilles et de bois</div></div>
+      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🧵 Faso Dan Fani</strong><br>Tissu traditionnel</div></div>
+      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>⚒️ Bronze (cire perdue)</strong><br>Statuettes, bijoux</div></div>
+      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🏺 Poterie</strong><br>Canaris, jarres</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 11. SPÉCIALITÉS CULINAIRES -->
+<div class="section">
+  <p class="section-label">Spécialités culinaires</p>
+  <h2 class="section-titre">Les <span>saveurs</span> de Bobo</h2>
+  <div class="trait"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-body"><strong>🍲 Tô de maïs</strong><br>Sauce arachide ou gombo</div></div>
+    <div class="card"><div class="card-body"><strong>🍚 Riz gras</strong><br>Au mouton ou au poisson</div></div>
+    <div class="card"><div class="card-body"><strong>🍗 Poulet bicyclette</strong><br>Spécialité bobolaise</div></div>
+    <div class="card"><div class="card-body"><strong>🥤 Brakina</strong><br>Bierre locale</div></div>
+  </div>
+</div>
+
+<!-- 12. CHIFFRES CLÉS -->
+<div class="section" style="background:var(--rouge); text-align:center; color:white;">
+  <h2 class="section-titre" style="color:white;"><span style="color:var(--or);">Chiffres</span> clés</h2>
+  <div style="display:flex; justify-content:center; gap:3rem; flex-wrap:wrap;">
+    <div><span style="font-size:2rem; font-weight:bold;">📏 25 344 km²</span><br>Superficie</div>
+    <div><span style="font-size:2rem; font-weight:bold;">👥 2,57 M</span><br>Habitants (2024)</div>
+    <div><span style="font-size:2rem; font-weight:bold;">🥭 1er mangues</span><br>Production nationale</div>
+  </div>
+</div>
+
+<!-- 13. GALERIE PHOTOS -->
+<div class="section">
+  <p class="section-label">Galerie photos</p>
+  <h2 class="section-titre">Images de la <span>région</span></h2>
+  <div class="trait"></div>
+  <div class="galerie-grid">
+    <div class="galerie-item" style="background: linear-gradient(135deg,#0a0a1a,#20206b);">🕌 Grande Mosquée</div>
+    <div class="galerie-item" style="background: linear-gradient(135deg,#0a2a18,#1a6040);">🥭 Vergers de mangues</div>
+    <div class="galerie-item" style="background: linear-gradient(135deg,#1a1a3a,#20206b);">🏫 Université Nazi Boni</div>
+    <div class="galerie-item" style="background: linear-gradient(135deg,#3a2010,#704020);">🛒 Marché de Bobo</div>
+  </div>
+</div>
+
+<!-- 14. CARTE DE SITUATION -->
+<div class="section">
+  <p class="section-label">Carte de situation</p>
+  <h2 class="section-titre">Localisation des Hauts-Bassins</h2>
+  <div class="trait"></div>
+  <iframe width="100%" height="350" frameborder="0" style="border:1px solid var(--sable); border-radius:8px;" src="https://www.openstreetmap.org/export/embed.html?bbox=-4.8,10.8,-3.5,11.8&layer=mapnik&marker=11.177,-4.297"></iframe>
+</div>
+
+<!-- 15. PROVINCES -->
+<div class="section">
+  <p class="section-label">Provinces</p>
+  <h2 class="section-titre"><span>3 provinces</span></h2>
+  <div class="trait"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-body"><strong>Houet</strong><br>Chef-lieu : Bobo-Dioulasso</div></div>
+    <div class="card"><div class="card-body"><strong>Kénédougou</strong><br>Chef-lieu : Orodara</div></div>
+    <div class="card"><div class="card-body"><strong>Tuy</strong><br>Chef-lieu : Houndé</div></div>
+  </div>
+</div>
+
+<!-- 16. LE SAVIEZ-VOUS ? -->
+<div class="section" style="background:var(--or); text-align:center;">
+  <p class="section-label" style="color:var(--nuit);">Le saviez-vous ?</p>
+  <h2 class="section-titre" style="color:var(--nuit);">Anecdote <span>surprenante</span></h2>
+  <div class="trait" style="margin:0 auto 1.5rem;"></div>
+  <p style="font-size:1.2rem; font-style:italic; max-width:700px; margin:0 auto;">Le nom "Bobo-Dioulasso" signifie en dioula "la maison des Bobo qui parlent Dioula". C'est la seule ville d'Afrique de l'Ouest à avoir une gare ferroviaire encore en activité héritée de la période coloniale (Abidjan-Ouagadougou).</p>
+</div>
+
+<!-- 17. BOUTON RETOUR -->
+<div class="section" style="text-align:center;">
+  <a href="../Racine/index.html" class="btn-retour">← Retour à l'accueil</a>
+  <a href="../index.html" class="btn-retour" style="margin-left:1rem; background:var(--nuit);">🏠 Accueil</a>
+</div>
+
+<footer>
+  Projet académique 2025-2026 — Vitrine des Régions du <span>Burkina Faso</span>
+</footer>
+</body>
+</html>

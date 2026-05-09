@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Burkina Faso — Vitrine des 17 Régions</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rouge:  #C1272D;
+  --vert:   #009A44;
+  --or:     #F7B731;
+  --nuit:   #12100A;
+  --terre:  #7A4E2D;
+  --creme:  #FDF8F0;
+  --sable:  #E8D5A8;
+  --texte:  #1E1207;
+  --gris:   #6B5744;
+  --blanc:  #FFFFFF;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--creme);
+  color: var(--texte);
+  overflow-x: hidden;
+}
+
+/* ── NAVBAR ── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2.5rem; height: 64px;
+  background: rgba(18,16,10,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(247,183,49,0.15);
+  transition: background 0.3s;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 0.8rem;
+  text-decoration: none;
+}
+.nav-flag {
+  display: flex; height: 22px; width: 36px; border-radius: 3px; overflow: hidden;
+}
+.nav-flag span { flex: 1; }
+.nav-brand-txt {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 700;
+  color: var(--or); letter-spacing: 0.02em;
+}
+.nav-links {
+  display: flex; gap: 2rem; list-style: none;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.65); font-size: 0.85rem;
+  text-decoration: none; transition: color 0.2s; letter-spacing: 0.03em;
+}
+.nav-links a:hover { color: var(--or); }
+.nav-cta {
+  background: var(--rouge); color: var(--blanc) !important;
+  padding: 0.45rem 1.2rem; border-radius: 3px;
+  font-weight: 500 !important;
+}
+.nav-cta:hover { background: #a01f24; }
+
+/* Menu mobile */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background: var(--blanc);
+  transition: 0.3s;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(12,8,2,0.75) 0%, rgba(12,8,2,0.4) 50%, rgba(12,8,2,0.85) 100%),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Ouagadougou_vue_aerienne.jpg/1280px-Ouagadougou_vue_aerienne.jpg')
+    center / cover no-repeat;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center; padding: 8rem 2rem 5rem;
+  position: relative;
+}
+.hero-eyebrow {
+  font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--or); margin-bottom: 1.2rem;
+  border: 1px solid rgba(247,183,49,0.35);
+  padding: 0.35rem 1.2rem; border-radius: 2px;
+  display: inline-block;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  font-weight: 900; color: var(--blanc);
+  line-height: 1.05; margin-bottom: 1rem;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+.hero h1 em { color: var(--or); font-style: normal; }
+.hero-sub {
+  font-size: 1.05rem; color: rgba(255,255,255,0.7);
+  font-weight: 300; max-width: 540px; line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--rouge); color: var(--blanc);
+  padding: 0.9rem 2.2rem; border-radius: 3px;
+  font-size: 0.9rem; font-weight: 500; text-decoration: none;
+  letter-spacing: 0.04em; transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+.btn-primary:hover { background: #a01f24; transform: translateY(-2px); }
+.btn-outline {
+  border: 1.5px solid rgba(255,255,255,0.4); color: var(--blanc);
+  padding: 0.9rem 2.2rem; border-radius: 3px;
+  font-size: 0.9rem; font-weight: 400; text-decoration: none;
+  letter-spacing: 0.04em; transition: border-color 0.2s, transform 0.15s;
+  display: inline-block;
+}
+.btn-outline:hover { border-color: var(--or); color: var(--or); transform: translateY(-2px); }
+.hero-scroll-hint {
+  position: absolute; bottom: 2.5rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  color: rgba(255,255,255,0.35); font-size: 0.72rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+}
+.scroll-line {
+  width: 1px; height: 50px;
+  background: linear-gradient(var(--or), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%,100% { opacity: 0.3; transform: scaleY(1); }
+  50%      { opacity: 1;   transform: scaleY(1.1); }
+}
+
+/* ── BANDEAU STATS (17 régions) ── */
+.stats-band {
+  background: var(--nuit);
+  border-top: 3px solid var(--rouge);
+  border-bottom: 3px solid var(--vert);
+  display: grid; grid-template-columns: repeat(4,1fr);
+}
+.stat-item {
+  padding: 2rem 1.5rem; text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+.stat-item:last-child { border-right: none; }
+.stat-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700;
+  color: var(--or); display: block;
+}
+.stat-label {
+  font-size: 0.72rem; color: rgba(255,255,255,0.4);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.3rem;
+}
+
+/* ── SÉPARATEUR DRAPEAU ── */
+.sep {
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--rouge) 33.33%,
+    var(--vert)  33.33% 66.66%,
+    var(--or)    66.66%);
+}
+
+/* ── INTRO ── */
+.intro {
+  max-width: 750px; margin: 5rem auto; padding: 0 2rem; text-align: center;
+}
+.section-eyebrow {
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--rouge); font-weight: 500; margin-bottom: 0.6rem;
+}
+.section-titre {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem; font-weight: 700; color: var(--nuit);
+  line-height: 1.2; margin-bottom: 1rem;
+}
+.section-titre span { color: var(--rouge); }
+.trait-centre {
+  width: 50px; height: 3px; background: var(--or);
+  margin: 0 auto 1.5rem;
+}
+.intro p {
+  color: var(--gris); font-size: 1rem; line-height: 1.8;
+}
+
+/* ── GRILLE RÉGIONS (17 cartes) ── */
+#regions {
+  padding: 0 2.5rem 6rem;
+  max-width: 1400px; margin: 0 auto;
+}
+.regions-header {
+  text-align: center; margin-bottom: 3rem;
+}
+.regions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ── CARTE RÉGION ── */
+.region-card {
+  position: relative; border-radius: 10px;
+  overflow: hidden; text-decoration: none;
+  display: block; background: var(--nuit);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  animation: fadeUp 0.5s ease both;
+}
+.region-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+/* Couleurs de fond uniques pour les 17 régions */
+.region-card[data-region="boucle-mouhoun"] { --card-bg: linear-gradient(135deg, #2a1a06, #6b3a12); }
+.region-card[data-region="kossi-nayala-sourou"] { --card-bg: linear-gradient(135deg, #1a2a0a, #3a6020); }
+.region-card[data-region="cascades"] { --card-bg: linear-gradient(135deg, #0a2a18, #1a6040); }
+.region-card[data-region="centre-grand-ouaga"] { --card-bg: linear-gradient(135deg, #1a0a0a, #6b1218); }
+.region-card[data-region="centre-est"] { --card-bg: linear-gradient(135deg, #1a1206, #5a4010); }
+.region-card[data-region="kouritenga-est"] { --card-bg: linear-gradient(135deg, #0a1a2a, #1a4060); }
+.region-card[data-region="centre-nord"] { --card-bg: linear-gradient(135deg, #0a1a2a, #1a4060); }
+.region-card[data-region="centre-ouest"] { --card-bg: linear-gradient(135deg, #1a0a1a, #50205a); }
+.region-card[data-region="sissili-ziro"] { --card-bg: linear-gradient(135deg, #101a0a, #2a5018); }
+.region-card[data-region="centre-sud"] { --card-bg: linear-gradient(135deg, #101a0a, #2a5018); }
+.region-card[data-region="est-gourma"] { --card-bg: linear-gradient(135deg, #1a1006, #604820); }
+.region-card[data-region="est-gnagna-kompienga"] { --card-bg: linear-gradient(135deg, #1a0a06, #604020); }
+.region-card[data-region="hauts-bassins"] { --card-bg: linear-gradient(135deg, #0a0a1a, #20206b); }
+.region-card[data-region="kenedougou"] { --card-bg: linear-gradient(135deg, #0a1a0a, #206020); }
+.region-card[data-region="nord"] { --card-bg: linear-gradient(135deg, #1a0606, #6b1a1a); }
+.region-card[data-region="plateau-central"] { --card-bg: linear-gradient(135deg, #061a10, #1a6040); }
+.region-card[data-region="sahel-sud-ouest"] { --card-bg: linear-gradient(135deg, #1a1206, #705a20); }
+
+.card-bg-layer {
+  position: absolute; inset: 0;
+  background: var(--card-bg);
+  transition: opacity 0.4s;
+}
+.region-card:hover .card-bg-layer { opacity: 0.85; }
+
+.card-numero {
+  position: absolute; top: 1rem; right: 1rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; font-weight: 900;
+  color: rgba(255,255,255,0.06); line-height: 1;
+  user-select: none;
+}
+
+.card-body {
+  position: relative; z-index: 1;
+  padding: 2rem 1.5rem 1.5rem;
+  min-height: 200px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+
+.card-chef {
+  font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); margin-bottom: 0.4rem;
+}
+.card-nom {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--blanc); line-height: 1.1; margin-bottom: 0.3rem;
+}
+.card-slogan {
+  font-size: 0.82rem; color: rgba(255,255,255,0.55);
+  font-style: italic; margin-bottom: 1.2rem;
+  line-height: 1.4;
+}
+
+.card-tags {
+  display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem;
+}
+.card-tag {
+  font-size: 0.65rem; padding: 0.2rem 0.6rem;
+  border-radius: 20px; letter-spacing: 0.06em;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.card-cta {
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+}
+.card-cta-txt {
+  font-size: 0.78rem; color: var(--or);
+  letter-spacing: 0.06em; font-weight: 500;
+}
+.card-arrow {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(247,183,49,0.15);
+  border: 1px solid rgba(247,183,49,0.3);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--or); font-size: 0.9rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.region-card:hover .card-arrow {
+  background: var(--rouge);
+  border-color: var(--rouge);
+  color: white;
+  transform: translateX(3px);
+}
+
+/* Accents colorés */
+.card-accent {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.accent-rouge  { background: var(--rouge); }
+.accent-vert   { background: var(--vert); }
+.accent-or     { background: var(--or); }
+.accent-terre  { background: var(--terre); }
+.accent-bleu   { background: #1A6B9A; }
+.accent-violet { background: #6B1A8B; }
+.accent-marron { background: #8B5A2B; }
+.accent-olive  { background: #6B8E23; }
+
+/* ── ANIMATION D'ENTRÉE ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.region-card:nth-child(1)  { animation-delay: 0.03s; }
+.region-card:nth-child(2)  { animation-delay: 0.06s; }
+.region-card:nth-child(3)  { animation-delay: 0.09s; }
+.region-card:nth-child(4)  { animation-delay: 0.12s; }
+.region-card:nth-child(5)  { animation-delay: 0.15s; }
+.region-card:nth-child(6)  { animation-delay: 0.18s; }
+.region-card:nth-child(7)  { animation-delay: 0.21s; }
+.region-card:nth-child(8)  { animation-delay: 0.24s; }
+.region-card:nth-child(9)  { animation-delay: 0.27s; }
+.region-card:nth-child(10) { animation-delay: 0.30s; }
+.region-card:nth-child(11) { animation-delay: 0.33s; }
+.region-card:nth-child(12) { animation-delay: 0.36s; }
+.region-card:nth-child(13) { animation-delay: 0.39s; }
+.region-card:nth-child(14) { animation-delay: 0.42s; }
+.region-card:nth-child(15) { animation-delay: 0.45s; }
+.region-card:nth-child(16) { animation-delay: 0.48s; }
+.region-card:nth-child(17) { animation-delay: 0.51s; }
+
+/* ── SECTION À PROPOS ── */
+.apropos {
+  background: var(--nuit); padding: 5rem 3rem;
+}
+.apropos-inner {
+  max-width: 900px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+}
+.apropos .section-eyebrow { color: var(--vert); }
+.apropos .section-titre   { color: var(--blanc); }
+.apropos .trait-centre    { margin: 0 0 1.5rem; }
+.apropos p { color: rgba(255,255,255,0.55); line-height: 1.8; font-size: 0.95rem; }
+.apropos-visuel {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+}
+.apropos-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px; padding: 1.5rem;
+  text-align: center;
+}
+.apropos-ico { font-size: 1.8rem; margin-bottom: 0.5rem; display: block; }
+.apropos-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; font-weight: 700; color: var(--or);
+}
+.apropos-lab {
+  font-size: 0.72rem; color: rgba(255,255,255,0.35);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #0A0805;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; color: var(--or); margin-bottom: 0.5rem;
+}
+.footer-sub {
+  font-size: 0.78rem; color: rgba(255,255,255,0.25);
+  letter-spacing: 0.06em;
+}
+.footer-drapeau {
+  display: flex; justify-content: center; gap: 0;
+  margin: 1.2rem auto 0; width: 40px; height: 6px; border-radius: 2px; overflow: hidden;
+}
+.footer-drapeau span { flex: 1; }
+.fd1 { background: var(--rouge); }
+.fd2 { background: var(--vert); }
+.fd3 { background: var(--or); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 1.2rem; }
+  .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: rgba(18,16,10,0.98); flex-direction: column; padding: 1rem; gap: 1rem; text-align: center; }
+  .nav-links.active { display: flex; }
+  .menu-toggle { display: flex; }
+  .stats-band { grid-template-columns: repeat(2,1fr); }
+  .regions-grid { grid-template-columns: 1fr; padding: 0 1rem; }
+  #regions { padding: 0 1rem 4rem; }
+  .apropos-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .hero h1 { font-size: 2.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-flag">
+      <span class="f1"></span>
+      <span class="f2"></span>
+    </div>
+    <span class="nav-brand-txt"><img src="https://flagcdn.com/bf.svg" width="20" alt="Drapeau du Burkina Faso">Burkina Faso</span>
+  </a>
+  <button class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#regions">Les 17 Régions</a></li>
+    <li><a href="#apropos">À propos</a></li>
+    <li><a href="#regions" class="nav-cta">Explorer →</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <span class="hero-eyebrow">Projet Web Statique 2025 – 2026</span>
+  <h1>Découvrez les <em>17 Régions</em><br>du Burkina Faso</h1>
+  <p class="hero-sub">Un pays, 17 régions (découpage pédagogique), 47 provinces, des richesses culturelles, agricoles et humaines infinies à explorer.</p>
+  <div class="hero-btns">
+    <a href="#regions" class="btn-primary">Explorer les régions</a>
+    <a href="#apropos" class="btn-outline">À propos du projet</a>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Défiler</span>
+  </div>
+</section>
+
+<!-- ══════════════ STATS (17 régions) ══════════════ -->
+<div class="stats-band">
+  <div class="stat-item">
+    <span class="stat-val">17</span>
+    <span class="stat-label">Régions (découpage fictif)</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-val">47</span>
+    <span class="stat-label">Provinces</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-val">22 M</span>
+    <span class="stat-label">Habitants</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-val">274 200</span>
+    <span class="stat-label">km² de superficie</span>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════════════ INTRO ══════════════ -->
+<div class="intro">
+  <p class="section-eyebrow">Vitrine Nationale</p>
+  <h2 class="section-titre">Un pays des Hommes <span>Intègres</span></h2>
+  <div class="trait-centre"></div>
+  <p>Du désert du Sahel aux forêts tropicales du Sud-Ouest, en passant par les savanes du Centre, le Burkina Faso offre une diversité remarquable. Cliquez sur une région pour découvrir ses potentialités touristiques, agricoles, éducatives et commerciales.</p>
+  <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--rouge);">📌 Découpage pédagogique en 17 régions — projet académique 2025-2026</p>
+</div>
+
+<!-- ══════════════ GRILLE DES 17 RÉGIONS ══════════════ -->
+<section id="regions">
+  <div class="regions-header">
+    <p class="section-eyebrow">Navigation</p>
+    <h2 class="section-titre">Choisissez une <span>Région</span></h2>
+    <div class="trait-centre"></div>
+  </div>
+
+  <div class="regions-grid">
+
+    <!-- 01 · BOUCLE DU MOUHOUN -->
+ <a href="../Pages/Bankui.html" class="region-card" data-region="Bankui">  
+      <div class="card-accent accent-rouge"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">01</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Dédougou</div>
+        <div class="card-nom">Bankui</div>
+        <div class="card-slogan">« Là où le fleuve dessine la vie »</div>
+        <div class="card-tags">
+          <span class="card-tag">Coton</span>
+          <span class="card-tag">Karité</span>
+          <span class="card-tag">Fleuve Mouhoun</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 02 · KOSSI-NAYALA-SOUROU -->
+    <a href="../Pages/kossi-nayala-sourou.html" class="region-card" data-region="kossi-nayala-sourou">
+      <div class="card-accent accent-vert"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">02</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Nouna</div>
+        <div class="card-nom">Kossi-Nayala-Sourou</div>
+        <div class="card-slogan">« Terre d'élevage et de réserves »</div>
+        <div class="card-tags">
+          <span class="card-tag">Élevage</span>
+          <span class="card-tag">Hippopotames</span>
+          <span class="card-tag">Mare aux Hippos</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 03 · CASCADES -->
+    <a href="../Pages/cascades.html" class="region-card" data-region="cascades">
+      <div class="card-accent accent-vert"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">03</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Banfora</div>
+        <div class="card-nom">Cascades</div>
+        <div class="card-slogan">« La nature à l'état pur »</div>
+        <div class="card-tags">
+          <span class="card-tag">Anacarde</span>
+          <span class="card-tag">Canne à sucre</span>
+          <span class="card-tag">Tourisme</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 04 · CENTRE (GRAND OUAGA) -->
+    <a href="../Pages/centre-grand-ouaga.html" class="region-card" data-region="centre-grand-ouaga">
+      <div class="card-accent accent-rouge"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">04</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Ouagadougou</div>
+        <div class="card-nom">Centre (Grand Ouaga)</div>
+        <div class="card-slogan">« Le cœur politique et culturel »</div>
+        <div class="card-tags">
+          <span class="card-tag">FESPACO</span>
+          <span class="card-tag">SIAO</span>
+          <span class="card-tag">Capitale</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 05 · CENTRE-EST -->
+    <a href="../Pages/centre-est.html" class="region-card" data-region="centre-est">
+      <div class="card-accent accent-or"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">05</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Tenkodogo</div>
+        <div class="card-nom">Centre-Est</div>
+        <div class="card-slogan">« Terre de traditions et de sésame »</div>
+        <div class="card-tags">
+          <span class="card-tag">Sésame</span>
+          <span class="card-tag">Parc Kaboré-Tambi</span>
+          <span class="card-tag">Masques</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 06 · KOURITENGA-EST -->
+    <a href="../Pages/kouritenga-est.html" class="region-card" data-region="kouritenga-est">
+      <div class="card-accent accent-bleu"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">06</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Koupéla</div>
+        <div class="card-nom">Kouritenga-Est</div>
+        <div class="card-slogan">« Grenier céréalier et traditions »</div>
+        <div class="card-tags">
+          <span class="card-tag">Sorgho</span>
+          <span class="card-tag">Mil</span>
+          <span class="card-tag">Chefferie</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 07 · CENTRE-NORD -->
+    <a href="../Pages/centre-nord.html" class="region-card" data-region="centre-nord">
+      <div class="card-accent accent-bleu"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">07</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Kaya</div>
+        <div class="card-nom">Centre-Nord</div>
+        <div class="card-slogan">« La force du karité et du Mossi »</div>
+        <div class="card-tags">
+          <span class="card-tag">Karité</span>
+          <span class="card-tag">Chefferie Mossi</span>
+          <span class="card-tag">Forge</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 08 · CENTRE-OUEST -->
+    <a href="../Pages/centre-ouest.html" class="region-card" data-region="centre-ouest">
+      <div class="card-accent accent-violet"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">08</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Koudougou</div>
+        <div class="card-nom">Centre-Ouest</div>
+        <div class="card-slogan">« Entre traditions et modernité »</div>
+        <div class="card-tags">
+          <span class="card-tag">Coton</span>
+          <span class="card-tag">Bogolan</span>
+          <span class="card-tag">Université</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 09 · SISSILI-ZIRO -->
+    <a href="../Pages/sissili-ziro.html" class="region-card" data-region="sissili-ziro">
+      <div class="card-accent accent-vert"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">09</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Léo / Sapouy</div>
+        <div class="card-nom">Sissili-Ziro</div>
+        <div class="card-slogan">« Savanes fertiles et traditions Gurunsi »</div>
+        <div class="card-tags">
+          <span class="card-tag">Sésame</span>
+          <span class="card-tag">Mare aux poissons</span>
+          <span class="card-tag">Gurunsi</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 10 · CENTRE-SUD -->
+    <a href="../Pages/centre-sud.html" class="region-card" data-region="centre-sud">
+      <div class="card-accent accent-vert"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">10</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Manga</div>
+        <div class="card-nom">Centre-Sud</div>
+        <div class="card-slogan">« Savanes fertiles et patrimoine vivant »</div>
+        <div class="card-tags">
+          <span class="card-tag">Sésame</span>
+          <span class="card-tag">Karité</span>
+          <span class="card-tag">Loropéni UNESCO</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 11 · EST-GOURMA -->
+    <a href="../Pages/est-gourma.html" class="region-card" data-region="est-gourma">
+      <div class="card-accent accent-terre"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">11</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Fada N'Gourma</div>
+        <div class="card-nom">Est-Gourma</div>
+        <div class="card-slogan">« La savane, la faune, l'authenticité »</div>
+        <div class="card-tags">
+          <span class="card-tag">Parc W</span>
+          <span class="card-tag">Parc Arly</span>
+          <span class="card-tag">Éléphants</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 12 · EST-GNAGNA-KOMPIENGA -->
+    <a href="../Pages/est-gnagna-kompienga.html" class="region-card" data-region="est-gnagna-kompienga">
+      <div class="card-accent accent-terre"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">12</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Bogandé</div>
+        <div class="card-nom">Est-Gnagna-Kompienga</div>
+        <div class="card-slogan">« Lacs, pêche et traditions Gulmanceba »</div>
+        <div class="card-tags">
+          <span class="card-tag">Lac Kompienga</span>
+          <span class="card-tag">Pêche</span>
+          <span class="card-tag">Barrage</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 13 · HAUTS-BASSINS -->
+    <a href="../Pages/hauts-bassins.html" class="region-card" data-region="hauts-bassins">
+      <div class="card-accent accent-bleu"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">13</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Bobo-Dioulasso</div>
+        <div class="card-nom">Hauts-Bassins</div>
+        <div class="card-slogan">« Là où le fleuve rencontre la culture »</div>
+        <div class="card-tags">
+          <span class="card-tag">Mangues</span>
+          <span class="card-tag">Mosquée de Bobo</span>
+          <span class="card-tag">UNB</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 14 · KÉNÉDOUGOU -->
+    <a href="../Pages/kenedougou.html" class="region-card" data-region="kenedougou">
+      <div class="card-accent accent-vert"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">14</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Orodara</div>
+        <div class="card-nom">Kénédougou</div>
+        <div class="card-slogan">« Terre de mangues et de traditions Sénoufo »</div>
+        <div class="card-tags">
+          <span class="card-tag">Mangues</span>
+          <span class="card-tag">Anacarde</span>
+          <span class="card-tag">Poro</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 15 · NORD -->
+    <a href="../Pages/nord.html" class="region-card" data-region="nord">
+      <div class="card-accent accent-rouge"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">15</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Ouahigouya</div>
+        <div class="card-nom">Nord</div>
+        <div class="card-slogan">« La résistance du Yatenga »</div>
+        <div class="card-tags">
+          <span class="card-tag">Karité</span>
+          <span class="card-tag">Yatenga</span>
+          <span class="card-tag">Laongo</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 16 · PLATEAU-CENTRAL -->
+    <a href="../Pages/plateau-central.html" class="region-card" data-region="plateau-central">
+      <div class="card-accent accent-vert"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">16</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Ziniaré</div>
+        <div class="card-nom">Plateau-Central</div>
+        <div class="card-slogan">« Art, nature et proximité de la capitale »</div>
+        <div class="card-tags">
+          <span class="card-tag">Maraîchage</span>
+          <span class="card-tag">Laongo</span>
+          <span class="card-tag">Volaille</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 17 · SAHEL-SUD-OUEST -->
+    <a href="../Pages/sahel-sud-ouest.html" class="region-card" data-region="sahel-sud-ouest">
+      <div class="card-accent accent-or"></div>
+      <div class="card-bg-layer"></div>
+      <div class="card-numero">17</div>
+      <div class="card-body">
+        <div class="card-chef">📍 Chef-lieu : Dori / Gaoua</div>
+        <div class="card-nom">Sahel-Sud-Ouest</div>
+        <div class="card-slogan">« L'âme nomade du Burkina »</div>
+        <div class="card-tags">
+          <span class="card-tag">Élevage camelin</span>
+          <span class="card-tag">Gorom-Gorom</span>
+          <span class="card-tag">Maroquinerie</span>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-txt">Découvrir la région</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+  </div><!-- /regions-grid -->
+</section>
+
+<!-- ══════════════ À PROPOS ══════════════ -->
+<section class="apropos" id="apropos">
+  <div class="apropos-inner">
+    <div>
+      <p class="section-eyebrow">À propos du projet</p>
+      <h2 class="section-titre">Vitrine numérique du<br>Burkina Faso</h2>
+      <div class="trait-centre"></div>
+      <p>Ce site web statique a été conçu dans le cadre du projet académique 2025-2026. Il présente les potentialités de chaque région administrative du Burkina Faso (découpage pédagogique en 17 régions) à travers 17 sections thématiques : tourisme, agriculture, éducation, commerce, artisanat et gastronomie.</p>
+    </div>
+    <div class="apropos-visuel">
+      <div class="apropos-item">
+        <span class="apropos-ico">🗺️</span>
+        <div class="apropos-val">17</div>
+        <div class="apropos-lab">Régions couvertes</div>
+      </div>
+      <div class="apropos-item">
+        <span class="apropos-ico">📋</span>
+        <div class="apropos-val">17</div>
+        <div class="apropos-lab">Sections par région</div>
+      </div>
+      <div class="apropos-item">
+        <span class="apropos-ico">🌾</span>
+        <div class="apropos-val">100%</div>
+        <div class="apropos-lab">Contenu local</div>
+      </div>
+      <div class="apropos-item">
+        <span class="apropos-ico">📱</span>
+        <div class="apropos-val">HTML</div>
+        <div class="apropos-lab">Site statique</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="footer-logo">🇧🇫 Burkina Faso — Vitrine des 17 Régions</div>
+  <div class="footer-sub">Projet académique 2025–2026 · Découpage pédagogique · Site web statique</div>
+  <div >
+    <img src="https://flagcdn.com/bf.svg" width="20" alt="Drapeau du Burkina Faso">
+  </div>
+</footer>
+
+<script>
+// Menu mobile
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+}
+
+// Scroll reveal pour les cartes
+const cards = document.querySelectorAll('.region-card');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+cards.forEach((card, i) => {
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(24px)';
+  card.style.transition = `opacity 0.5s ease ${i * 0.03}s, transform 0.5s ease ${i * 0.03}s`;
+  observer.observe(card);
+});
+
+// Navbar change au scroll
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) {
+    nav.style.borderBottom = '1px solid rgba(193,39,45,0.3)';
+  } else {
+    nav.style.borderBottom = '1px solid rgba(247,183,49,0.15)';
+  }
+});
+</script>
+<!-- ===== SCRIPTS ===== -->
+<script src="js/main.js"></script>
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/accueil.css">
+
+</body>
+</html>

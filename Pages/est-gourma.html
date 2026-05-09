@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Est-Gourma — Burkina Faso</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- ===== LIENS CSS EXTERNES ===== -->
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/region.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --rouge: #C1272D; --vert: #009A44; --or: #F7B731;
+  --nuit: #12100A; --creme: #FDF8F0; --sable: #E8D5A8;
+  --terre: #7A4E2D; --gris: #6B5744; --blanc: #FFFFFF;
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--creme); color: var(--nuit); line-height: 1.7; }
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(18,16,10,0.95); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 60px;
+}
+.nav-logo { font-family: 'Playfair Display', serif; color: var(--or); font-size: 1.1rem; font-weight: 700; text-decoration: none; }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.75); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--or); }
+.region-hero { min-height: 60vh; background: linear-gradient(160deg, #1a1006, #604820); display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: 5rem 3rem 4rem; position: relative; }
+.hero-badge { background: var(--rouge); color: white; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 2px; margin-bottom: 1.2rem; }
+.hero-titre { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 7vw, 5rem); font-weight: 900; color: var(--blanc); line-height: 1.05; }
+.hero-slogan { font-size: 1.1rem; color: var(--or); margin-top: 0.8rem; font-style: italic; }
+.infos-section { background: var(--nuit); padding: 2.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); border-bottom: 3px solid var(--rouge); }
+.info-item { padding: 1rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+.info-item:last-child { border-right: none; }
+.info-val { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--or); display: block; }
+.info-label { font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* SECTION ADMINISTRATION & GÉOGRAPHIE (NOUVELLE) */
+.details-section {
+  background: var(--blanc);
+  padding: 2.5rem;
+  margin: 2rem auto;
+  max-width: 1100px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+.details-category h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--rouge);
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--or);
+  padding-left: 0.75rem;
+}
+.details-category p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--gris);
+}
+.details-category strong {
+  color: var(--nuit);
+}
+
+.section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rouge); font-weight: 500; margin-bottom: 0.5rem; }
+.section-titre { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+.section-titre span { color: var(--rouge); }
+.trait { width: 50px; height: 3px; background: var(--or); margin-bottom: 2rem; }
+.img-principale { width: 100%; height: 400px; background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Éléphant_parc_W.jpg/1280px-Éléphant_parc_W.jpg') center/cover; position: relative; margin: 2rem 0; }
+.img-legende { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: white; padding: 1rem; font-size: 0.8rem; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1.5rem; }
+.card { background: var(--blanc); border-radius: 10px; border: 1px solid var(--sable); overflow: hidden; transition: transform 0.2s; }
+.card:hover { transform: translateY(-4px); }
+.card-img { height: 150px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; font-size: 3rem; background-color: var(--sable); }
+.card-body { padding: 1.2rem; }
+.card-cat { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--rouge); font-weight: 500; }
+.card-titre { font-size: 1rem; font-weight: 600; margin: 0.4rem 0; }
+.card-desc { font-size: 0.85rem; color: var(--gris); }
+.galerie-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; margin-top: 2rem; }
+.galerie-item { height: 180px; background: var(--sable); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2rem; background-size: cover; background-position: center; }
+.agri-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 2rem; }
+.agri-bloc { background: var(--blanc); border-radius: 10px; padding: 1.5rem; border-top: 4px solid var(--vert); }
+.agri-liste { list-style: none; }
+.agri-liste li { padding: 0.5rem 0; border-bottom: 1px solid #f0ebe0; }
+.agri-liste li::before { content: "▸"; color: var(--vert); margin-right: 0.5rem; }
+.btn-retour { display: inline-block; background: var(--rouge); color: var(--blanc); padding: 0.8rem 2rem; border-radius: 3px; text-decoration: none; margin-top: 2rem; }
+.btn-retour:hover { background: #a01f24; }
+footer { background: #0A0805; text-align: center; padding: 2rem; color: rgba(255,255,255,0.35); font-size: 0.78rem; }
+footer span { color: var(--or); }
+@media (max-width: 768px) { nav { padding: 0 1rem; } .nav-links { display: none; } .section { padding: 2rem 1rem; } .hero-titre { font-size: 2rem; } .infos-section { grid-template-columns: repeat(2,1fr); } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">🇧🇫 Burkina Faso</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#regions">← Toutes les régions</a></li>
+    <li><a href="#tourisme">Tourisme</a></li>
+    <li><a href="#agricole">Agriculture</a></li>
+    <li><a href="#educatif">Éducation</a></li>
+  </ul>
+</nav>
+
+<!-- 1. EN-TÊTE -->
+<section class="region-hero">
+  <div class="hero-badge">Région du Burkina Faso</div>
+  <h1 class="hero-titre">Est-Gourma</h1>
+  <p class="hero-slogan">« La savane, la faune, l'authenticité »</p>
+</section>
+
+<!-- 2. INFORMATIONS GÉNÉRALES -->
+<div class="infos-section">
+  <div class="info-item"><span class="info-val">Fada N'Gourma</span><span class="info-label">Chef-lieu</span></div>
+  <div class="info-item"><span class="info-val">36 256 km²</span><span class="info-label">Superficie</span></div>
+  <div class="info-item"><span class="info-val">2 240 200</span><span class="info-label">Population (2024)</span></div>
+  <div class="info-item"><span class="info-val">2</span><span class="info-label">Provinces</span></div>
+  <div class="info-item"><span class="info-val">Gourmantché(e)</span><span class="info-label">Gentilé</span></div>
+</div>
+
+<!-- ===== NOUVEAU : ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
+<div class="details-section">
+  <div class="details-grid">
+    <!-- Administration -->
+    <div class="details-category">
+      <h3>🏛️ Administration</h3>
+      <p><strong>Pays :</strong> Burkina Faso</p>
+      <p><strong>Statut :</strong> Région</p>
+      <p><strong>Provinces :</strong> 2</p>
+      <p><strong>Départements :</strong> 27</p>
+      <p><strong>Chef-lieu :</strong> Fada N'Gourma</p>
+      <p><strong>Gouverneur :</strong> Bertin Somda (depuis 2011)</p>
+      <p><strong>Code ISO 3166-2 :</strong> BF-08</p>
+      <p><strong>Code INSD :</strong> 04</p>
+    </div>
+    <!-- Démographie -->
+    <div class="details-category">
+      <h3>👥 Démographie</h3>
+      <p><strong>Population (2024) :</strong> 2 240 200 hab.</p>
+      <p><strong>Densité :</strong> 62 hab./km²</p>
+    </div>
+    <!-- Géographie & Divers -->
+    <div class="details-category">
+      <h3>🗺️ Géographie & Divers</h3>
+      <p><strong>Coordonnées :</strong> 12°15'N, 1°00'E</p>
+      <p><strong>Superficie :</strong> 36 256 km²</p>
+      <p><strong>Fuseau horaire :</strong> UTC+0</p>
+      <p><strong>Indicatif téléphonique :</strong> +226</p>
+    </div>
+  </div>
+</div>
+
+<!-- 3. IMAGE PRINCIPALE -->
+<div class="img-principale">
+  <div class="img-legende">📍 Parc W — Transfrontalier Bénin-Niger-Burkina, sanctuaire d'éléphants</div>
+</div>
+
+<!-- 4. PRÉSENTATION COURTE -->
+<div class="section">
+  <p class="section-label">Présentation</p>
+  <h2 class="section-titre">Le <span>paradis</span> des safaris</h2>
+  <div class="trait"></div>
+  <p>L'Est-Gourma abrite une partie du célèbre Parc W, classé au patrimoine mondial de l'UNESCO. Cette région est le royaume des éléphants, lions, buffles et hippopotames. Fada N'Gourma, son chef-lieu, est la capitale des Gourmantché, peuple réputé pour son artisanat et ses traditions.</p>
+</div>
+
+<!-- 5. TOURISME & CULTURE -->
+<div class="section" id="tourisme">
+  <p class="section-label">Tourisme & Culture</p>
+  <h2 class="section-titre">À <span>découvrir</span> absolument</h2>
+  <div class="trait"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-img">🐘</div><div class="card-body"><div class="card-cat">Parc national</div><div class="card-titre">Parc W (UNESCO)</div><div class="card-desc">Transfrontalier, plus grande réserve d'éléphants d'Afrique de l'Ouest.</div></div></div>
+    <div class="card"><div class="card-img">🦁</div><div class="card-body"><div class="card-cat">Réserve</div><div class="card-titre">Parc Arly</div><div class="card-desc">Lions, guépards, hyènes — zone de savane protégée.</div></div></div>
+    <div class="card"><div class="card-img">🏛️</div><div class="card-body"><div class="card-cat">Patrimoine</div><div class="card-titre">Palais royal de Fada</div><div class="card-desc">Résidence du Naaba (roi) Gourmantché.</div></div></div>
+  </div>
+</div>
+
+<!-- 6. RESSOURCES NATURELLES -->
+<div class="section" style="background:#0D2B1A; margin:0; border-radius:0; color:white;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <p class="section-label" style="color:var(--vert);">Ressources naturelles</p>
+    <h2 class="section-titre" style="color:white;"><span style="color:var(--vert);">Sites</span> et richesses</h2>
+    <div class="trait" style="background:var(--vert);"></div>
+    <div class="cards-grid">
+      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌊 Fleuve Pendjari</strong><br>Frontière naturelle avec le Bénin</div></div>
+      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🐘 Parc W</strong><br>Réserve de biosphère UNESCO</div></div>
+      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🦒 Faune emblématique</strong><br>Éléphants, lions, buffles, hippopotames</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 7. POTENTIEL AGRICOLE -->
+<div class="section" id="agricole">
+  <p class="section-label">Potentiel agricole 🌾</p>
+  <h2 class="section-titre">Ce que produit la <span>région</span></h2>
+  <div class="trait"></div>
+  <div class="agri-grid">
+    <div class="agri-bloc"><h3>🌱 Cultures principales</h3><ul class="agri-liste"><li>Coton</li><li>Sorgho, mil</li><li>Maïs, niébé</li><li>Mangues, anacarde</li></ul></div>
+    <div class="agri-bloc"><h3>🐄 Élevage</h3><ul class="agri-liste"><li>Bovins (race Gourmantché)</li><li>Ovins, caprins</li><li>Aviculture</li></ul></div>
+    <div class="agri-bloc"><h3>🐟 Pêche</h3><ul class="agri-liste"><li>Pêche sur la Pendjari</li><li>Poisson fumé exporté</li></ul></div>
+  </div>
+</div>
+
+<!-- 8. POTENTIEL ÉDUCATIF -->
+<div class="section" style="background:#EEF3FA;">
+  <p class="section-label">Potentiel éducatif 🏫</p>
+  <h2 class="section-titre"><span>Former</span> les talents de demain</h2>
+  <div class="trait"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-body"><strong>Lycée technique de Fada</strong><br>Formation professionnelle</div></div>
+    <div class="card"><div class="card-body"><strong>CFP de Fada</strong><br>Mécanique, électricité, couture</div></div>
+    <div class="card"><div class="card-body"><strong>Antenne universitaire</strong><br>Formations délocalisées</div></div>
+  </div>
+</div>
+
+<!-- 9. POTENTIEL COMMERCIAL -->
+<div class="section">
+  <p class="section-label">Potentiel commercial 🛒</p>
+  <h2 class="section-titre">Échanges et <span>marchés</span></h2>
+  <div class="trait"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-body"><strong>Marché de Fada</strong><br>Mercredi — coton, bétail, artisanat</div></div>
+    <div class="card"><div class="card-body"><strong>Commerce transfrontalier</strong><br>Avec le Bénin et le Niger</div></div>
+    <div class="card"><div class="card-body"><strong>Zones d'élevage extensif</strong><br>Exportation de bétail</div></div>
+  </div>
+</div>
+
+<!-- 10. ARTISANAT -->
+<div class="section" style="background:#2A1506; color:white;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <p class="section-label" style="color:var(--or);">Artisanat traditionnel</p>
+    <h2 class="section-titre" style="color:white;"><span style="color:var(--or);">Savoir-faire</span> ancestraux</h2>
+    <div class="trait"></div>
+    <div class="cards-grid">
+      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🎭 Masques Gourmantché</strong><br>Sculptures rituelles</div></div>
+      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🏺 Poterie</strong><br>Canaris, jarres décorées</div></div>
+      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🧺 Vannerie</strong><br>Paniers, nattes, chapeaux</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 11. SPÉCIALITÉS CULINAIRES -->
+<div class="section">
+  <p class="section-label">Spécialités culinaires</p>
+  <h2 class="section-titre">Les <span>saveurs</span> de l'Est</h2>
+  <div class="trait"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-body"><strong>🍲 Tô de sorgho</strong><br>Sauce arachide ou gombo</div></div>
+    <div class="card"><div class="card-body"><strong>🍗 Viande de brousse</strong><br>Gibier sous contrôle</div></div>
+    <div class="card"><div class="card-body"><strong>🥤 Dolo</strong><br>Bierre de mil locale</div></div>
+  </div>
+</div>
+
+<!-- 12. CHIFFRES CLÉS -->
+<div class="section" style="background:var(--rouge); text-align:center; color:white;">
+  <h2 class="section-titre" style="color:white;"><span style="color:var(--or);">Chiffres</span> clés</h2>
+  <div style="display:flex; justify-content:center; gap:3rem; flex-wrap:wrap;">
+    <div><span style="font-size:2rem; font-weight:bold;">📏 36 256 km²</span><br>Superficie</div>
+    <div><span style="font-size:2rem; font-weight:bold;">👥 2,24 M</span><br>Habitants (2024)</div>
+    <div><span style="font-size:2rem; font-weight:bold;">🐘 1er parc</span><br>Parc W UNESCO</div>
+  </div>
+</div>
+
+<!-- 13. GALERIE PHOTOS -->
+<div class="section">
+  <p class="section-label">Galerie photos</p>
+  <h2 class="section-titre">Images de la <span>région</span></h2>
+  <div class="trait"></div>
+  <div class="galerie-grid">
+    <div class="galerie-item" style="background: linear-gradient(135deg,#1a1006,#604820);">🐘 Parc W</div>
+    <div class="galerie-item" style="background: linear-gradient(135deg,#0a2a18,#1a6040);">🌾 Champs de coton</div>
+    <div class="galerie-item" style="background: linear-gradient(135deg,#3a2010,#704020);">🎭 Masques Gourmantché</div>
+  </div>
+</div>
+
+<!-- 14. CARTE DE SITUATION -->
+<div class="section">
+  <p class="section-label">Carte de situation</p>
+  <h2 class="section-titre">Localisation de l'Est-Gourma</h2>
+  <div class="trait"></div>
+  <iframe width="100%" height="350" frameborder="0" style="border:1px solid var(--sable); border-radius:8px;" src="https://www.openstreetmap.org/export/embed.html?bbox=0.8,11.2,2.5,12.5&layer=mapnik&marker=12.06,0.352"></iframe>
+</div>
+
+<!-- 15. PROVINCES -->
+<div class="section">
+  <p class="section-label">Provinces</p>
+  <h2 class="section-titre"><span>2 provinces</span></h2>
+  <div class="trait"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-body"><strong>Gourma</strong><br>Chef-lieu : Fada N'Gourma</div></div>
+    <div class="card"><div class="card-body"><strong>Tapoa</strong><br>Chef-lieu : Diapaga</div></div>
+  </div>
+</div>
+
+<!-- 16. LE SAVIEZ-VOUS ? -->
+<div class="section" style="background:var(--or); text-align:center;">
+  <p class="section-label" style="color:var(--nuit);">Le saviez-vous ?</p>
+  <h2 class="section-titre" style="color:var(--nuit);">Anecdote <span>surprenante</span></h2>
+  <div class="trait" style="margin:0 auto 1.5rem;"></div>
+  <p style="font-size:1.2rem; font-style:italic; max-width:700px; margin:0 auto;">Le Parc W est le seul parc national transfrontalier d'Afrique de l'Ouest, partagé entre trois pays : Burkina Faso, Niger et Bénin. Il abrite la plus grande population d'éléphants d'Afrique de l'Ouest, avec plus de 3 000 individus recensés.</p>
+</div>
+
+<!-- 17. BOUTON RETOUR -->
+<div class="section" style="text-align:center;">
+  <a href="../Racine/index.html" class="btn-retour">← Retour à l'accueil</a>
+  <a href="../index.html" class="btn-retour" style="margin-left:1rem; background:var(--nuit);">🏠 Accueil</a>
+</div>
+
+<footer>
+  Projet académique 2025-2026 — Vitrine des Régions du <span>Burkina Faso</span>
+</footer>
+</body>
+</html>

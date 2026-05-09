@@ -1,0 +1,406 @@
+/* =======================================================
+   REGION.CSS — Styles pour les 17 sections d'une région
+   ======================================================= */
+
+/* ===== S01 · HERO RÉGION ===== */
+.region-hero {
+  min-height: 60vh;
+  background: linear-gradient(160deg, #1A0A02 0%, #3D1F08 40%, #6B3A12 70%, #8B5E3C 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 5rem 3rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.region-hero-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.hero-badge {
+  background: var(--rouge);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 1rem;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-titre {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 900;
+  color: var(--blanc);
+  line-height: 1.05;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.5);
+}
+
+.hero-slogan {
+  font-size: 1.1rem;
+  color: var(--or);
+  font-weight: 300;
+  margin-top: 0.8rem;
+  letter-spacing: 0.04em;
+  position: relative;
+  z-index: 1;
+  font-style: italic;
+}
+
+/* ===== S02 · INFORMATIONS GÉNÉRALES ===== */
+.infos-section {
+  background: var(--nuit);
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0;
+  border-bottom: 3px solid var(--rouge);
+}
+
+.info-item {
+  padding: 1.5rem 2rem;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.info-item:last-child {
+  border-right: none;
+}
+
+.info-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--or);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.info-label {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ===== S03 · IMAGE PRINCIPALE ===== */
+.img-principale {
+  width: 100%;
+  height: 480px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.img-legende {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+  color: white;
+  padding: 2rem 2.5rem 1.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+/* ===== SECTIONS COMMUNES ===== */
+.section {
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-wide {
+  padding: 4rem 2rem;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rouge);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.section-titre {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.section-titre span {
+  color: var(--rouge);
+}
+
+.trait {
+  width: 50px;
+  height: 3px;
+  background: var(--or);
+  margin-bottom: 2rem;
+}
+
+/* ===== S04 · PRÉSENTATION ===== */
+.presentation {
+  background: var(--blanc);
+}
+
+.presentation-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.presentation-texte {
+  font-size: 1.05rem;
+  color: var(--gris);
+}
+
+.presentation-texte p {
+  margin-bottom: 1rem;
+}
+
+.quote-block {
+  border-left: 4px solid var(--or);
+  padding: 1.5rem 2rem;
+  background: var(--creme);
+  border-radius: 0 8px 8px 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--terre);
+  font-style: italic;
+}
+
+/* ===== S05 · TOURISME & CULTURE ===== */
+.tourisme {
+  background: var(--creme);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--blanc);
+  border-radius: 10px;
+  border: 1px solid var(--sable);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card-img {
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background-color: var(--sable);
+}
+
+.card-body {
+  padding: 1.2rem;
+}
+
+.card-cat {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rouge);
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.card-titre {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--nuit);
+  margin-bottom: 0.4rem;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--gris);
+  line-height: 1.5;
+}
+
+/* ===== S06 · RESSOURCES NATURELLES ===== */
+.ressources {
+  background: #0D2B1A;
+}
+
+.ressources .section-titre {
+  color: var(--blanc);
+}
+
+.ressources .section-label {
+  color: var(--vert);
+}
+
+.ressources .trait {
+  background: var(--vert);
+}
+
+.ressources-liste {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.ressource-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.ressource-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.ressource-titre {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--blanc);
+  margin-bottom: 0.4rem;
+}
+
+.ressource-desc {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+}
+
+/* ===== S07 · POTENTIEL AGRICOLE ===== */
+.agricole {
+  background: #F5F0E8;
+}
+
+.agri-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.agri-bloc {
+  background: var(--blanc);
+  border-radius: 10px;
+  padding: 1.5rem;
+  border-top: 4px solid var(--vert);
+}
+
+.agri-titre {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--nuit);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.agri-liste {
+  list-style: none;
+}
+
+.agri-liste li {
+  padding: 0.5rem 0;
+  font-size: 0.88rem;
+  color: var(--gris);
+  border-bottom: 1px solid #f0ebe0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.agri-liste li:last-child {
+  border-bottom: none;
+}
+
+.agri-liste li::before {
+  content: "▸";
+  color: var(--vert);
+  font-size: 0.7rem;
+}
+
+/* ===== S08 · POTENTIEL ÉDUCATIF ===== */
+.educatif {
+  background: #EEF3FA;
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.edu-card {
+  background: var(--blanc);
+  border-radius: 10px;
+  border-left: 5px solid #1A4B8C;
+  padding: 1.5rem;
+}
+
+.edu-type {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #1A4B8C;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.edu-nom {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #318c1a;
+  font-weight: 550;
+  margin-bottom: 1rem;
+}
+/* BOUTON VERS LA LISTE DES RÉGIONS */
+.btn-liste-regions {
+  display: inline-block;
+  background: var(--rouge);
+  color: var(--blanc);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+  margin: 1rem 0;
+}
+
+.btn-liste-regions:hover {
+  background: #a01f24;
+  transform: translateY(-3px);
+}
