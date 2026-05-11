@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kadiogo — Burkina Faso</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- ===== LIENS CSS EXTERNES ===== -->
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/region.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --rouge: #C1272D; --vert: #009A44; --or: #F7B731;
+  --nuit: #12100A; --creme: #FDF8F0; --sable: #E8D5A8;
+  --terre: #7A4E2D; --gris: #6B5744; --blanc: #FFFFFF;
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--creme); color: var(--nuit); line-height: 1.7; }
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(18,16,10,0.95); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 60px;
+}
+.nav-logo { font-family: 'Playfair Display', serif; color: var(--or); font-size: 1.1rem; font-weight: 700; text-decoration: none; }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.75); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--or); }
+.region-hero { min-height: 60vh; background: linear-gradient(160deg, #1a0a0a, #6b1218); display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: 5rem 3rem 4rem; position: relative; }
+.hero-badge { background: var(--rouge); color: white; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 2px; margin-bottom: 1.2rem; }
+.hero-titre { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 7vw, 5rem); font-weight: 900; color: var(--blanc); line-height: 1.05; }
+.hero-slogan { font-size: 1.1rem; color: var(--or); margin-top: 0.8rem; font-style: italic; }
+.infos-section { background: var(--nuit); padding: 2.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); border-bottom: 3px solid var(--rouge); }
+.info-item { padding: 1rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+.info-item:last-child { border-right: none; }
+.info-val { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--or); display: block; }
+.info-label { font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* SECTION ADMINISTRATION & GÉOGRAPHIE (NOUVELLE) */
+.details-section {
+  background: var(--blanc);
+  padding: 2.5rem;
+  margin: 2rem auto;
+  max-width: 1100px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+.details-category h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--rouge);
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--or);
+  padding-left: 0.75rem;
+}
+.details-category p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--gris);
+}
+.details-category strong {
+  color: var(--nuit);
+}
+
+.section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rouge); font-weight: 500; margin-bottom: 0.5rem; }
+.section-titre { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+.section-titre span { color: var(--rouge); }
+.trait { width: 50px; height: 3px; background: var(--or); margin-bottom: 2rem; }
+.img-principale { width: 100%; height: 400px; background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Ouagadougou_vue_aerienne.jpg/1280px-Ouagadougou_vue_aerienne.jpg') center/cover; position: relative; margin: 2rem 0; }
+.img-legende { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: white; padding: 1rem; font-size: 0.8rem; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1.5rem; }
+.card { background: var(--blanc); border-radius: 10px; border: 1px solid var(--sable); overflow: hidden; transition: transform 0.2s; }
+.card:hover { transform: translateY(-4px); }
+.card-img { height: 150px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; font-size: 3rem; background-color: var(--sable); }
+.card-body { padding: 1.2rem; }
+.card-cat { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--rouge); font-weight: 500; }
+.card-titre { font-size: 1rem; font-weight: 600; margin: 0.4rem 0; }
+.card-desc { font-size: 0.85rem; color: var(--gris); }
+.galerie-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; margin-top: 2rem; }
+.galerie-item { height: 180px; background: var(--sable); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2rem; background-size: cover; background-position: center; }
+.agri-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 2rem; }
+.agri-bloc { background: var(--blanc); border-radius: 10px; padding: 1.5rem; border-top: 4px solid var(--vert); }
+.agri-liste { list-style: none; }
+.agri-liste li { padding: 0.5rem 0; border-bottom: 1px solid #f0ebe0; }
+.agri-liste li::before { content: "▸"; color: var(--vert); margin-right: 0.5rem; }
+.btn-retour { display: inline-block; background: var(--rouge); color: var(--blanc); padding: 0.8rem 2rem; border-radius: 3px; text-decoration: none; margin-top: 2rem; }
+.btn-retour:hover { background: #a01f24; }
+footer { background: #0A0805; text-align: center; padding: 2rem; color: rgba(255,255,255,0.35); font-size: 0.78rem; }
+footer span { color: var(--or); }
+@media (max-width: 768px) { nav { padding: 0 1rem; } .nav-links { display: none; } .section { padding: 2rem 1rem; } .hero-titre { font-size: 2rem; } .infos-section { grid-template-columns: repeat(2,1fr); } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">🇧🇫 Burkina Faso</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#regions">← Toutes les régions</a></li>
+    <li><a href="#tourisme">Tourisme</a></li>
+    <li><a href="#agricole">Agriculture</a></li>
+    <li><a href="#educatif">Éducation</a></li>
+  </ul>
+</nav>
+
+<!-- 1. EN-TÊTE -->
+<section class="region-hero">
+  <div class="hero-badge">Région du Burkina Faso</div>
+  <h1 class="hero-titre">Kadiogo</h1>
+  <p class="hero-slogan">« Le cœur politique et culturel du Burkina »</p>
+</section>
+
+<!-- 2. INFORMATIONS GÉNÉRALES -->
+<div class="infos-section">
+  <div class="info-item"><span class="info-val">Ouagadougou</span><span class="info-label">Chef-lieu</span></div>
+  <div class="info-item"><span class="info-val">2 805 km²</span><span class="info-label">Superficie</span></div>
+  <div class="info-item"><span class="info-val">3 623 800</span><span class="info-label">Population (2024)</span></div>
+  <div class="info-item"><span class="info-val">1</span><span class="info-label">Provinces</span></div>
+  <div class="info-item"><span class="info-val">Kadiogo</span><span class="info-label">Gentilé</span></div>
+</div>
+
+<!-- ===== NOUVEAU : ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
+<div class="details-section">
+  <div class="details-grid">
+    <!-- Administration -->
+    <div class="details-category">
+      <h3>🏛️ Administration</h3>
+      <p><strong>Pays :</strong> Burkina Faso</p>
+      <p><strong>Statut :</strong> Région</p>
+      <p><strong>Provinces :</strong> 1</p>
+      <p><strong>Départements :</strong> 7</p>
+      <p><strong>Chef-lieu :</strong> Ouagadougou</p>
+      <p><strong>Gouverneur :</strong> Sibiri De Issa Ouédraogo (depuis septembre 2019)</p>
+      <p><strong>Code ISO 3166-2 :</strong> BF-03</p>
+      <p><strong>Code INSD :</strong> 11</p>
+    </div>
+    <!-- Démographie -->
+    <div class="details-category">
+      <h3>👥 Démographie</h3>
+      <p><strong>Population (2024) :</strong> 3 623 800 hab.</p>
+      <p><strong>Densité :</strong> 1 292 hab./km²</p>
+    </div>
+    <!-- Géographie & Divers -->
+    <div class="details-category">
+      <h3>🗺️ Géographie & Divers</h3>
+      <p><strong>Coordonnées :</strong> 12°20'00"N, 1°30'00"O</p>
+      <p><strong>Superficie :</strong> 2 805 km²</p>
+      <p><strong>Fuseau horaire :</strong> UTC+0</p>
+      <p><strong>Indicatif téléphonique :</strong> +226</p>
+    </div>
+  </div>
+</div>
+
+<!-- 3. IMAGE PRINCIPALE -->
+<div class="img-principale">
+  <img src="img47.jpeg" alt="Kadiogo - Ouagadougou vue aérienne">
+  <div class="img-legende">Capitale du Burkina Faso</div>
+</div>
+
+<!-- 4. PRÉSENTATION COURTE -->
+<div class="section">
+  <p class="section-label">Présentation</p>
+  <h2 class="section-titre">La <span>capitale</span> et son rayonnement</h2>
+  <div class="trait"></div>
+  <p>Kadiogo (anciennement région du Centre) est l'une des 17 régions administratives du Burkina Faso selon le découpage territorial révisé adopté le 2 juillet 2025. Ouagadougou, capitale politique et administrative du Burkina Faso, concentre les institutions nationales, les ambassades, les grandes entreprises et les universités. C'est également la capitale culturelle avec le FESPACO (festival panafricain du cinéma) et le SIAO (salon international de l'artisanat). La région a été administrativement créée le 2 juillet 2001 et rebaptisée Kadiogo en juillet 2025 dans le cadre d'une réforme territoriale visant à favoriser l'adoption de noms à ancrage culturel et local.</p>
+  <p>Le terme Kadiogo — ou Kaadyoogo en mooré — désignait autrefois une rivière qui coulait à proximité du palais du Moog-Naaba, souverain traditionnel du royaume mossi. Cette rivière, source d'eau réservée exclusivement au roi, symbolisait à la fois la centralité du pouvoir royal et l'ancrage spirituel du territoire. Ce nom incarne aujourd'hui encore la profondeur historique de la région, mêlant symbolisme royal, continuité des traditions et modernité urbaine.</p>
+  <img src="img48.jpeg" alt="Palais du Moro-Naba"  width="1000" height="700"><br>
+   <p>Les maisons traditionnelles des Mossis, majoritairement implantées sur le plateau central du Burkina Faso, sont un exemple emblématique d'architecture vernaculaire adaptée aux conditions climatiques sahéliennes et aux modes de vie agropastoraux. Chaque concession, qui regroupe plusieurs unités d'habitation autour d'une cour centrale, est protégée par une enceinte en banco. Les logements des anciens, des femmes, des jeunes garçons et des visiteurs sont clairement identifiés, et le grenier à céréales occupe une place stratégique au cœur de la concession. La construction repose sur l'utilisation du banco, un matériau local, et confère aux murs une forte inertie thermique, protégeant les habitants des fortes amplitudes thermiques en journée comme la nuit.</p><br>
+<img src="img50.jpeg" alt="Palais du Moro-Naba"  width="1000" height="700"><br>
+<p>La danse des Mossis, connue sous le nom de Warba, est une danse traditionnelle du Burkina Faso. Elle est souvent associée à des cérémonies de mariage et d'autres fêtes populaires. Le danseur se tient droit, bien campé sur ses pieds, et fait pivoter son abdomen et ses fessiers à gauche et à droite sur un rythme rapide. Cette danse est réservée à l'origine à des cérémonies d'intronisation ou de funérailles, mais elle est maintenant également présente lors de célébrations modernes. 
+</p><br>
+<img src="img51.jpeg" alt="Danse des Mossis"  width="1000" height="700"><br>
+<p>À Ouagadougou, la culture est une pulsation permanente. La ville abrite des structures culturelles majeures comme le CENASA (Centre national des arts, des spectacles et de l'audiovisuel), la Maison du Peuple, le CITO (Carrefour international de théâtre de Ouagadougou), le Musée de la Musique et le Centre de Développement Chorégraphique — La Termitière, premier du genre sur le continent africain. Chaque année ou presque, des événements artistiques d'envergure continentale s'y tiennent : le FESPACO, vitrine mondiale du cinéma africain ; le SIAO, temple de l'artisanat ; le Jazz à Ouaga ; les Récréâtrales ; ou encore le Festival des Expressions Urbaines — attirant créateurs, chercheurs, journalistes et touristes des cinq continents</p><br>
+  <img src="img52.jpeg" alt="Danse des Mossis"  width="1000" height="700"><br>
+  <p>
+Le Festival panafricain du cinéma et de la télévision de Ouagadougou (FESPACO) est un événement majeur pour le cinéma africain, se déroulant tous les deux ans à Ouagadougou, Burkina Faso. Créé en 1969, il vise à promouvoir la diffusion des œuvres cinématographiques africaines et à favoriser les échanges entre professionnels du cinéma et de l'audiovisuel. La 29e édition du festival, qui se tiendra du 22 février au 1er mars 2025, mettra en avant le thème « Cinémas d'Afrique et identités culturelles » et le Tchad comme pays invité d'honneur. Le festival est reconnu pour ses compétitions prestigieuses, dont le célèbre Étalon de Yennenga, et pour son rôle dans la promotion et la sauvegarde du cinéma africain</p><br>
+<img src="img53.jpeg" alt="Danse des Mossis"  width="1000" height="700"><br></div>
+<p>Le SIAI (Salon International de l'Artisanat de Ouagadougou) est une foire importante qui se déroule tous les deux ans à Ouagadougou, au Burkina Faso. Cet événement met en avant l'artisanat africain, présentant des produits artisanaux traditionnels et contemporains, ainsi que des spectacles culturels et artistiques. La première édition a eu lieu en 1988 et a été suivie de nombreuses années par des manifestations similaires, attirant des artisans et des visiteurs du monde entier. Pour plus d'informations, vous pouvez consulter le site officiel du SIAI</p><br>
+<img src="img57.jpeg" alt="Danse des Mossis"  width="1000" height="700"><br></div>
+<p>L'aéroport international de Ouagadougou, également connu sous le nom d'aéroport international Thomas Sankara, est le plus grand aéroport du Burkina Faso</p><br>
+<img src="img54.jpeg" alt="Danse des Mossis"  width="1000" height="700"><br>
+<p>site touristique de Bagré Wéogo</p>
+<p>Situé au cœur de la région, Bagré Wéogo est un espace où la nature, l’eau et la vie sauvage se rencontrent pour offrir une expérience unique aux visiteurs. Ce site, niché autour du majestueux barrage de Bagré, est à la fois un lieu de détente, d’aventure et d’apprentissage environnemental.</p>
+<img src="img58.jpeg" alt="Danse des Mossis"  width="1000" height="700"><br>
+<p>
+La SITARAIL est une société qui opère le réseau ferroviaire au Burkina Faso et en Côte d'Ivoire. Elle a récemment participé à l'exposition temporaire « Le train d’Abidjan à Ouagadougou : 1898 – 1958 » au Musée national du Burkina Faso, mettant en lumière les étapes de la construction du chemin de fer et son impact socio-économique. SITARAIL a également été impliquée dans la valorisation du patrimoine ferroviaire, notamment par la création d'un musée dédié au réseau Abidjan-Ouagadougou-Kaya à Bobo Dioulasso</p><br>
+<img src="img55.jpeg" alt="sitarail"  width="1000" height="700"><br>
+<p>La base militaire de kadiogo</p>
+<p>
+La base militaire de Kadiogo, ou Prytanée Militaire de Kadiogo (PMK), est un établissement d'enseignement secondaire burkinabé dépendant du ministère de la défense. Fondée par l'armée française en 1951, l'école a été dissoute en 1985 mais a été réouverte en 1992. Elle a pour mission principale de former des cadres militaires et civils pour servir la nation. L'école est située à proximité de Ouagadougou, sur le site militaire de Kamboincè, et a pour vocation de scolariser les enfants de militaires et d'anciens militaires de l'armée coloniale pour leur donner de meilleures chances d'éducation et de réussite. </p><br>
+<img src="img59.jpeg" alt="sitarail"  width="1000" height="700"><br>
+</div>
+
+<!-- 5. TOURISME & CULTURE -->
+<div class="section" id="tourisme">
+  <p class="section-label">Tourisme & Culture</p>
+  <h2 class="section-titre">À <span>découvrir</span> absolument</h2>
+  <div class="trait"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-img">🎬</div><div class="card-body"><div class="card-cat">Festival</div><div class="card-titre">FESPACO</div><div class="card-desc">Festival panafricain du cinéma, tous les 2 ans.</div></div></div>
+    <div class="card"><div class="card-img">🛍️</div><div class="card-body"><div class="card-cat">Salon</div><div class="card-titre">SIAO</div><div class="card-desc">Salon international de l'artisanat.</div></div></div>
+    <div class="card"><div class="card-img">👑</div><div class="card-body"><div class="card-cat">Palais</div><div class="card-titre">Palais du Moro-Naba</div><div class="card-desc">Résidence de l'empereur Mossi, cérémonie du vendredi.</div></div></div>
+    <div class="card"><div class="card-img">🏛️</div><div class="card-body"><div class="card-cat">Musée</div><div class="card-titre">Musée national du Burkina</div><div class="card-desc">Collections d'art et d'histoire.</div></div></div>
+  </div>
+</div>
+
+<!-- 6. RESSOURCES NATURELLES -->
+<div class="section" style="background:#0D2B1A; margin:0; border-radius:0; color:white;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <p class="section-label" style="color:var(--vert);">Ressources naturelles</p>
+    <h2 class="section-titre" style="color:white;"><span style="color:var(--vert);">Sites</span> et richesses</h2>
+    <div class="trait" style="background:var(--vert);"></div>
+    <div class="cards-grid">
+      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌊 Barrage de Loumbila</strong><br>Réserve d'eau potable</div></div>
+      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌿 Parc Bangr-Wéogo</strong><br>Forêt urbaine, poumon vert de Ouaga</div></div>
+      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🐒 Forêt de Kua</strong><br>Sanctuaire de singes</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 7. POTENTIEL AGRICOLE -->
+<div class="section" id="agricole">
+  <p class="section-label">Potentiel agricole 🌾</p>
+  <h2 class="section-titre">Ce que produit la <span>région</span></h2>
+  <div class="trait"></div>
+  <div class="agri-grid">
+    <div class="agri-bloc"><h3>🌱 Cultures principales</h3><ul class="agri-liste"><li>Maraîchage (péri-urbain)</li><li>Maïs, sorgho</li><li>Aviculture intensive</li></ul></div>
+    <div class="agri-bloc"><h3>🐄 Élevage</h3><ul class="agri-liste"><li>Volaille (poulets de chair)</li><li>Bovins, porcins</li></ul></div>
+    <div class="agri-bloc"><h3>🐟 Pêche</h3><ul class="agri-liste"><li>Pêche au barrage de Loumbila</li></ul></div>
+  </div>
+</div>
+
+<!-- 8. POTENTIEL ÉDUCATIF -->
+<div class="section" style="background:#EEF3FA;">
+  <p class="section-label">Potentiel éducatif 🏫</p>
+  <h2 class="section-titre"><span>Former</span> les talents de demain</h2>
+  <div class="trait"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-body"><strong>Lycées</strong><br>Formation Technique,Professionnel et Générale</div></div>
+    <div class="card"><div class="card-body"><strong>Université Joseph Ki-Zerbo</strong><br>Sciences et technologies: mathématiques, informatique, ingénierie, sciences physiques et chimées appliquées, génie civil et environnemental, etc.
+Lettres, langues et sciences humaines: philosophie, histoire, géographie, sciences sociales, langues et littératures, arts et communication.
+Droit, économie et gestion: droit public et privé, économie générale, économie du développement, gestion des organisations, comptabilité et finance, marketing.
+Santé et sciences paramédicales: médecine, pharmacie, sciences infirmières, santé publique et hygiène.
+Agriculture, développement rural et environnement: agronomie, agroalimentaire, gestion des ressources naturelles, industrialisation et durabilité.</div></div><br>
+  </div><br>
+  <img src="img56.jpeg" alt="université Joseph Ki-Zerbo"  width="1000" height="700"><br>
+  <div class="img56.jpeg">Université Joseph Ki-Zerbo</div>
+
+</div>
+
+<!-- 9. POTENTIEL COMMERCIAL -->
+<div class="section">
+  <p class="section-label">Potentiel commercial 🛒</p>
+  <h2 class="section-titre">Échanges et <span>marchés</span></h2>
+  <div class="trait"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-body"><strong>Marché Rood-Woko</strong><br>Principal marché de Ouaga</div></div>
+    <div class="card"><div class="card-body"><strong>Zone industrielle de Kossodo</strong><br>Usines, brasseries, minoteries</div></div>
+    <div class="card"><div class="card-body"><strong>SIAO</strong><br>Salon international de l'artisanat</div></div>
+  </div>
+</div>
+
+<!-- 10. ARTISANAT -->
+<div class="section" style="background:#2A1506; color:white;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <p class="section-label" style="color:var(--or);">Artisanat traditionnel</p>
+    <h2 class="section-titre" style="color:white;"><span style="color:var(--or);">Savoir-faire</span> ancestraux</h2>
+    <div class="trait"></div>
+    <div class="cards-grid">
+      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🎭 Masques Mossi</strong><br>Sculptures rituelles</div></div>
+      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🏺 Poterie</strong><br>Village artisanal</div></div>
+      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🧵 Bogolan</strong><br>Tissu teint à l'argile</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 11. SPÉCIALITÉS CULINAIRES -->
+<div class="section">
+  <p class="section-label">Spécialités culinaires</p>
+  <h2 class="section-titre">Les <span>saveurs</span> de Kadiogo</h2>
+  <div class="trait"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-body"><strong>🍚 Riz gras</strong><br>Plat national</div></div>
+    <div class="card"><div class="card-body"><strong>🍗 Poulet bicyclette</strong><br>Grillé à la braise</div></div>
+    <div class="card"><div class="card-body"><strong>🥤 Zoom-koom, Bissap</strong><br>Boissons locales</div></div>
+  </div>
+</div>
+
+<!-- 12. CHIFFRES CLÉS -->
+<div class="section" style="background:var(--rouge); text-align:center; color:white;">
+  <h2 class="section-titre" style="color:white;"><span style="color:var(--or);">Chiffres</span> clés</h2>
+  <div style="display:flex; justify-content:center; gap:3rem; flex-wrap:wrap;">
+    <div><span style="font-size:2rem; font-weight:bold;">📏 2 805 km²</span><br>Superficie</div>
+    <div><span style="font-size:2rem; font-weight:bold;">👥 3,62 M</span><br>Habitants (2024)</div>
+    <div><span style="font-size:2rem; font-weight:bold;">🏛️ Capitale</span><br>Politique & culturelle</div>
+  </div>
+</div>
+
+<!-- 13. GALERIE PHOTOS -->
+<div class="section">
+  <p class="section-label">Galerie photos</p>
+  <h2 class="section-titre">Images de la <span>région</span></h2>
+  <div class="trait"></div>
+  <div class="galerie-grid">
+    <div class="galerie-item" style="background: linear-gradient(135deg,#1a0a0a,#6b1218);">🎬 FESPACO</div>
+    <div class="galerie-item" style="background: linear-gradient(135deg,#1a1a3a,#20206b);">🏛️ Université</div>
+    <div class="galerie-item" style="background: linear-gradient(135deg,#3a2010,#704020);">🛍️ Rood-Woko</div>
+  </div>
+</div>
+
+<!-- 14. CARTE DE SITUATION -->
+<div class="section">
+  <p class="section-label">Carte de situation</p>
+  <h2 class="section-titre">Localisation de Kadiogo</h2>
+  <div class="trait"></div>
+  <iframe width="100%" height="350" frameborder="0" style="border:1px solid var(--sable); border-radius:8px;" src="https://www.openstreetmap.org/export/embed.html?bbox=-1.8,12.2,-1.0,12.6&layer=mapnik&marker=12.364,-1.533"></iframe>
+</div>
+
+<!-- 15. PROVINCES -->
+<div class="section">
+  <p class="section-label">Provinces</p>
+  <h2 class="section-titre"><span>1 province</span></h2>
+  <div class="trait"></div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-body"><strong>Kadiogo</strong><br>Chef-lieu : Ouagadougou</div></div>
+  </div>
+</div>
+
+<!-- 16. LE SAVIEZ-VOUS ? -->
+<div class="section" style="background:var(--or); text-align:center;">
+  <p class="section-label" style="color:var(--nuit);">Le saviez-vous ?</p>
+  <h2 class="section-titre" style="color:var(--nuit);">Anecdote <span>surprenante</span></h2>
+  <div class="trait" style="margin:0 auto 1.5rem;"></div>
+  <p style="font-size:1.2rem; font-style:italic; max-width:700px; margin:0 auto;">Le FESPACO est le plus grand festival de cinéma d'Afrique. Créé en 1969, il attire chaque année plus de 20 000 professionnels et spectateurs du monde entier. Kadiogo est le nouveau nom de la région depuis juillet 2025, en remplacement de l'ancienne dénomination "Centre".</p>
+</div>
+
+<!-- 17. BOUTON RETOUR -->
+<div class="section" style="text-align:center;">
+  <a href="../index.html#regions" class="btn-retour">← Retour à l'accueil</a>
+  <a href="../index.html" class="btn-retour" style="margin-left:1rem; background:var(--nuit);">🏠 Accueil</a>
+</div>
+
+<footer>
+  Projet académique 2025-2026 — Vitrine des Régions du <span>Burkina Faso</span>
+</footer>
+</body>
+</html>
