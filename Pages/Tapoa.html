@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tapoa — Région du Burkina Faso</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & VARIABLES ─── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --rouge:  #C1272D;
+  --vert:   #009A44;
+  --or:     #F7B731;
+  --nuit:   #12100A;
+  --creme:  #FDF8F0;
+  --sable:  #E8D5A8;
+  --terre:  #7A4E2D;
+  --gris:   #6B5744;
+  --blanc:  #FFFFFF;
+  --foret:  #1B4332;
+  --foret2: #2D6A4F;
+  --savane: #52B788;
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--creme); color: var(--nuit); line-height: 1.7; }
+
+/* ─── NAVBAR ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(18,16,10,0.96); backdrop-filter: blur(10px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2.5rem; height: 62px;
+  border-bottom: 1px solid rgba(247,183,49,0.15);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif; color: var(--or);
+  font-size: 1.1rem; font-weight: 700; text-decoration: none;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,0.72); font-size: 0.85rem;
+  text-decoration: none; transition: color 0.2s; letter-spacing: 0.02em;
+}
+.nav-links a:hover { color: var(--or); }
+
+/* ─── HERO ─── */
+.region-hero {
+  min-height: 68vh;
+  background: linear-gradient(165deg, #0a1a0f 0%, #143a20 35%, #1d5c35 65%, #0f2e1a 100%);
+  display: flex; flex-direction: column;
+  justify-content: flex-end; align-items: flex-start;
+  padding: 5rem 3rem 4.5rem;
+  position: relative; overflow: hidden;
+}
+.hero-decor {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(82,183,136,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 15% 70%, rgba(247,183,49,0.07) 0%, transparent 40%);
+  pointer-events: none;
+}
+.hero-badge {
+  background: var(--rouge); color: white;
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 0.35rem 1.1rem; border-radius: 2px; margin-bottom: 1rem;
+  display: inline-block;
+}
+.hero-titre {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 7.5vw, 5.5rem);
+  font-weight: 900; color: var(--blanc); line-height: 1.0;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+}
+.hero-slogan {
+  font-size: 1.1rem; color: var(--or);
+  margin-top: 1rem; font-style: italic; opacity: 0.92;
+}
+.hero-hydro {
+  margin-top: 1.8rem;
+  display: flex; gap: 1.5rem; flex-wrap: wrap;
+}
+.hero-badge-info {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.85);
+  padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.hero-scroll {
+  position: absolute; bottom: 1.5rem; right: 2.5rem;
+  color: rgba(255,255,255,0.3); font-size: 0.72rem; letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ─── BANDE INFOS ─── */
+.infos-section {
+  background: var(--nuit);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  border-bottom: 3px solid var(--rouge);
+}
+.info-item {
+  padding: 1.6rem 1rem; text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  transition: background 0.2s;
+}
+.info-item:last-child { border-right: none; }
+.info-item:hover { background: rgba(255,255,255,0.03); }
+.info-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem; font-weight: 700; color: var(--or);
+  display: block; margin-bottom: 0.3rem;
+}
+.info-label {
+  font-size: 0.68rem; color: rgba(255,255,255,0.42);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+
+/* ─── SECTION ADMIN ─── */
+.details-section {
+  background: var(--blanc);
+  padding: 2.8rem;
+  margin: 2.5rem auto;
+  max-width: 1100px;
+  border-radius: 14px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.07);
+  border-top: 3px solid var(--vert);
+}
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
+}
+.details-category h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem; color: var(--foret);
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--or);
+  padding-left: 0.8rem;
+}
+.details-category p {
+  margin-bottom: 0.55rem; font-size: 0.88rem; color: var(--gris);
+  line-height: 1.6;
+}
+.details-category strong { color: var(--nuit); }
+
+/* ─── SECTIONS ─── */
+.section { padding: 4.5rem 2rem; max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--rouge); font-weight: 600; margin-bottom: 0.4rem;
+}
+.section-titre {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  font-weight: 700; margin-bottom: 0.6rem;
+}
+.section-titre span { color: var(--rouge); }
+.trait { width: 50px; height: 3px; background: var(--or); margin-bottom: 2rem; }
+
+/* ─── CARDS ─── */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.5rem; }
+.card {
+  background: var(--blanc); border-radius: 12px;
+  border: 1px solid rgba(232,213,168,0.6);
+  overflow: hidden; transition: transform 0.22s, box-shadow 0.22s;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+.card-icon {
+  height: 90px; display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; background-color: #f0faf5;
+}
+.card-body { padding: 1.2rem 1.3rem; }
+.card-body strong { font-size: 0.97rem; color: var(--nuit); display: block; margin-bottom: 0.3rem; }
+.card-body p, .card-body span { font-size: 0.84rem; color: var(--gris); line-height: 1.6; }
+
+/* ─── AGRI ─── */
+.agri-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 2rem; }
+.agri-bloc {
+  background: var(--blanc); border-radius: 12px; padding: 1.6rem;
+  border-top: 4px solid var(--vert);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.agri-bloc h3 { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; color: var(--nuit); }
+.agri-liste { list-style: none; }
+.agri-liste li {
+  padding: 0.55rem 0; border-bottom: 1px solid #f0ebe0;
+  font-size: 0.87rem; color: var(--gris);
+  display: flex; align-items: flex-start; gap: 0.5rem;
+}
+.agri-liste li:last-child { border-bottom: none; }
+.agri-liste li::before { content: "▸"; color: var(--vert); flex-shrink: 0; margin-top: 0.1rem; }
+
+/* ─── SECTION SOMBRE (mines/faune) ─── */
+.section-dark {
+  background: #0D2B1A; margin: 0; padding: 4.5rem 2rem; color: white;
+}
+.section-dark-inner { max-width: 1100px; margin: 0 auto; }
+.section-dark .section-titre { color: white; }
+.section-dark .section-titre span { color: var(--savane); }
+.section-dark .section-label { color: var(--savane); }
+.section-dark .trait { background: var(--savane); }
+.section-dark p { color: rgba(255,255,255,0.8); }
+
+.card-dark {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; overflow: hidden;
+  transition: background 0.2s;
+}
+.card-dark:hover { background: rgba(255,255,255,0.1); }
+.card-dark .card-icon { background: rgba(255,255,255,0.05); }
+.card-dark .card-body strong { color: white; }
+.card-dark .card-body p, .card-dark .card-body span { color: rgba(255,255,255,0.65); }
+
+/* ─── SECTION TOURISME PHARE ─── */
+.tourisme-phare {
+  background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #1B4332 100%);
+  padding: 5rem 2rem; color: white; margin: 0;
+}
+.tourisme-phare-inner { max-width: 1100px; margin: 0 auto; }
+.tourisme-phare .section-titre { color: white; }
+.tourisme-phare .section-titre span { color: var(--or); }
+.tourisme-phare .section-label { color: var(--or); }
+.tourisme-phare .trait { background: var(--or); }
+
+.parc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 1rem; }
+.parc-texte p { color: rgba(255,255,255,0.85); margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.75; }
+.parc-fauna {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px; padding: 2rem;
+}
+.parc-fauna h4 { color: var(--or); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.2rem; }
+.fauna-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+.fauna-list li { font-size: 0.87rem; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 0.5rem; }
+.fauna-list li::before { content: "•"; color: var(--savane); font-size: 1.2rem; flex-shrink: 0; }
+
+/* ─── SITES TOURISTIQUES ─── */
+.sites-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.5rem; margin-top: 2rem; }
+.site-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px; padding: 1.5rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.site-card:hover { background: rgba(255,255,255,0.13); transform: translateY(-3px); }
+.site-icon { font-size: 2.4rem; margin-bottom: 0.8rem; display: block; }
+.site-nom { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+.site-desc { font-size: 0.84rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+.site-badge {
+  display: inline-block; margin-top: 0.7rem;
+  font-size: 0.68rem; padding: 0.25rem 0.7rem; border-radius: 10px;
+  font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em;
+}
+.badge-unesco { background: #003399; color: white; }
+.badge-ramsar { background: #005F8C; color: white; }
+.badge-nature { background: #1B4332; color: var(--savane); border: 1px solid var(--savane); }
+.badge-culture { background: #4A2000; color: var(--or); border: 1px solid var(--or); }
+
+/* ─── ARTISANAT ─── */
+.section-artisan {
+  background: #2A1506; color: white; margin: 0; padding: 4.5rem 2rem;
+}
+.section-artisan-inner { max-width: 1100px; margin: 0 auto; }
+.section-artisan .section-titre { color: white; }
+.section-artisan .section-titre span { color: var(--or); }
+.section-artisan .section-label { color: var(--or); }
+.section-artisan .trait { background: var(--or); }
+
+/* ─── SECTION CLAIRE SPÉCIALE ─── */
+.section-edu { background: #EEF3FA; padding: 4.5rem 2rem; margin: 0; }
+.section-edu-inner { max-width: 1100px; margin: 0 auto; }
+
+/* ─── COMMERCIAL ─── */
+.section-commerce { background: var(--blanc); padding: 4.5rem 2rem; margin: 0; }
+.section-commerce-inner { max-width: 1100px; margin: 0 auto; }
+
+/* ─── CHIFFRES CLÉS ─── */
+.section-chiffres {
+  background: var(--rouge); text-align: center; padding: 4.5rem 2rem; margin: 0;
+}
+.chiffres-grid { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 1rem; }
+.chiffre-item { text-align: center; }
+.chiffre-val { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: white; display: block; }
+.chiffre-lbl { font-size: 0.85rem; color: rgba(255,255,255,0.78); margin-top: 0.3rem; }
+
+/* ─── GALERIE ─── */
+.galerie-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; margin-top: 2rem; }
+.galerie-item {
+  height: 180px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; flex-direction: column; gap: 0.5rem;
+  font-weight: 500; font-size: 0.85rem; color: white;
+  text-align: center; padding: 1rem;
+  background-size: cover; background-position: center;
+}
+
+/* ─── CARTE ─── */
+.carte-wrap { border-radius: 10px; overflow: hidden; border: 1px solid var(--sable); }
+
+/* ─── PROVINCES ─── */
+.provinces-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.2rem; }
+.province-card {
+  background: var(--blanc); border-radius: 10px;
+  border-left: 4px solid var(--vert);
+  padding: 1.3rem 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.province-card h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--nuit); margin-bottom: 0.3rem; }
+.province-card p { font-size: 0.84rem; color: var(--gris); }
+.province-card .prov-chef { color: var(--rouge); font-weight: 600; font-size: 0.87rem; margin-top: 0.3rem; }
+
+/* ─── SAVIEZ-VOUS ─── */
+.section-anecdote {
+  background: var(--or); text-align: center; padding: 4rem 2rem; margin: 0;
+}
+.section-anecdote .section-titre { color: var(--nuit); }
+.section-anecdote .section-titre span { color: var(--foret); }
+
+/* ─── CULINAIRE ─── */
+.section-cuisine { background: var(--creme); padding: 4.5rem 2rem; margin: 0; }
+.section-cuisine-inner { max-width: 1100px; margin: 0 auto; }
+
+/* ─── BOUTON RETOUR ─── */
+.btn-retour {
+  display: inline-block; background: var(--rouge); color: var(--blanc);
+  padding: 0.85rem 2.2rem; border-radius: 3px;
+  text-decoration: none; font-weight: 500; font-size: 0.9rem;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-retour:hover { background: #a01f24; transform: translateY(-1px); }
+.btn-retour-nuit { background: var(--nuit); }
+.btn-retour-nuit:hover { background: #2a2015; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: #0A0805; text-align: center;
+  padding: 2.5rem; color: rgba(255,255,255,0.32); font-size: 0.78rem;
+}
+footer span { color: var(--or); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  nav { padding: 0 1rem; }
+  .nav-links { display: none; }
+  .section { padding: 2.5rem 1rem; }
+  .section-dark, .tourisme-phare, .section-artisan, .section-edu,
+  .section-commerce, .section-chiffres, .section-anecdote,
+  .section-cuisine { padding: 2.5rem 1rem; }
+  .hero-titre { font-size: 2.4rem; }
+  .infos-section { grid-template-columns: repeat(2,1fr); }
+  .parc-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .fauna-list { grid-template-columns: 1fr; }
+  .details-section { margin: 1rem; padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav>
+  <a href="../index.html" class="nav-logo">🇧🇫 Burkina Faso</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#regions">← Toutes les régions</a></li>
+    <li><a href="#tourisme">Tourisme</a></li>
+    <li><a href="#agricole">Agriculture</a></li>
+    <li><a href="#mines">Mines</a></li>
+    <li><a href="#culture">Culture</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="region-hero">
+  <div class="hero-decor"></div>
+  <div class="hero-badge">Nouvelle région — Décret du 2 juillet 2025</div>
+  <h1 class="hero-titre">Région de Tapoa</h1>
+  <p class="hero-slogan">« Le royaume de la faune, du fleuve et de la terre Gourmantché »</p>
+  <div class="hero-hydro">
+    <span class="hero-badge-info">💧 Hydronyme — fleuve Tapoa</span>
+    <span class="hero-badge-info">🌿 Complexe WAP — UNESCO</span>
+    <span class="hero-badge-info">🦁 Parc National d'Arly</span>
+    <span class="hero-badge-info">📍 Sud-Est du Burkina</span>
+  </div>
+  <span class="hero-scroll">↓ Découvrir</span>
+</section>
+
+<!-- ══════════ BANDE INFOS ══════════ -->
+<div class="infos-section">
+  <div class="info-item">
+    <span class="info-val">Diapaga</span>
+    <span class="info-label">Chef-lieu</span>
+  </div>
+  <div class="info-item">
+    <span class="info-val">14 572 km²</span>
+    <span class="info-label">Superficie</span>
+  </div>
+  <div class="info-item">
+    <span class="info-val">~450 000</span>
+    <span class="info-label">Population (est. 2024)</span>
+  </div>
+  <div class="info-item">
+    <span class="info-val">2</span>
+    <span class="info-label">Provinces</span>
+  </div>
+  <div class="info-item">
+    <span class="info-val">Gourmantché</span>
+    <span class="info-label">Peuple majoritaire</span>
+  </div>
+  <div class="info-item">
+    <span class="info-val">Tapoanais</span>
+    <span class="info-label">Gentilé</span>
+  </div>
+</div>
+
+<!-- ══════════ ADMINISTRATION ══════════ -->
+<div class="details-section">
+  <div class="details-grid">
+
+    <div class="details-category">
+      <h3>🏛️ Administration</h3>
+      <p><strong>Pays :</strong> Burkina Faso</p>
+      <p><strong>Statut :</strong> Région (créée le 2 juillet 2025)</p>
+      <p><strong>Origine :</strong> Scission de l'ancienne région de l'Est</p>
+      <p><strong>Provinces :</strong> 2 (Tapoa + Dyamongou)</p>
+      <p><strong>Chef-lieu :</strong> Diapaga</p>
+      <p><strong>2e ville :</strong> Kantchari</p>
+      <p><strong>Gouvernance :</strong> Gouverneur nommé par décret</p>
+    </div>
+
+    <div class="details-category">
+      <h3>👥 Démographie</h3>
+      <p><strong>Population estimée (2024) :</strong> ~450 000 hab.</p>
+      <p><strong>Principale ethnie :</strong> Gourmantché (Gulmanceba)</p>
+      <p><strong>Autres ethnies :</strong> Peulh (Fulani), Haoussa, Djerma, Mossi</p>
+      <p><strong>Langues :</strong> Gourmantché (Gulmancema), Fulfuldé, Français</p>
+      <p><strong>Religion :</strong> Islam, Christianisme, Animisme</p>
+      <p><strong>Caractère :</strong> Fortement rural — Diapaga est le principal centre urbain</p>
+    </div>
+
+    <div class="details-category">
+      <h3>🗺️ Géographie & Localisation</h3>
+      <p><strong>Situation :</strong> Extrême sud-est du Burkina Faso</p>
+      <p><strong>Coordonnées :</strong> 11°30' – 12°25'N, 1°55' – 2°30'E</p>
+      <p><strong>Distance de Ouagadougou :</strong> ~400 km (via Fada N'Gourma)</p>
+      <p><strong>Frontières :</strong> Niger (Est), Bénin (Sud), Togo (Sud-Ouest)</p>
+      <p><strong>Fuseau horaire :</strong> UTC+0</p>
+      <p><strong>Indicatif :</strong> +226</p>
+    </div>
+
+    <div class="details-category">
+      <h3>🌊 Hydrographie</h3>
+      <p><strong>Fleuve principal :</strong> La Tapoa (cours d'eau permanent — donne son nom à la région)</p>
+      <p><strong>Autres cours d'eau :</strong> Pendjari (frontière Bénin), rivière Singou, Douboudo, Arly</p>
+      <p><strong>Retenue d'eau :</strong> Barrage de Kompienga (plus de 2 milliards de m³) — frontière avec Goulmou</p>
+      <p><strong>Convention :</strong> Zones humides protégées par la convention de Ramsar (2007)</p>
+    </div>
+
+    <div class="details-category">
+      <h3>🌡️ Climat & Végétation</h3>
+      <p><strong>Type climatique :</strong> Soudanien</p>
+      <p><strong>Pluviométrie :</strong> 700 à 900 mm/an</p>
+      <p><strong>Saisons :</strong> Saison des pluies (mai–oct.) / Saison sèche (nov.–avr.)</p>
+      <p><strong>Végétation :</strong> Savane soudanienne, galeries forestières, savane boisée</p>
+      <p><strong>Particularité :</strong> Présence de la falaise du Gobnangou — principale chaîne gréseuse de l'Est</p>
+    </div>
+
+    <div class="details-category">
+      <h3>🔤 Étymologie & Signification</h3>
+      <p><strong>Tapoa :</strong> Hydronyme tiré du fleuve Tapoa, principal cours d'eau permanent qui traverse la région.</p>
+      <p><strong>Réforme :</strong> Décret du Conseil des ministres du 2 juillet 2025, sous l'impulsion du Capitaine Ibrahim Traoré, pour renforcer la défense stratégique du territoire national et promouvoir les valeurs endogènes.</p>
+      <p><strong>Ancienne appartenance :</strong> Province de la Tapoa — Ex-région de l'Est</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════ PRÉSENTATION ══════════ -->
+<div class="section">
+  <img src="../Images/images1.jpeg" alt="Paysage de la région de Tapoa" width="100%" height="auto">
+  <p class="section-label">Présentation générale</p>
+  <h2 class="section-titre">Région de <span>Tapoa</span></h2>
+  <div class="trait"></div>
+  <p style="font-size:1rem; line-height:1.85; color:var(--gris); max-width:860px;">
+    Tapoa est l'une des quatre nouvelles régions créées par le décret du 2 juillet 2025, issue de la scission de l'ancienne région de l'Est. Son nom est un hydronyme tiré du fleuve Tapoa, seul cours d'eau permanent de son territoire. Située à l'extrême sud-est du pays, à 400 km de Ouagadougou, elle partage ses frontières avec le Niger, le Bénin et le Togo.
+  </p>
+  <br>
+  <p style="font-size:1rem; line-height:1.85; color:var(--gris); max-width:860px;">
+    Fortement rurale et à dominante Gourmantché, la région de Tapoa est un véritable sanctuaire naturel : elle abrite le Parc National d'Arly (92 500 ha), partie intégrante du complexe transfrontalier <strong>W-Arly-Pendjari (WAP)</strong>, reconnu Patrimoine mondial de l'UNESCO. La falaise du Gobnangou, les plaines de savane et les galeries forestières qui bordent la Pendjari en font l'une des zones de biodiversité les plus remarquables d'Afrique de l'Ouest. La province de la Tapoa est fortement rurale, à l'exception de son chef-lieu Diapaga où sont présents l'hôpital, l'école secondaire, des artisans et une usine d'égrenage du coton.
+  </p>
+</div>
+
+<!-- ══════════ TOURISME : PARC ARLY & SITES ══════════ -->
+<section class="tourisme-phare" id="tourisme">
+  <div class="tourisme-phare-inner">
+    <p class="section-label">Potentialités touristiques & naturelles</p>
+    <h2 class="section-titre">Sanctuaires de <span>faune</span> et de nature</h2>
+    <div class="trait"></div>
+
+    <!-- PARC ARLY -->
+    <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:14px; padding:2.5rem; margin-bottom:2.5rem;">
+      <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem;">
+        <span style="font-size:2.8rem;">🦁</span>
+        <div>
+          <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; color:white;">Parc National d'Arly</h3>
+          <p style="color:var(--or); font-size:0.85rem; font-style:italic;">Province de la Tapoa — 72 km au sud-ouest de Diapaga — Créé en 1950</p>
+        </div>
+      </div>
+      <div class="parc-grid">
+        <div class="parc-texte">
+          <p>Situé dans la province de la Tapoa en zone soudanienne, le Parc National d'Arly est une réserve totale de faune d'une superficie de <strong>92 500 hectares</strong>. Il est accessible depuis Diapaga par la Route Nationale N°19 et depuis Ouagadougou à 435 km.</p>
+          <p>Ce parc est transfrontalier avec le <strong>Parc National du W (Niger)</strong> et la <strong>Réserve de la Pendjari (Bénin)</strong>. Ensemble, ces trois entités forment le complexe <strong>W-Arly-Pendjari (WAP)</strong> — le plus vaste ensemble de conservation de biodiversité d'Afrique de l'Ouest, protégé par la Convention de Ramsar depuis 2007.</p>
+          <p>La monotonie des savanes plates est rompue par la présence de la <strong>falaise du Gobnangou</strong> et des collines de Pagou et Tambarga. Les galeries forestières qui bordent les rivières Pendjari, Singou et Arly contribuent à l'originalité exceptionnelle du site.</p>
+        </div>
+        <div class="parc-fauna">
+          <h4>🐾 Espèces présentes</h4>
+          <ul class="fauna-list">
+            <li>Éléphants</li>
+            <li>Lions</li>
+            <li>Buffles</li>
+            <li>Hippopotames</li>
+            <li>Antilopes</li>
+            <li>Phacochères</li>
+            <li>Hyènes</li>
+            <li>Singes</li>
+            <li>Hippotrague</li>
+            <li>Cob de Fassa</li>
+            <li>Cob de Buffon</li>
+            <li>Léopards</li>
+            <li>Pintades</li>
+            <li>Francolins</li>
+            <li>Pigeon vert</li>
+            <li>100+ espèces d'oiseaux</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- AUTRES SITES -->
+    <p class="section-label" style="color:var(--or);">Sites touristiques remarquables</p>
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.5rem; color:white; margin-bottom:0.5rem;">À <span style="color:var(--or);">découvrir</span> dans la région</h3>
+    <div class="trait"></div>
+
+    <div class="sites-grid">
+      <div class="site-card">
+        <span class="site-icon">🌿</span>
+        <div class="site-nom">Parc National du W (partie burkinabè)</div>
+        <p class="site-desc">235 000 ha pour la partie burkinabè, sur un total de 1 023 000 ha transfrontaliers. Paysages de prairies aquatiques, savanes herbeuses et massifs rocheux. Protégé par la convention de Ramsar depuis 2007.</p>
+        <span class="site-badge badge-ramsar">Ramsar 2007</span>
+        <span class="site-badge badge-nature" style="margin-left:0.3rem;">Transfrontalier</span>
+      </div>
+
+      <div class="site-card">
+        <span class="site-icon">⛰️</span>
+        <div class="site-nom">Falaise du Gobnangou</div>
+        <p class="site-desc">Principale chaîne gréseuse de l'Est du Burkina. Paysages spectaculaires entre Namounou et Logobou, avec cascades, grottes, réserves d'eau et faune sauvage. Randonnées guidées disponibles depuis le campement de Yentuguli.</p>
+        <span class="site-badge badge-nature">Site naturel</span>
+      </div>
+
+      <div class="site-card">
+        <span class="site-icon">🚣</span>
+        <div class="site-nom">Rivière Pendjari</div>
+        <p class="site-desc">Cours d'eau permanent à la frontière du Bénin. Promenades en pirogue pour observer hippopotames, crocodiles et oiseaux aquatiques dans leur milieu naturel. Point de jonction avec la Réserve de la Pendjari.</p>
+        <span class="site-badge badge-nature">Écotourisme</span>
+      </div>
+
+      <div class="site-card">
+        <span class="site-icon">🏕️</span>
+        <div class="site-nom">Campements écotouristiques d'Arly</div>
+        <p class="site-desc">Des éco-lodges en cours d'aménagement pour l'hébergement au cœur du parc. Nuits en brousse avec ambiance sonore de la faune sauvage. Safari vision et suivi animalier avec guides officiels indispensables.</p>
+        <span class="site-badge badge-nature">Écotourisme</span>
+      </div>
+
+      <div class="site-card">
+        <span class="site-icon">🏘️</span>
+        <div class="site-nom">Villages Gourmantché traditionnels</div>
+        <p class="site-desc">Tansarga, Logobou, Tambaga — villages aux traditions ancestrales vivantes. Rencontre avec les peuples Gourmantché et Peulh, partage de leur hospitalité, danses et rituels culturels.</p>
+        <span class="site-badge badge-culture">Culturel</span>
+      </div>
+
+      <div class="site-card">
+        <span class="site-icon">🌅</span>
+        <div class="site-nom">Collines de Pagou et de Tanga</div>
+        <p class="site-desc">Points de vue panoramiques sur l'ensemble du parc d'Arly et ses savanes à perte de vue. Couchers de soleil exceptionnels sur la savane soudanienne. Sites prisés des photographes animaliers.</p>
+        <span class="site-badge badge-nature">Panorama</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ AGRICULTURE ══════════ -->
+<div class="section" id="agricole">
+  <p class="section-label">Potentialités agricoles 🌾</p>
+  <h2 class="section-titre">L'agriculture au cœur de la <span>vie</span></h2>
+  <div class="trait"></div>
+  <p style="max-width:860px; color:var(--gris); margin-bottom:2rem; line-height:1.8;">
+    L'agriculture et l'élevage constituent les principales activités de la population de la région de Tapoa. La zone est caractérisée par des pratiques agricoles traditionnelles sur des sols soudaniens fertiles, bien arrosés par le fleuve Tapoa et ses affluents. La province dispose d'une usine d'égrenage de coton à Diapaga, témoignant de l'importance de cette culture de rente.
+  </p>
+  <div class="agri-grid">
+    <div class="agri-bloc">
+      <h3>🌱 Cultures vivrières</h3>
+      <ul class="agri-liste">
+        <li>Sorgho — culture principale de subsistance</li>
+        <li>Mil — production familiale extensive</li>
+        <li>Maïs — zones riveraines et irriguées</li>
+        <li>Niébé (haricot) — culture associée</li>
+        <li>Riz — plaines alluviales du fleuve Tapoa</li>
+        <li>Igname — zones forestières du sud</li>
+      </ul>
+    </div>
+    <div class="agri-bloc">
+      <h3>💰 Cultures de rente</h3>
+      <ul class="agri-liste">
+        <li>Coton — culture principale d'exportation (usine d'égrenage à Diapaga)</li>
+        <li>Sésame — production croissante pour l'export</li>
+        <li>Arachide — culture semi-commerciale</li>
+        <li>Soja — potentiel en développement</li>
+        <li>Karité — cueillette et transformation</li>
+        <li>Néré — produit forestier non ligneux</li>
+      </ul>
+    </div>
+    <div class="agri-bloc">
+      <h3>🐄 Élevage extensif</h3>
+      <ul class="agri-liste">
+        <li>Bovins — élevage transhumant prédominant</li>
+        <li>Ovins et caprins — élevage familial</li>
+        <li>Porcins — principalement en milieu rural</li>
+        <li>Volailles (pintades, poulets)</li>
+        <li>Zones pastorales : Tapoa Boogo (95 000 ha) et Kabonga (51 000 ha)</li>
+        <li>71 marchés à bétail dont 30 aménagés</li>
+      </ul>
+    </div>
+    <div class="agri-bloc">
+      <h3>🐟 Pêche & ressources naturelles</h3>
+      <ul class="agri-liste">
+        <li>Pêche fluviale — fleuve Tapoa et Pendjari</li>
+        <li>Pêche sur le barrage de Kompienga</li>
+        <li>Tilapia, silure, capitaine</li>
+        <li>Cueillette de produits forestiers (karité, néré, baobab)</li>
+        <li>Apiculture — miel de savane</li>
+        <li>5 630 km de pistes à bétail (1 853 km balisés)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ MINES & INDUSTRIE ══════════ -->
+<section class="section-dark" id="mines">
+  <div class="section-dark-inner">
+    <p class="section-label">Ressources minières & industrielles</p>
+    <h2 class="section-titre">Richesses du <span>sous-sol</span></h2>
+    <div class="trait"></div>
+    <p style="max-width:860px; margin-bottom:2rem; line-height:1.8;">
+      Le sous-sol de la région de Tapoa recèle des ressources minières variées, encore partiellement explorées. La monographie officielle de l'INSD identifie plusieurs sites d'intérêt industriel dans la province de la Tapoa, notamment du cuivre à Diapaga et du granite rose à Pama.
+    </p>
+    <div class="cards-grid">
+      <div class="card card-dark">
+        <div class="card-icon">🟤</div>
+        <div class="card-body">
+          <strong>Cuivre — Diapaga</strong>
+          <p>Gisement de cuivre identifié dans la commune de Diapaga. Potentiel en cours d'évaluation par les services géologiques nationaux.</p>
+        </div>
+      </div>
+      <div class="card card-dark">
+        <div class="card-icon">🪨</div>
+        <div class="card-body">
+          <strong>Granite rose — Pama</strong>
+          <p>Granite rose d'ornement identifié dans la zone de Pama. Matériau de construction et d'exportation à fort potentiel commercial.</p>
+        </div>
+      </div>
+      <div class="card card-dark">
+        <div class="card-icon">🏭</div>
+        <div class="card-body">
+          <strong>Usine d'égrenage de coton — Diapaga</strong>
+          <p>Infrastructure agro-industrielle implantée à Diapaga, permettant la transformation du coton brut en fibre exportable. Maillon essentiel de la filière régionale.</p>
+        </div>
+      </div>
+      <div class="card card-dark">
+        <div class="card-icon">⚡</div>
+        <div class="card-body">
+          <strong>Barrage de Kompienga — Hydroélectricité</strong>
+          <p>Retenue d'eau de plus de 2 milliards de m³ à la frontière avec la région Goulmou. Centrale hydroélectrique contribuant à l'approvisionnement en énergie du pays.</p>
+        </div>
+      </div>
+      <div class="card card-dark">
+        <div class="card-icon">🥇</div>
+        <div class="card-body">
+          <strong>Or artisanal</strong>
+          <p>Orpaillage traditionnel pratiqué dans plusieurs communes de la région. Activité génératrice de revenus pour les populations rurales.</p>
+        </div>
+      </div>
+      <div class="card card-dark">
+        <div class="card-icon">🌿</div>
+        <div class="card-body">
+          <strong>Potentiel écotouristique industriel</strong>
+          <p>Le tourisme de vision et cynégétique dans les parcs Arly et W représente une industrie touristique à fort potentiel de revenus, encore sous-exploitée.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ POTENTIEL ÉDUCATIF ══════════ -->
+<section class="section-edu">
+  <div class="section-edu-inner">
+    <p class="section-label">Potentiel éducatif 🏫</p>
+    <h2 class="section-titre"><span>Former</span> les talents de demain</h2>
+    <div class="trait"></div>
+    <p style="color:var(--gris); margin-bottom:2rem; max-width:860px; line-height:1.8;">
+      La quasi-totalité des établissements secondaires de la région appartiennent à l'État, témoignant de l'importance accordée à l'éducation publique dans cette zone frontalière. Diapaga, chef-lieu, concentre l'essentiel des infrastructures éducatives.
+    </p>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">🎓</div>
+        <div class="card-body">
+          <strong>Lycée provincial de Diapaga</strong>
+          <p>Principal établissement secondaire public de la région — enseignement général et technique</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏥</div>
+        <div class="card-body">
+          <strong>Hôpital de district de Diapaga</strong>
+          <p>Centre hospitalier de référence pour toute la région — couverture sanitaire de proximité</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛖</div>
+        <div class="card-body">
+          <strong>Centres de formation professionnelle</strong>
+          <p>Formation aux métiers agricoles, mécaniques et de l'élevage adaptés au contexte régional</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌿</div>
+        <div class="card-body">
+          <strong>Éco-guides & formation touristique</strong>
+          <p>Formation de guides officiels pour les parcs Arly et W — valorisation du patrimoine naturel</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ POTENTIEL COMMERCIAL ══════════ -->
+<section class="section-commerce" id="culture">
+  <div class="section-commerce-inner">
+    <p class="section-label">Potentiel commercial 🛒</p>
+    <h2 class="section-titre">Échanges, marchés et <span>commerce</span></h2>
+    <div class="trait"></div>
+    <p style="color:var(--gris); margin-bottom:2rem; max-width:860px; line-height:1.8;">
+      La position frontalière de la Tapoa avec le Niger, le Bénin et le Togo en fait un carrefour commercial stratégique. Kantchari, chef-lieu de la nouvelle province du Dyamongou, est un point de passage douanier important sur la Route Nationale N°4 reliant Ouagadougou au Niger.
+    </p>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">🛍️</div>
+        <div class="card-body">
+          <strong>Kantchari — Carrefour frontalier Niger</strong>
+          <p>Point de passage douanier stratégique sur la RN4 — commerce de transit entre Burkina, Niger et Nigeria</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🐂</div>
+        <div class="card-body">
+          <strong>Marchés à bétail (30 aménagés)</strong>
+          <p>71 marchés à bétail dans la région — échanges de bovins, ovins, caprins avec les pays voisins</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌾</div>
+        <div class="card-body">
+          <strong>Marché de Diapaga</strong>
+          <p>Marché hebdomadaire central — céréales, coton, bétail, artisanat Gourmantché</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏭</div>
+        <div class="card-body">
+          <strong>Filière coton — usine d'égrenage</strong>
+          <p>Transformation locale du coton avant exportation — emplois directs et indirects pour les producteurs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ARTISANAT ══════════ -->
+<section class="section-artisan">
+  <div class="section-artisan-inner">
+    <p class="section-label">Artisanat traditionnel</p>
+    <h2 class="section-titre"><span>Savoir-faire</span> Gourmantché</h2>
+    <div class="trait"></div>
+    <div class="cards-grid">
+      <div class="card card-dark">
+        <div class="card-icon">⚒️</div>
+        <div class="card-body">
+          <strong>Forge Gourmantché</strong>
+          <p>Tradition de la forge ancrée dans la culture Gourmantché — fabrication d'outils agricoles, de couteaux et de bijoux en fer</p>
+        </div>
+      </div>
+      <div class="card card-dark">
+        <div class="card-icon">🧵</div>
+        <div class="card-body">
+          <strong>Tissage et bogolan</strong>
+          <p>Tissus traditionnels teints au bogolan — motifs géométriques caractéristiques de la culture Gourmantché</p>
+        </div>
+      </div>
+      <div class="card card-dark">
+        <div class="card-icon">🏺</div>
+        <div class="card-body">
+          <strong>Poterie traditionnelle</strong>
+          <p>Canaris, jarres et objets en argile façonnés par les femmes Gourmantché — techniques transmises de génération en génération</p>
+        </div>
+      </div>
+      <div class="card card-dark">
+        <div class="card-icon">🪵</div>
+        <div class="card-body">
+          <strong>Sculpture sur bois</strong>
+          <p>Masques, statuettes et objets rituels sculptés dans les essences locales — lien profond avec les croyances animistes</p>
+        </div>
+      </div>
+      <div class="card card-dark">
+        <div class="card-icon">👜</div>
+        <div class="card-body">
+          <strong>Maroquinerie Peulh</strong>
+          <p>Travail du cuir de bœuf par les artisans Peulh — sacs de voyage, fourreaux, ceintures à motifs traditionnels</p>
+        </div>
+      </div>
+      <div class="card card-dark">
+        <div class="card-icon">🍯</div>
+        <div class="card-body">
+          <strong>Miel de savane & karité</strong>
+          <p>Production de miel sauvage issu des ruches naturelles de la savane. Beurre de karité artisanal aux vertus cosmétiques et alimentaires reconnues</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ CHIFFRES CLÉS ══════════ -->
+<section class="section-chiffres">
+  <h2 class="section-titre" style="color:white;"><span style="color:var(--or);">Chiffres</span> clés</h2>
+  <div class="chiffres-grid">
+    <div class="chiffre-item">
+      <span class="chiffre-val">14 572 km²</span>
+      <span class="chiffre-lbl">Superficie de la région</span>
+    </div>
+    <div class="chiffre-item">
+      <span class="chiffre-val">~450 000</span>
+      <span class="chiffre-lbl">Habitants (estimation 2024)</span>
+    </div>
+    <div class="chiffre-item">
+      <span class="chiffre-val">92 500 ha</span>
+      <span class="chiffre-lbl">Superficie du Parc d'Arly</span>
+    </div>
+    <div class="chiffre-item">
+      <span class="chiffre-val">1 023 000 ha</span>
+      <span class="chiffre-lbl">Complexe WAP total (transfrontalier)</span>
+    </div>
+    <div class="chiffre-item">
+      <span class="chiffre-val">2 Mrd m³</span>
+      <span class="chiffre-lbl">Capacité barrage Kompienga</span>
+    </div>
+    <div class="chiffre-item">
+      <span class="chiffre-val">3</span>
+      <span class="chiffre-lbl">Pays frontaliers (Niger, Bénin, Togo)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ GALERIE ══════════ -->
+<div class="section">
+  <p class="section-label">Galerie</p>
+  <h2 class="section-titre">Images de la <span>région</span></h2>
+  <div class="trait"></div>
+  <div class="galerie-grid">
+    <div class="galerie-item" style="background:linear-gradient(135deg,#0a2a10,#1a6030);">
+      🦁<br>Parc National d'Arly
+    </div>
+    <div class="galerie-item" style="background:linear-gradient(135deg,#1a2a0a,#3a5010);">
+      ⛰️<br>Falaise du Gobnangou
+    </div>
+    <div class="galerie-item" style="background:linear-gradient(135deg,#0a1a30,#1a3060);">
+      🚣<br>Rivière Pendjari
+    </div>
+    <div class="galerie-item" style="background:linear-gradient(135deg,#2a1a0a,#604020);">
+      🏘️<br>Village Gourmantché
+    </div>
+    <div class="galerie-item" style="background:linear-gradient(135deg,#101a0a,#304a10);">
+      🌿<br>Complexe W — Savane
+    </div>
+    <div class="galerie-item" style="background:linear-gradient(135deg,#1a0a30,#402060);">
+      🌅<br>Coucher de soleil sur la savane
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PROVINCES ══════════ -->
+<div class="section">
+  <p class="section-label">Provinces</p>
+  <h2 class="section-titre"><span>2 provinces</span> de la région</h2>
+  <div class="trait"></div>
+  <div class="provinces-grid">
+    <div class="province-card">
+      <h4>Province de la Tapoa</h4>
+      <p>Province historique, cœur de la région. Couvre les communes de Diapaga, Logobou, Tambaga, Tansarga, Partiaga et Namounou.</p>
+      <p class="prov-chef">📍 Chef-lieu : Diapaga</p>
+    </div>
+    <div class="province-card">
+      <h4>Province du Dyamongou</h4>
+      <p>Nouvelle province créée le 2 juillet 2025. Couvre la zone frontalière avec le Niger, incluant la ville de Kantchari, point de passage douanier stratégique.</p>
+      <p class="prov-chef">📍 Chef-lieu : Kantchari</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ LE SAVIEZ-VOUS ══════════ -->
+<section class="section-anecdote">
+  <p class="section-label" style="color:var(--nuit);">Le saviez-vous ?</p>
+  <h2 class="section-titre" style="color:var(--nuit);">Anecdote <span>surprenante</span></h2>
+  <div class="trait" style="margin:0 auto 1.5rem;"></div>
+  <p style="font-size:1.1rem; font-style:italic; max-width:760px; margin:0 auto; color:var(--nuit); line-height:1.8;">
+    Le nom « W » du Parc National du W vient des méandres en forme de double W que trace le fleuve Niger dans les environs de Karey Kopto (Niger). Ce complexe transfrontalier W-Arly-Pendjari (WAP), dont la partie burkinabè se trouve en Tapoa, représente à lui seul le plus vaste domaine de conservation de la biodiversité d'Afrique de l'Ouest avec plus d'<strong>un million d'hectares</strong> protégés sur trois pays.
+  </p>
+</section>
+
+<!-- ══════════ CARTE ══════════ -->
+<div class="section">
+  <p class="section-label">Localisation</p>
+  <h2 class="section-titre">Carte de situation — <span>Tapoa</span></h2>
+  <div class="trait"></div>
+  <div class="carte-wrap">
+    <iframe
+      width="100%" height="380" frameborder="0"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=1.5,11.2,2.6,12.6&layer=mapnik&marker=11.9,2.1"
+      style="display:block;">
+    </iframe>
+  </div>
+  <p style="font-size:0.78rem; color:var(--gris); margin-top:0.5rem;">
+    Région de Tapoa — sud-est du Burkina Faso, aux frontières du Niger, du Bénin et du Togo. © OpenStreetMap contributors.
+  </p>
+</div>
+
+<!-- ══════════ BOUTON RETOUR ══════════ -->
+<div class="section" style="text-align:center; padding-top:2rem;">
+  <a href="../index.html" class="btn-retour">← Retour à l'accueil</a>
+  <a href="#" class="btn-retour btn-retour-nuit" style="margin-left:1rem;" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Haut de page</a>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  Projet académique 2025-2026 — Vitrine des Régions du <span>Burkina Faso</span> — Région de <span>Tapoa</span><br>
+  <span style="font-size:0.7rem; color:rgba(255,255,255,0.2);">Sources : Décret du 2 juillet 2025 — INSD — Ministère de l'Administration Territoriale — MATD.gov.bf — Wikipedia — InfoNature — FasoTour</span>
+</footer>
+
+</body>
+</html>
