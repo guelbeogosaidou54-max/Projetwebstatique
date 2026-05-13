@@ -44,6 +44,11 @@ nav {
 }
 .nav-links a:hover { color: var(--or); }
 
+/* Ajuste le scroll pour les ancres masquées par la navbar fixe */
+[id] {
+  scroll-margin-top: 90px;
+}
+
 /* ─── HERO ─── */
 .region-hero {
   min-height: 68vh;
@@ -378,12 +383,6 @@ footer span { color: var(--or); }
   <div class="hero-badge">Nouvelle région — Décret du 2 juillet 2025</div>
   <h1 class="hero-titre">Région de Tapoa</h1>
   <p class="hero-slogan">« Le royaume de la faune, du fleuve et de la terre Gourmantché »</p>
-  <div class="hero-hydro">
-    <span class="hero-badge-info">Hydronyme — fleuve Tapoa</span>
-    <span class="hero-badge-info">Complexe WAP — UNESCO</span>
-    <span class="hero-badge-info">Parc National d'Arly</span>
-    <span class="hero-badge-info">Sud-Est du Burkina</span>
-  </div>
   <span class="hero-scroll">↓ Découvrir</span>
 </section>
 
@@ -409,10 +408,6 @@ footer span { color: var(--or); }
     <span class="info-val">Gourmantché</span>
     <span class="info-label">Peuple majoritaire</span>
   </div>
-  <div class="info-item">
-    <span class="info-val">Tapoanais</span>
-    <span class="info-label">Gentilé</span>
-  </div>
 </div>
 
 <!-- ══════════ ADMINISTRATION ══════════ -->
@@ -427,7 +422,7 @@ footer span { color: var(--or); }
       <p><strong>Provinces :</strong> 2 (Tapoa + Dyamongou)</p>
       <p><strong>Chef-lieu :</strong> Diapaga</p>
       <p><strong>2e ville :</strong> Kantchari</p>
-      <p><strong>Gouvernance :</strong> Gouverneur nommé par décret</p>
+      <p><strong>Gouverneur :</strong> Ram Joseph KAFANDO</p>
     </div>
 
     <div class="details-category">
@@ -435,9 +430,6 @@ footer span { color: var(--or); }
       <p><strong>Population estimée (2024) :</strong> ~450 000 hab.</p>
       <p><strong>Principale ethnie :</strong> Gourmantché (Gulmanceba)</p>
       <p><strong>Autres ethnies :</strong> Peulh (Fulani), Haoussa, Djerma, Mossi</p>
-      <p><strong>Langues :</strong> Gourmantché (Gulmancema), Fulfuldé, Français</p>
-      <p><strong>Religion :</strong> Islam, Christianisme, Animisme</p>
-      <p><strong>Caractère :</strong> Fortement rural — Diapaga est le principal centre urbain</p>
     </div>
 
     <div class="details-category">
@@ -446,8 +438,6 @@ footer span { color: var(--or); }
       <p><strong>Coordonnées :</strong> 11°30' – 12°25'N, 1°55' – 2°30'E</p>
       <p><strong>Distance de Ouagadougou :</strong> ~400 km (via Fada N'Gourma)</p>
       <p><strong>Frontières :</strong> Niger (Est), Bénin (Sud), Togo (Sud-Ouest)</p>
-      <p><strong>Fuseau horaire :</strong> UTC+0</p>
-      <p><strong>Indicatif :</strong> +226</p>
     </div>
 
     <div class="details-category">
@@ -607,47 +597,48 @@ footer span { color: var(--or); }
       <h3>Cultures vivrières</h3>
       <img src="../Images/C1.jpeg" alt="" width="100%" height="auto">
       <ul class="agri-liste">
-        <li>Sorgho — culture principale de subsistance</li>
-        <li>Mil — production familiale extensive</li>
-        <li>Maïs — zones riveraines et irriguées</li>
-        <li>Niébé (haricot) — culture associée</li>
-        <li>Riz — plaines alluviales du fleuve Tapoa</li>
-        <li>Igname — zones forestières du sud</li>
+        <li>Sorgho </li>
+        <li>Mil </li>
+        <li>Maïs </li>
+        <li>Niébé </li>
+        <li>Riz</li>
       </ul>
     </div>
     <div class="agri-bloc">
       <h3> Cultures de rente</h3>
       <img src="../Images/F.png" alt="culture de rente" width="100%" height="auto">
       <ul class="agri-liste">
-        <li>Coton — culture principale d'exportation (usine d'égrenage à Diapaga)</li>
-        <li>Sésame — production croissante pour l'export</li>
-        <li>Arachide — culture semi-commerciale</li>
-        <li>Soja — potentiel en développement</li>
-        <li>Karité — cueillette et transformation</li>
-        <li>Néré — produit forestier non ligneux</li>
+        <li>Coton </li>
+        <li>Sésame </li>
+        <li>Arachide </li>
+        <li>Soja </li>
+        <li>Karité</li>
+        <li>Néré</li>
       </ul>
     </div>
     <div class="agri-bloc">
-      <h3>🐄 Élevage extensif</h3>
+      <h3>Élevage extensif</h3>
+      <div><img src="../Images/Animal.jpeg" alt="vaches" width="100%" height="auto"></div>
       <ul class="agri-liste">
-        <li>Bovins — élevage transhumant prédominant</li>
-        <li>Ovins et caprins — élevage familial</li>
-        <li>Porcins — principalement en milieu rural</li>
-        <li>Volailles (pintades, poulets)</li>
-        <li>Zones pastorales : Tapoa Boogo (95 000 ha) et Kabonga (51 000 ha)</li>
-        <li>71 marchés à bétail dont 30 aménagés</li>
+        <li>Bovins</li>
+        <li>Ovins</li>
+        <li>Porcins</li>
+        <li>Volailles</li>
+        <li>Zones pastorales : Tapoa Boogo et Kabonga </li>
       </ul>
+      <div><img src="../Images/Porc.jpeg" alt="porcs" width="100%" height="auto"></div>
     </div>
     <div class="agri-bloc">
-      <h3>🐟 Pêche & ressources naturelles</h3>
+      <h3>Pêche & ressources naturelles</h3>
+      <div><img src="../Images/Poisson.jpeg" alt="Poisson" width="100%" height="auto"></div>
       <ul class="agri-liste">
-        <li>Pêche fluviale — fleuve Tapoa et Pendjari</li>
+        <li>Le barrage de la Tapoa : Ce réservoir de 3 479 hectares, situé près de Diapaga, constitue l'une des pêcheries </li>
         <li>Pêche sur le barrage de Kompienga</li>
         <li>Tilapia, silure, capitaine</li>
         <li>Cueillette de produits forestiers (karité, néré, baobab)</li>
         <li>Apiculture — miel de savane</li>
-        <li>5 630 km de pistes à bétail (1 853 km balisés)</li>
       </ul>
+      <div><img src="../Images/Kari-nere.jpeg" alt="Fruits" width="100%" height="auto"></div>
     </div>
   </div>
 </div>
@@ -659,189 +650,31 @@ footer span { color: var(--or); }
     <h2 class="section-titre">Richesses du <span>sous-sol</span></h2>
     <div class="trait"></div>
     <p style="max-width:860px; margin-bottom:2rem; line-height:1.8;">
-      Le sous-sol de la région de Tapoa recèle des ressources minières variées, encore partiellement explorées. La monographie officielle de l'INSD identifie plusieurs sites d'intérêt industriel dans la province de la Tapoa, notamment du cuivre à Diapaga et du granite rose à Pama.
+      Le sous-sol de la province de la Tapoa possède des richesses naturelles bien 
+      connues des autorités du pays. Selon les cartes du Bureau des Mines et de la 
+      Géologie du Burkina (BUMIGEB), la région abrite des sites très importants pour 
+      l'économie nationale. On y trouve d'abord le grand gisement de phosphate de 
+      Kodjari, qui sert à fabriquer des engrais pour les agriculteurs.
     </p>
-    <div class="cards-grid">
-      <div class="card card-dark">
-        <div class="card-icon">🟤</div>
-        <div class="card-body">
-          <strong>Cuivre — Diapaga</strong>
-          <p>Gisement de cuivre identifié dans la commune de Diapaga. Potentiel en cours d'évaluation par les services géologiques nationaux.</p>
-        </div>
-      </div>
-      <div class="card card-dark">
-        <div class="card-icon">🪨</div>
-        <div class="card-body">
-          <strong>Granite rose — Pama</strong>
-          <p>Granite rose d'ornement identifié dans la zone de Pama. Matériau de construction et d'exportation à fort potentiel commercial.</p>
-        </div>
-      </div>
-      <div class="card card-dark">
-        <div class="card-icon">🏭</div>
-        <div class="card-body">
-          <strong>Usine d'égrenage de coton — Diapaga</strong>
-          <p>Infrastructure agro-industrielle implantée à Diapaga, permettant la transformation du coton brut en fibre exportable. Maillon essentiel de la filière régionale.</p>
-        </div>
-      </div>
-      <div class="card card-dark">
-        <div class="card-icon">⚡</div>
-        <div class="card-body">
-          <strong>Barrage de Kompienga — Hydroélectricité</strong>
-          <p>Retenue d'eau de plus de 2 milliards de m³ à la frontière avec la région Goulmou. Centrale hydroélectrique contribuant à l'approvisionnement en énergie du pays.</p>
-        </div>
-      </div>
-      <div class="card card-dark">
-        <div class="card-icon">🥇</div>
-        <div class="card-body">
-          <strong>Or artisanal</strong>
-          <p>Orpaillage traditionnel pratiqué dans plusieurs communes de la région. Activité génératrice de revenus pour les populations rurales.</p>
-        </div>
-      </div>
-      <div class="card card-dark">
-        <div class="card-icon">🌿</div>
-        <div class="card-body">
-          <strong>Potentiel écotouristique industriel</strong>
-          <p>Le tourisme de vision et cynégétique dans les parcs Arly et W représente une industrie touristique à fort potentiel de revenus, encore sous-exploitée.</p>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
-
-<!-- ══════════ POTENTIEL ÉDUCATIF ══════════ -->
-<section class="section-edu">
-  <div class="section-edu-inner">
-    <p class="section-label">Potentiel éducatif 🏫</p>
-    <h2 class="section-titre"><span>Former</span> les talents de demain</h2>
-    <div class="trait"></div>
-    <p style="color:var(--gris); margin-bottom:2rem; max-width:860px; line-height:1.8;">
-      La quasi-totalité des établissements secondaires de la région appartiennent à l'État, témoignant de l'importance accordée à l'éducation publique dans cette zone frontalière. Diapaga, chef-lieu, concentre l'essentiel des infrastructures éducatives.
-    </p>
-    <div class="cards-grid">
-      <div class="card">
-        <div class="card-icon">🎓</div>
-        <div class="card-body">
-          <strong>Lycée provincial de Diapaga</strong>
-          <p>Principal établissement secondaire public de la région — enseignement général et technique</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-icon">🏥</div>
-        <div class="card-body">
-          <strong>Hôpital de district de Diapaga</strong>
-          <p>Centre hospitalier de référence pour toute la région — couverture sanitaire de proximité</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-icon">🛖</div>
-        <div class="card-body">
-          <strong>Centres de formation professionnelle</strong>
-          <p>Formation aux métiers agricoles, mécaniques et de l'élevage adaptés au contexte régional</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-icon">🌿</div>
-        <div class="card-body">
-          <strong>Éco-guides & formation touristique</strong>
-          <p>Formation de guides officiels pour les parcs Arly et W — valorisation du patrimoine naturel</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ POTENTIEL COMMERCIAL ══════════ -->
-<section class="section-commerce" id="culture">
-  <div class="section-commerce-inner">
-    <p class="section-label">Potentiel commercial 🛒</p>
-    <h2 class="section-titre">Échanges, marchés et <span>commerce</span></h2>
-    <div class="trait"></div>
-    <p style="color:var(--gris); margin-bottom:2rem; max-width:860px; line-height:1.8;">
-      La position frontalière de la Tapoa avec le Niger, le Bénin et le Togo en fait un carrefour commercial stratégique. Kantchari, chef-lieu de la nouvelle province du Dyamongou, est un point de passage douanier important sur la Route Nationale N°4 reliant Ouagadougou au Niger.
-    </p>
-    <div class="cards-grid">
-      <div class="card">
-        <div class="card-icon">🛍️</div>
-        <div class="card-body">
-          <strong>Kantchari — Carrefour frontalier Niger</strong>
-          <p>Point de passage douanier stratégique sur la RN4 — commerce de transit entre Burkina, Niger et Nigeria</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-icon">🐂</div>
-        <div class="card-body">
-          <strong>Marchés à bétail (30 aménagés)</strong>
-          <p>71 marchés à bétail dans la région — échanges de bovins, ovins, caprins avec les pays voisins</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-icon">🌾</div>
-        <div class="card-body">
-          <strong>Marché de Diapaga</strong>
-          <p>Marché hebdomadaire central — céréales, coton, bétail, artisanat Gourmantché</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-icon">🏭</div>
-        <div class="card-body">
-          <strong>Filière coton — usine d'égrenage</strong>
-          <p>Transformation locale du coton avant exportation — emplois directs et indirects pour les producteurs</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══════════ ARTISANAT ══════════ -->
-<section class="section-artisan">
+<section class="section-artisan" id="culture">
   <div class="section-artisan-inner">
     <p class="section-label">Artisanat traditionnel</p>
-    <h2 class="section-titre"><span>Savoir-faire</span> Gourmantché</h2>
+    <h2 class="section-titre"><span>Savoir-faire</span> </h2>
     <div class="trait"></div>
-    <div class="cards-grid">
-      <div class="card card-dark">
-        <div class="card-icon">⚒️</div>
-        <div class="card-body">
-          <strong>Forge Gourmantché</strong>
-          <p>Tradition de la forge ancrée dans la culture Gourmantché — fabrication d'outils agricoles, de couteaux et de bijoux en fer</p>
-        </div>
-      </div>
-      <div class="card card-dark">
-        <div class="card-icon">🧵</div>
-        <div class="card-body">
-          <strong>Tissage et bogolan</strong>
-          <p>Tissus traditionnels teints au bogolan — motifs géométriques caractéristiques de la culture Gourmantché</p>
-        </div>
-      </div>
-      <div class="card card-dark">
-        <div class="card-icon">🏺</div>
-        <div class="card-body">
-          <strong>Poterie traditionnelle</strong>
-          <p>Canaris, jarres et objets en argile façonnés par les femmes Gourmantché — techniques transmises de génération en génération</p>
-        </div>
-      </div>
-      <div class="card card-dark">
-        <div class="card-icon">🪵</div>
-        <div class="card-body">
-          <strong>Sculpture sur bois</strong>
-          <p>Masques, statuettes et objets rituels sculptés dans les essences locales — lien profond avec les croyances animistes</p>
-        </div>
-      </div>
-      <div class="card card-dark">
-        <div class="card-icon">👜</div>
-        <div class="card-body">
-          <strong>Maroquinerie Peulh</strong>
-          <p>Travail du cuir de bœuf par les artisans Peulh — sacs de voyage, fourreaux, ceintures à motifs traditionnels</p>
-        </div>
-      </div>
-      <div class="card card-dark">
-        <div class="card-icon">🍯</div>
-        <div class="card-body">
-          <strong>Miel de savane & karité</strong>
-          <p>Production de miel sauvage issu des ruches naturelles de la savane. Beurre de karité artisanal aux vertus cosmétiques et alimentaires reconnues</p>
-        </div>
-      </div>
-    </div>
+    <p>L'artisanat traditionnel dans la province de la Tapoa repose sur 
+      des savoir-faire ancestraux portés par les communautés locales, notamment 
+      les populations Gulmancé et Peule. Les rapports culturels du Ministère de la 
+      Culture, des Arts et du Tourisme du Burkina Faso mettent en avant la transformation 
+      des ressources locales à travers trois activités majeures : la maroquinerie 
+      traditionnelle (fabrication de sacs, de sandales et de fourreaux à partir des 
+      cuirs issus de l'élevage local), la poterie artisanale façonnée par les femmes 
+      pour les besoins domestiques et rituels, et le tissage de nattes en fibres végétales 
+      issues des zones humides de la province.</p>
+      <div><img src="../Images/Pagne.jpeg" alt="Pagnes" width="100%" height="auto"></div>
+    <div class="cards-grid"></div>
   </div>
 </section>
 
@@ -884,22 +717,28 @@ footer span { color: var(--or); }
   <div class="trait"></div>
   <div class="galerie-grid">
     <div class="galerie-item" style="background:linear-gradient(135deg,#0a2a10,#1a6030);">
-      🦁<br>Parc National d'Arly
+      <img src="../Images/Arly.jpeg" alt="Parc National d'Arly" width="100%" height="auto">
+      <br>Parc National d'Arly
     </div>
     <div class="galerie-item" style="background:linear-gradient(135deg,#1a2a0a,#3a5010);">
-      ⛰️<br>Falaise du Gobnangou
+      <img src="../Images/FalaiseG.jpeg" alt="Falaise du Gobnangou" width="150" height="auto">
+      <br>Falaise du Gobnangou
     </div>
     <div class="galerie-item" style="background:linear-gradient(135deg,#0a1a30,#1a3060);">
-      🚣<br>Rivière Pendjari
+      <img src="../Images/Pendjari.jpeg" alt="Rivière Pendjari" width="150" height="auto">
+      <br>Rivière Pendjari
     </div>
     <div class="galerie-item" style="background:linear-gradient(135deg,#2a1a0a,#604020);">
-      🏘️<br>Village Gourmantché
+      <img src="../Images/VillagesG.jpeg" alt="Village Gourmantché" width="100%" height="auto">
+      <br>Village Gourmantché
     </div>
     <div class="galerie-item" style="background:linear-gradient(135deg,#101a0a,#304a10);">
-      🌿<br>Complexe W — Savane
+      <img src="../Images/ComplexeW.jpeg" alt="Complexe W — Savane" width="100%" height="auto">
+      <br>Complexe W — Savane
     </div>
     <div class="galerie-item" style="background:linear-gradient(135deg,#1a0a30,#402060);">
-      🌅<br>Coucher de soleil sur la savane
+      <img src="../Images/Soleil.jpeg" alt="Coucher de soleil sur la savane" width="100%" height="auto">
+      <br>Coucher de soleil sur la savane
     </div>
   </div>
 </div>
@@ -912,26 +751,14 @@ footer span { color: var(--or); }
   <div class="provinces-grid">
     <div class="province-card">
       <h4>Province de la Tapoa</h4>
-      <p>Province historique, cœur de la région. Couvre les communes de Diapaga, Logobou, Tambaga, Tansarga, Partiaga et Namounou.</p>
       <p class="prov-chef">📍 Chef-lieu : Diapaga</p>
     </div>
     <div class="province-card">
       <h4>Province du Dyamongou</h4>
-      <p>Nouvelle province créée le 2 juillet 2025. Couvre la zone frontalière avec le Niger, incluant la ville de Kantchari, point de passage douanier stratégique.</p>
       <p class="prov-chef">📍 Chef-lieu : Kantchari</p>
     </div>
   </div>
 </div>
-
-<!-- ══════════ LE SAVIEZ-VOUS ══════════ -->
-<section class="section-anecdote">
-  <p class="section-label" style="color:var(--nuit);">Le saviez-vous ?</p>
-  <h2 class="section-titre" style="color:var(--nuit);">Anecdote <span>surprenante</span></h2>
-  <div class="trait" style="margin:0 auto 1.5rem;"></div>
-  <p style="font-size:1.1rem; font-style:italic; max-width:760px; margin:0 auto; color:var(--nuit); line-height:1.8;">
-    Le nom « W » du Parc National du W vient des méandres en forme de double W que trace le fleuve Niger dans les environs de Karey Kopto (Niger). Ce complexe transfrontalier W-Arly-Pendjari (WAP), dont la partie burkinabè se trouve en Tapoa, représente à lui seul le plus vaste domaine de conservation de la biodiversité d'Afrique de l'Ouest avec plus d'<strong>un million d'hectares</strong> protégés sur trois pays.
-  </p>
-</section>
 
 <!-- ══════════ CARTE ══════════ -->
 <div class="section">
