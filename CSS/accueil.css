@@ -524,3 +524,39 @@
     text-align: center;
   }
 }
+/* ── CARTE INTERACTIVE ── */
+.carte-section {
+  padding: 4rem 2rem;
+  background: var(--creme);
+}
+.carte-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Style des popups Leaflet */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  font-family: 'DM Sans', sans-serif;
+}
+.leaflet-popup-content {
+  font-size: 13px;
+  line-height: 1.5;
+  min-width: 180px;
+}
+.leaflet-popup-tip {
+  background: white;
+}
+
+/* Style des tooltips (survol) */
+.leaflet-tooltip {
+  background: var(--nuit);
+  color: var(--blanc);
+  font-weight: 500;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+}

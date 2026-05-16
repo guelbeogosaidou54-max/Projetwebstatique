@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À propos — Burkina Faso</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rouge: #C1272D;
+  --vert: #009A44;
+  --or: #F7B731;
+  --nuit: #12100A;
+  --creme: #FDF8F0;
+  --sable: #E8D5A8;
+  --terre: #7A4E2D;
+  --gris: #6B5744;
+  --blanc: #FFFFFF;
+  --gris-clair: #E8E0D5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--creme);
+  color: var(--nuit);
+  line-height: 1.6;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  height: 64px;
+  background: rgba(18, 16, 10, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(247, 183, 49, 0.15);
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+}
+.nav-flag {
+  display: flex;
+  height: 22px;
+  width: 36px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.nav-flag span { flex: 1; }
+.nav-flag .f1 { background: var(--rouge); }
+.nav-flag .f2 { background: var(--vert); }
+.nav-brand-txt {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--or);
+  letter-spacing: 0.02em;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+.nav-links a:hover { color: var(--or); }
+.nav-links .active {
+  color: var(--or);
+  border-bottom: 2px solid var(--or);
+  padding-bottom: 4px;
+}
+.nav-cta {
+  background: var(--rouge);
+  color: var(--blanc) !important;
+  padding: 0.45rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 500 !important;
+}
+.nav-cta:hover { background: #a01f24; }
+
+/* Menu mobile */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background: var(--blanc);
+  transition: 0.3s;
+}
+
+/* ===== HEADER ===== */
+.page-header {
+  background: linear-gradient(135deg, #1a0a0a 0%, #6b1218 100%);
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  margin-top: 64px;
+  position: relative;
+}
+.page-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--rouge), var(--vert), var(--or));
+}
+.page-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--blanc);
+  margin-bottom: 0.5rem;
+}
+.page-header p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== CONTENEUR PRINCIPAL ===== */
+.apropos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* ===== GRILLE INFO ===== */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+.info-card {
+  background: var(--blanc);
+  border-radius: 16px;
+  padding: 1.8rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid var(--sable);
+}
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+.info-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--rouge);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.info-card p {
+  margin-bottom: 0.6rem;
+  color: var(--gris);
+  line-height: 1.7;
+}
+.info-card strong {
+  color: var(--nuit);
+  font-weight: 600;
+}
+
+/* ===== STATISTIQUES ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+.stat-box {
+  background: linear-gradient(135deg, var(--rouge), #8B1A1F);
+  border-radius: 16px;
+  padding: 1.8rem 1rem;
+  text-align: center;
+  color: var(--blanc);
+  transition: transform 0.2s;
+}
+.stat-box:hover {
+  transform: translateY(-5px);
+}
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.stat-label {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+  margin: 3rem 0;
+}
+.timeline h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--nuit);
+}
+.timeline-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+.step {
+  background: var(--blanc);
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+  border: 1px solid var(--sable);
+  transition: all 0.2s;
+}
+.step:hover {
+  border-color: var(--rouge);
+  box-shadow: 0 5px 15px rgba(193, 39, 45, 0.1);
+}
+.step-number {
+  background: var(--rouge);
+  color: var(--blanc);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.8rem;
+  font-weight: 700;
+}
+.step-text {
+  font-size: 0.85rem;
+  color: var(--gris);
+  font-weight: 500;
+}
+
+/* ===== TECHNOLOGIES ===== */
+.tech-section {
+  margin: 3rem 0;
+  text-align: center;
+}
+.tech-section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--nuit);
+}
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+}
+.tech-item {
+  background: var(--blanc);
+  border: 1px solid var(--sable);
+  border-radius: 50px;
+  padding: 0.6rem 1.3rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--nuit);
+  transition: all 0.2s;
+}
+.tech-item:hover {
+  border-color: var(--rouge);
+  background: var(--creme);
+  transform: translateY(-2px);
+}
+
+/* ===== CITATION ===== */
+.citation {
+  background: linear-gradient(135deg, #FFF8E7, #FFF2D6);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  margin: 3rem 0;
+  border-left: 5px solid var(--or);
+}
+.citation p {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--nuit);
+  font-family: 'Playfair Display', serif;
+  line-height: 1.5;
+}
+.citation-author {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--gris);
+  font-weight: 500;
+}
+
+/* ===== SECTION SOURCES ===== */
+.sources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.source-card {
+  background: var(--blanc);
+  border-radius: 12px;
+  padding: 1.3rem 1.5rem;
+  border: 1px solid var(--sable);
+}
+.source-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--rouge);
+  margin-bottom: 0.5rem;
+}
+.source-card p {
+  font-size: 0.85rem;
+  color: var(--gris);
+}
+
+/* ===== BOUTONS ===== */
+.btn-retour {
+  display: inline-block;
+  background: var(--rouge);
+  color: var(--blanc);
+  padding: 0.8rem 2rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+  margin: 0.5rem;
+}
+.btn-retour:hover {
+  background: #a01f24;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(193, 39, 45, 0.3);
+}
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--rouge);
+  color: var(--rouge);
+}
+.btn-outline:hover {
+  background: var(--rouge);
+  color: var(--blanc);
+  transform: translateY(-3px);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #0A0805;
+  text-align: center;
+  padding: 2rem;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.78rem;
+}
+footer span { color: var(--or); }
+.sep {
+  height: 4px;
+  background: linear-gradient(90deg, var(--rouge) 33.33%, var(--vert) 33.33% 66.66%, var(--or) 66.66%);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav { padding: 0 1.2rem; }
+  .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: rgba(18,16,10,0.98); flex-direction: column; padding: 1rem; gap: 1rem; text-align: center; border-bottom: 1px solid rgba(247,183,49,0.15); }
+  .nav-links.active { display: flex; }
+  .menu-toggle { display: flex; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .page-header h1 { font-size: 2rem; }
+  .page-header p { font-size: 0.95rem; }
+  .apropos-container { padding: 2rem 1rem; }
+  .info-card h3 { font-size: 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-flag">
+      <span class="f1"></span>
+      <span class="f2"></span>
+    </div>
+    <span class="nav-brand-txt">Burkina Faso</span>
+  </a>
+  <button class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#regions">Les 17 Régions</a></li>
+    <li><a href="apropos.html" class="active">À propos</a></li>
+    <li><a href="index.html#regions" class="nav-cta">Explorer →</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<div class="page-header">
+  <h1>📖 À propos du projet</h1>
+  <p>Découvrez les coulisses de cette vitrine numérique des 17 régions du Burkina Faso</p>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════════════ CONTENU PRINCIPAL ══════════════ -->
+<div class="apropos-container">
+
+  <!-- GRILLE D'INFORMATIONS GÉNÉRALES -->
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>🎯 Objectifs du projet</h3>
+      <p>✓ Valoriser le patrimoine culturel et naturel du Burkina Faso</p>
+      <p>✓ Fournir une vitrine claire et ergonomique des 17 régions</p>
+      <p>✓ Mettre en pratique les compétences en développement web statique</p>
+      <p>✓ Promouvoir le tourisme local et les potentialités agricoles</p>
+    </div>
+    <div class="info-card">
+      <h3>📋 Contexte</h3>
+      <p><strong>Projet académique</strong> — Année 2025-2026</p>
+      <p><strong>Réforme territoriale :</strong> Création de 4 nouvelles régions en juillet 2025 (Soum, Sirba, Tapoa, Sourou)</p>
+      <p><strong>Découpage final :</strong> 17 régions et 47 provinces</p>
+      <p><strong>Objectif pédagogique :</strong> Maîtriser la création d'un site web statique complet</p>
+    </div>
+    <div class="info-card">
+      <h3>👥 Équipe</h3>
+      <p><strong>Réalisé par :</strong> Groupe de 2 étudiants</p>
+      <p><strong>Répartition des tâches :</strong></p>
+      <p>• Recherche documentaire sur les 17 régions</p>
+      <p>• Conception UI/UX et développement front-end</p>
+      <p>• Rédaction des contenus (17 sections par région)</p>
+      <p>• Intégration des images et des cartes</p>
+    </div>
+  </div>
+
+  <!-- STATISTIQUES CLÉS -->
+  <div class="stats-grid">
+    <div class="stat-box">
+      <div class="stat-number">17</div>
+      <div class="stat-label">Régions</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">47</div>
+      <div class="stat-label">Provinces</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">17</div>
+      <div class="stat-label">Sections/région</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Responsive</div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="timeline">
+    <h3>📅 Étapes de réalisation</h3>
+    <div class="timeline-steps">
+      <div class="step"><div class="step-number">1</div><div class="step-text">Recherche documentaire</div></div>
+      <div class="step"><div class="step-number">2</div><div class="step-text">Collecte des données</div></div>
+      <div class="step"><div class="step-number">3</div><div class="step-text">Conception UI/UX</div></div>
+      <div class="step"><div class="step-number">4</div><div class="step-text">Développement HTML/CSS/JS</div></div>
+      <div class="step"><div class="step-number">5</div><div class="step-text">Remplissage des contenus</div></div>
+      <div class="step"><div class="step-number">6</div><div class="step-text">Tests et validation</div></div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGIES -->
+  <div class="tech-section">
+    <h3>🛠️ Technologies utilisées</h3>
+    <div class="tech-list">
+      <span class="tech-item">HTML5</span>
+      <span class="tech-item">CSS3</span>
+      <span class="tech-item">JavaScript (ES6)</span>
+      <span class="tech-item">Flexbox & Grid</span>
+      <span class="tech-item">Animations CSS</span>
+      <span class="tech-item">OpenStreetMap</span>
+      <span class="tech-item">Google Fonts</span>
+      <span class="tech-item">Responsive Design</span>
+    </div>
+  </div>
+
+  <!-- CITATION -->
+  <div class="citation">
+    <p>« Un voyage à travers les 17 régions du Burkina Faso, à la découverte de leurs richesses culturelles, agricoles et humaines. »</p>
+    <div class="citation-author">— Projet académique 2025-2026</div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources-grid">
+    <div class="source-card">
+      <h4>🌍 Sources des données</h4>
+      <p>Institut National de la Statistique (INSD) — Données démographiques</p>
+      <p>Wikipédia — Histoire et géographie des régions</p>
+      <p>OpenStreetMap — Cartes de situation</p>
+    </div>
+    <div class="source-card">
+      <h4>🖼️ Ressources graphiques</h4>
+      <p>Images libres de droit (Unsplash, Wikimedia Commons)</p>
+      <p>Icônes et emojis</p>
+      <p>Polices : Playfair Display et DM Sans</p>
+    </div>
+    <div class="source-card">
+      <h4>📌 Notes techniques</h4>
+      <p>Site entièrement statique (HTML/CSS/JS pur)</p>
+      <p>Navigation fluide avec ancres et smooth scroll</p>
+      <p>Menu responsive adapté aux mobiles</p>
+    </div>
+  </div>
+
+  <!-- BOUTONS RETOUR -->
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="index.html#regions" class="btn-retour">← Explorer les régions</a>
+    <a href="index.html" class="btn-retour btn-outline">🏠 Retour à l'accueil</a>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="footer-logo">🇧🇫 Burkina Faso — Vitrine des 17 Régions</div>
+  <div class="footer-sub">Projet académique 2025-2026 · Site web statique · Tous droits réservés</div>
+  <div style="display: flex; justify-content: center; gap: 0; margin: 1rem auto 0; width: 40px; height: 6px; border-radius: 2px; overflow: hidden;">
+    <span style="flex:1; background: var(--rouge);"></span>
+    <span style="flex:1; background: var(--vert);"></span>
+    <span style="flex:1; background: var(--or);"></span>
+  </div>
+</footer>
+
+<script>
+// Menu mobile
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+  });
+}
+
+// Fermer le menu quand on clique sur un lien
+const links = document.querySelectorAll('.nav-links a');
+links.forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    menuToggle.classList.remove('active');
+  });
+});
+</script>
+
+</body>
+</html>
