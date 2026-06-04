@@ -203,15 +203,51 @@ Rendre visible son patrimoine, accompagner les initiatives locales, structurer l
 </div>
 
 <!-- 6. RESSOURCES NATURELLES -->
-<div class="section ressources">
+<div class="section ressources" style="padding: 4.5rem 2rem; max-width: 1100px; margin: 0 auto;">
   <div>
-    <p class="section-label">Ressources naturelles</p>
-    <h2 class="section-titre"><span>Sites</span> et richesses</h2>
-    <div class="trait"></div>
-    <div class="cards-grid">
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-img"><img src="../Images/fleuve-sourou.jpg" alt="Fleuve Sourou" width="auto" height="auto" style="max-width:100%; height:150px; object-fit:cover; border-radius:8px;"></div><div class="card-body"><strong>🌊 Fleuve Sourou</strong><br>Ressource en eau pour l'agriculture</div></div>
-<div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-img"><img src="../Images/lac-dem.jpg" alt="Lac Dem" width="auto" height="auto" style="max-width:100%; height:150px; object-fit:cover; border-radius:8px;"></div><div class="card-body"><strong>💧 Lac Dem</strong><br>Zone humide protégée</div></div>
-<div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-img"><img src="../Images/forets-karite.jpg" alt="Forêts de karité" width="auto" height="auto" style="max-width:100%; height:150px; object-fit:cover; border-radius:8px;"></div><div class="card-body"><strong>🌿 Forêts de karité</strong><br>Importante production</div></div> </div>
+    <p class="section-label" style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rouge); font-weight: 600; margin-bottom: 0.4rem;">Ressources naturelles</p>
+    <h2 class="section-titre" style="font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 3vw, 2.2rem); font-weight: 700; margin-bottom: 0.6rem;"><span>Sites</span> et richesses du Yaadga</h2>
+    <div class="trait" style="width: 50px; height: 3px; background: var(--or); margin-bottom: 2.5rem;"></div>
+    
+    <div class="cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem;">
+      
+      <!-- CARTE 1: AMÉNAGEMENTS ENDOGÈNES -->
+      <div class="card" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(232, 213, 168, 0.25); border-radius: 14px; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; padding: 1.8rem; border-top: 4px solid var(--vert);">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem;">
+          <span style="font-size: 2.2rem; background: rgba(0, 154, 68, 0.1); width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">🌾</span>
+          <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--vert); background: rgba(0, 154, 68, 0.1); padding: 0.2rem 0.6rem; border-radius: 10px; font-weight: 600;">Eau & Sols</span>
+        </div>
+        <div class="card-body" style="color: var(--gris);">
+          <strong style="font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--nuit); display: block; margin-bottom: 0.6rem;">Périmètres et Boulis</strong>
+          <p style="font-size: 0.88rem; line-height: 1.6; margin: 0;">Valorisation des eaux pluviales à travers des digues filtrantes, boulis et retenues collinaires. Ces infrastructures hydrauliques sécurisent les cultures vivrières et la production maraîchère régionale.</p>
+        </div>
+      </div>
+
+      <!-- CARTE 2: LES ÉPINEUX ET FLORE SAHÉLIENNE -->
+      <div class="card" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(232, 213, 168, 0.25); border-radius: 14px; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; padding: 1.8rem; border-top: 4px solid var(--or);">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem;">
+          <span style="font-size: 2.2rem; background: rgba(247, 183, 49, 0.1); width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">🌳</span>
+          <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--or); background: rgba(247, 183, 49, 0.1); padding: 0.2rem 0.6rem; border-radius: 10px; font-weight: 600;">Biodiversité</span>
+        </div>
+        <div class="card-body" style="color: var(--gris);">
+          <strong style="font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--nuit); display: block; margin-bottom: 0.6rem;">Flore Subsahélienne</strong>
+          <p style="font-size: 0.88rem; line-height: 1.6; margin: 0;">Un écosystème de transition dominé par les parcs à Acacia, Balanites aegyptiaca et arbres à karité. Ces essences résilientes fournissent de précieux Produits Forestiers Non Ligneux (PFNL).</p>
+        </div>
+      </div>
+
+      <!-- CARTE 3: SYSTÈMES TRADITIONNELS ANTI-ÉROSION -->
+      <div class="card" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(232, 213, 168, 0.25); border-radius: 14px; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; padding: 1.8rem; border-top: 4px solid var(--rouge);">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem;">
+          <span style="font-size: 2.2rem; background: rgba(193, 39, 45, 0.1); width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">🧱</span>
+          <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--rouge); background: rgba(193, 39, 45, 0.1); padding: 0.2rem 0.6rem; border-radius: 10px; font-weight: 600;">Patrimoine</span>
+        </div>
+        <div class="card-body" style="color: var(--gris);">
+          <strong style="font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--nuit); display: block; margin-bottom: 0.6rem;">Cordons Pierreux & Zaï</strong>
+          <p style="font-size: 0.88rem; line-height: 1.6; margin: 0;">Berceau historique des techniques de récupération des terres dégradées. Le Zaï traditionnel et les cordons pierreux luttent efficacement contre l'érosion hydrique et régénèrent les sols.</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
 
@@ -257,9 +293,8 @@ Rendre visible son patrimoine, accompagner les initiatives locales, structurer l
     <h2 class="section-titre" style="color:white;"><span style="color:var(--or);">Savoir-faire</span> ancestraux</h2>
     <div class="trait"></div>
     <div class="cards-grid">
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🗿 Sculpture sur granit</strong><br>Art monumental de Laongo</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>⚒️ Forge</strong><br>Outils agricoles, bijoux</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🏺 Poterie</strong><br>Canaris, jarres décorées</div></div>
+        <div class="card" style="background:#3A2516;"><div class="card-img"><img src="../Images/forge-burkina.jpeg" alt="Forge traditionnelle" width="auto" height="auto" style="max-width:100%; height:150px; object-fit:cover; border-radius:8px;"></div><div class="card-body"><strong>⚒️ Forge</strong><br>Outils agricoles, bijoux</div></div>
+      <div class="card" style="background:#3A2516;"><div class="card-img"><img src="../Images/poterie-terre-cuite.jpeg" alt="Poterie traditionnelle" width="auto" height="auto" style="max-width:100%; height:150px; object-fit:cover; border-radius:8px;"></div><div class="card-body"><strong>🏺 Poterie</strong><br>Canaris, jarres décorées</div></div>
     </div>
   </div>
 </div>
