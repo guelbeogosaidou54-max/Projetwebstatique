@@ -36,7 +36,7 @@ nav {
 .info-val { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--or); display: block; }
 .info-label { font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
 
-/* SECTION ADMINISTRATION & GÉOGRAPHIE (NOUVELLE) */
+/* SECTION ADMINISTRATION & GÉOGRAPHIE */
 .details-section {
   background: var(--blanc);
   padding: 2.5rem;
@@ -91,6 +91,23 @@ nav {
 .agri-liste li::before { content: "▸"; color: var(--vert); margin-right: 0.5rem; }
 .btn-retour { display: inline-block; background: var(--rouge); color: var(--blanc); padding: 0.8rem 2rem; border-radius: 3px; text-decoration: none; margin-top: 2rem; }
 .btn-retour:hover { background: #a01f24; }
+/* Centrage des images et de la carte */
+.section img,
+.img-principale img,
+.cards-grid img,
+.card-img img,
+.card-img-dark img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+.section iframe {
+  display: block;
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%;
+}
 footer { background: #0A0805; text-align: center; padding: 2rem; color: rgba(255,255,255,0.35); font-size: 0.78rem; }
 footer span { color: var(--or); }
 @media (max-width: 768px) { nav { padding: 0 1rem; } .nav-links { display: none; } .section { padding: 2rem 1rem; } .hero-titre { font-size: 2rem; } .infos-section { grid-template-columns: repeat(2,1fr); } }
@@ -117,20 +134,19 @@ footer span { color: var(--or); }
 <!-- 2. INFORMATIONS GÉNÉRALES -->
 <div class="infos-section">
   <div class="info-item"><span class="info-val">Bogandé</span><span class="info-label">Chef-lieu</span></div>
-  <div class="info-item"><span class="info-val">~8 500 km²</span><span class="info-label">Superficie (est.)</span></div>
-  <div class="info-item"><span class="info-val">~350 000</span><span class="info-label">Population (est.)</span></div>
+  <div class="info-item"><span class="info-val">~4 650 km²</span><span class="info-label">Superficie (est.)</span></div>
+  <div class="info-item"><span class="info-val">~675 000</span><span class="info-label">Population (est.)</span></div>
   <div class="info-item"><span class="info-val">2</span><span class="info-label">Provinces</span></div>
-  <div class="info-item"><span class="info-val">Sirbien(ne)</span><span class="info-label">Gentilé</span></div>
 </div>
 
-<!-- ===== NOUVEAU : ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
+<!-- ===== DETAILS : ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
 <div class="details-section">
   <div class="details-grid">
     <!-- Administration -->
     <div class="details-category">
       <h3>🏛️ Administration</h3>
       <p><strong>Pays :</strong> Burkina Faso</p>
-      <p><strong>Statut :</strong> Région</p>
+      <p><strong>Statut :</strong> Région administrative</p>
       <p><strong>Provinces :</strong> 2</p>
       <p><strong>Départements :</strong> 10</p>
       <p><strong>Chef-lieu :</strong> Bogandé</p>
@@ -139,17 +155,15 @@ footer span { color: var(--or); }
     <!-- Démographie -->
     <div class="details-category">
       <h3>👥 Démographie</h3>
-      <p><strong>Population (est.) :</strong> ~350 000 hab.</p>
+      <p><strong>Population (est.) :</strong> ~675 000 hab. (Base RGPH)</p>
       <p><strong>Ethnies principales :</strong> Gourmantché, Peulh, Mossi</p>
-      <p><strong>Langues :</strong> Gourmantchéma,peulh, Morée</p>
+      <p><strong>Langues :</strong> Gourmantchéma, Peulh, Mooré</p>
     </div>
     <!-- Géographie & Divers -->
     <div class="details-category">
       <h3>🗺️ Géographie & Divers</h3>
-      <p><strong>Coordonnées :</strong> 12°00'N, 0°30'E</p>
-      <p><strong>Superficie :</strong> ~8 500 km²</p>
-      <p><strong>Fuseau horaire :</strong> UTC+0</p>
-      <p><strong>Indicatif téléphonique :</strong> +226</p>
+      <p><strong>Coordonnées :</strong> 12°58'N, 0°09'E</p>
+      <p><strong>Superficie :</strong> ~4 650 km²</p>
     </div>
   </div>
 </div>
@@ -157,7 +171,7 @@ footer span { color: var(--or); }
 <!-- 3. IMAGE PRINCIPALE -->
 <div class="img-principale" style="text-align: center;">
   <img src="../Images/img132.jpeg" alt="Carte de la région de Sirba" style="display: block; margin: 0 auto; width: auto; max-width: 100%; height: auto;">
-  <div class="img-legende" style="text-align: center; margin-top: 0.5rem;">Sirba</div>
+  <div class="img-legende" style="text-align: center; margin-top: 0.5rem;">Bassin hydrographique et limites de la Sirba</div>
 </div>
 
 <!-- 4. PRÉSENTATION COURTE -->
@@ -165,44 +179,40 @@ footer span { color: var(--or); }
   <p class="section-label">Présentation</p>
   <h2 class="section-titre">Une <span>nouvelle</span> région au cœur du développement</h2>
   <div class="trait"></div>
-  <p>La Sirba est l'une des quatre nouvelles régions créées lors de la réorganisation territoriale du 2 juillet 2025, qui porte désormais le Burkina Faso à 17 régions et 47 provinces. Elle doit son appellation à la rivière Sirba, affluent du fleuve Niger, connue pour son rôle vital dans l'irrigation et la vie des communautés riveraines. La région regroupe des provinces issues principalement de l'ancienne région de l'Est, avec une population majoritairement gourmantché, mais aussi des communautés peules et mossis. La création de la région de la Sirba vise à rapprocher l'administration des habitants, améliorer la gestion des ressources et stimuler un développement plus équilibré dans cette partie du pays.</p><br>
- <h2 class="section-titre">Traditions <span>Et </span> Culture de la Region de Sirba</h2>
-  <p>La région de Sirba au Burkina Faso est riche en traditions et en coutumes qui reflètent la diversité culturelle de la région. Les Gourmantché, qui habitent cette région, ont des pratiques culturelles et religieuses uniques qui sont transmises de génération en génération. Les traditions incluent des rituels spirituels, des célébrations saisonnières, et des activités artistiques qui sont essentielles à la vie communautaire. Les festivals, comme le Festival Dilembu, sont des événements marquants qui célèbrent ces traditions et promeuvent le patrimoine culturel de la région</p><br>
-<img src="../Images/img36.jpeg" alt="Image" width="1000" height="700"><br>
-<h2 class="section-titre">Géographie <span>Et </span> Climat de la Region de Sirba</h2>
-<p>La région de la Sirba est située dans la partie orientale du Burkina Faso, à l'intersection des bassins versants du fleuve Niger et de la rivière Sirba. Elle est caractérisée par un climat tropical avec une saison des pluies qui s'étend de avril à septembre, suivie d'une saison sèche qui dure jusqu'à mars. Les températures sont généralement élevées tout au long de l'année, avec des variations saisonnières.</p>
-<p>La région de la Sirba occupe la zone de transition entre la savane soudanienne et les franges sahéliennes de l'est du Burkina Faso</p>
-<p>À perte de vue s'étend un plateau de latérite rouge-sang, cette terre ferrugineuse caracteristique de l'Est burkinabè, dont la teinte cuivrée embrase le paysage d'une lumière chaude et ancienne, comme si le sol lui-même portait en lui des siècles de mémoire et de soleil.</p> 
-<p>Sur la piste de latérite passent chaque jour les éleveurs peuls conduisant leurs troupeaux vers les pâturages de saison, les cultivateurs gourmanché et bissa rejoignant leurs champs, et les commerçants reliant Bogandé aux marchés hebdomadaires des villages environnants. Car la Sirba, c'est aussi cela : une région nouvelle, née d'une volonté de mieux gouverner et sécuriser un territoire stratégique aux confins de l'Est, dans un contexte de renforcement de la souveraineté burkinabè sur ses marges.</p>
-<img src="../Images/img134.jpeg" alt="image" width="1000" height="800"><br>
+  <p>La Sirba est l'une des quatre nouvelles régions créées lors de la réorganisation territoriale historique du 2 juillet 2025, qui porte désormais le Burkina Faso à 17 régions. Elle doit son appellation endogène à la rivière Sirba, affluent majeur du fleuve Niger, reconnue pour son rôle vital dans l'irrigation, l'agro-pastoralisme et la vie des communautés riveraines. Centrée sur les dynamiques provinces de la Gnagna et de la Komondjari, la création de la région de la Sirba répond à une volonté stratégique de l'État de rapprocher l'administration des citoyens, d'optimiser la gestion locale des ressources et de dynamiser le développement socio-économique de l'Est burkinabè.</p><br>
+ 
+  <h2 class="section-titre">Traditions <span>et</span> Culture de la Région</h2>
+  <p>Le patrimoine de la Sirba est profondément marqué par l'histoire du peuple Gourmantché, cohabitant harmonieusement avec les communautés Peules et Mossis. Les rituels de chefferie traditionnelle, les célébrations saisonnières et le respect des coutumes agraires forment le ciment de la communauté. Les expressions artistiques locales et les grands rendez-vous culturels, à l'instar du Festival Dilembu (fête des récoltes), jouent un rôle crucial dans la préservation et la mise en valeur du patrimoine immatériel régional.</p><br>
+  <img src="../Images/img36.jpeg" alt="Festivités traditionnelles" width="1000" height="700"><br>
 
-<h2 class="section-titre">Rivière <span>De</span> Sirba</h2>
-<p>La région de la Sirba est traversée par plusieurs cours d'eau, dont la rivière Sirba. Les principaux cours d'eau du Burkina Faso incluent le Mouhoun, le Nakambé, et le Nazinon, qui tarissent pendant une période de l'année. Le Mouhoun est le seul cours d'eau pérenne du pays. La Sirba, en tant qu'affluent du fleuve Niger, joue un rôle important dans l'hydrologie et la géographie de la région.</p><br>
-<img src="../Images/img130.jpeg" alt="image" width="1000" height="800"><br>
- <h2 class="section-titre">Zone  <span>De</span> Faune</h2>
-<p>La région de Sirba au Burkina Faso offre des habitats variés propices à l’observation d’oiseaux et de petits mammifères, combinant savanes boisées, buissons et zones humides pour une riche biodiversité.</p>
-<p>La réserve naturelle et les plaines autour du fleuve Sirba représentent des zones écologiquement diversifiées</p>
-<p>Oiseaux : rollier d’Abyssinie, guêpier d’Orient et diverses espèces de passereaux fréquentes dans les zones arbustives et les bordures d’eau </p>
-<p>Petits mammifères : rongeurs, petits marsupiaux et insectivores dans les buissons et herbes hautes, souvent observables grâce à des méthodes passives</p><br>
-<img src="../Images/img131.jpeg" alt="image" width="1000" height="800"><br>
-<h2 class="section-titre">Pont <span>De</span> Sirba</h2>
-<p>Le pont de Sirba est un ouvrage d'art important qui traverse la rivière Sirba, facilitant les déplacements et le commerce entre les communautés riveraines.</p>
-<p>Inauguré en septembre 2018, est un ouvrage stratégique de 309 mètres reliant la RN18 et renforçant l’économie et la circulation dans la nouvelle région administrative de la Sirba, dans l’Est du Burkina Faso.</p>
-<p>
-Le pont facilite la mobilité des personnes et des biens, réduisant les difficultés de transport dans la province de la Gnagna, anciennement partie de l’Est. Il soutient le développement économique, en particulier les échanges commerciaux, l’agriculture, la pêche et le tourisme dans la nouvelle région de la Sirba. L’infrastructure contribue également à la sécurité et au désenclavement des villages comme Piéla, tout en offrant un accès plus sûr pour les populations riveraines</p><br>
-<img src="../Images/img133.jpeg" alt="image" width="1000" height="800"><br>
+  <h2 class="section-titre">Géographie <span>et</span> Climat de la Sirba</h2>
+  <p>Située dans la zone de transition entre la savane soudanienne et les franges sahéliennes, la région présente un relief principalement constitué de plateaux de latérite rouge-sang. Son climat de type tropical se caractérise par une saison des pluies (avril à septembre) essentielle pour les cultures de subsistance, suivie d'une longue saison sèche.</p>
+  <p>Sur les pistes de latérite se croisent quotidiennement les éleveurs transhumants menant leurs troupeaux, les cultivateurs rejoignant leurs parcelles et les commerçants convergeant vers le marché central de Bogandé. Ce maillage fait de la Sirba un carrefour d'échanges stratégique aux confins orientaux du pays.</p>
+  <img src="../Images/img134.jpeg" alt="Paysage de la région" width="1000" height="800"><br>
 
+  <h2 class="section-titre">Rivière <span>de</span> Sirba</h2>
+  <p>Cours d'eau intermittent mais vigoureux, la rivière Sirba est le poumon hydrologique de la région. Contrairement au Mouhoun (seul fleuve pérenne du pays), son débit dépend fortement du calendrier des moussons. Néanmoins, ses crues saisonnières alimentent les nappes phréatiques sous-jacentes et permettent le développement d'activités maraîchères et de pêche indispensables pour l'autonomie alimentaire locale.</p><br>
+  <img src="../Images/img130.jpeg" alt="Cours de la rivière Sirba" width="1000" height="800"><br>
+
+  <h2 class="section-titre">Zone <span>de</span> Faune</h2>
+  <p>Les savanes arbustives et les zones humides bordant le réseau hydrographique offrent un écosystème propice à une biodiversité variée. La région abrite de nombreuses espèces de passereaux (rollier d’Abyssinie, guêpier d’Orient) et une petite faune de mammifères terrestres, constituant un potentiel encore inexploité pour l'écotourisme et l'observation ornithologique.</p><br>
+  <img src="../Images/img131.jpeg" alt="Faune locale" width="1000" height="800"><br>
+
+  <h2 class="section-titre">Pont <span>de</span> Sirba</h2>
+  <p>Inauguré en septembre 2018, ce viaduc stratégique de 309 mètres franchissant la rivière est une infrastructure vitale intégrée à la Route Nationale 18 (RN18). En assurant la continuité des transports même en période de hautes eaux, il brise définitivement l'isolement historique de la Gnagna. Le pont fluidifie les échanges de marchandises avec les grands centres urbains et garantit un accès sécurisé aux services de santé et d'éducation pour les villages comme Piéla.</p><br>
+  <img src="../Images/img133.jpeg" alt="Le pont de la Sirba sur la RN18" width="1000" height="800"><br>
 </div>
 
 <!-- 5. TOURISME & CULTURE -->
 <div class="section" id="tourisme">
   <p class="section-label">Tourisme & Culture</p>
   <h2 class="section-titre">À <span>découvrir</span> absolument</h2>
+  <p>La région de la Sirba se distingue par son potentiel naturel, incarné par le fleuve du même nom, et par la richesse de la culture Gourmantché, rythmée par des danses, masques et rituels. Ces paysages fluviaux abritent des zones propices à l'observation de la faune, idéales pour l'écotourisme et la découverte ornithologique</p>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-img">🌊</div><div class="card-body"><div class="card-cat">Site naturel</div><div class="card-titre">Rivière Sirba</div><div class="card-desc">Affluent du fleuve Niger, paysages fluviaux uniques.</div></div></div>
-    <div class="card"><div class="card-img">🎭</div><div class="card-body"><div class="card-cat">Culture</div><div class="card-titre">Traditions Gourmantché</div><div class="card-desc">Danses, masques et cérémonies initiatiques.</div></div></div>
-    <div class="card"><div class="card-img">🦅</div><div class="card-body"><div class="card-cat">Écotourisme</div><div class="card-titre">Zones de faune</div><div class="card-desc">Observation d'oiseaux et de petits mammifères.</div></div></div>
+    <div class="card"><div class="card-img"><img src="../Images/Rivière-Sirba.jpeg" alt="Rivière Sirba"></div><div class="card-body"><div class="card-cat">Site naturel</div><div class="card-titre">Rivière Sirba</div><div class="card-desc">Affluent du fleuve Niger, paysages fluviaux uniques.</div></div></div>
+    <div class="card"><div class="card-img"><img src="../Images/Traditions_Gourmantché.jpeg" alt="Traditions Gourmantché"></div><div class="card-body"><div class="card-cat">Culture</div><div class="card-titre">Traditions Gourmantché</div><div class="card-desc">Danses, masques et cérémonies initiatiques.</div></div></div>
+    <div class="card"><div class="card-img"><img src="../Images/Zones_de_faune.jpeg" alt="Zones de faune"></div><div class="card-body"><div class="card-cat">Écotourisme</div><div class="card-titre">Zones de faune</div><div class="card-desc">Observation d'oiseaux et de petits mammifères.</div></div></div>
   </div>
 </div>
 
@@ -211,12 +221,8 @@ Le pont facilite la mobilité des personnes et des biens, réduisant les difficu
   <div>
     <p class="section-label">Ressources naturelles</p>
     <h2 class="section-titre"><span>Sites</span> et richesses</h2>
+    <p>Érigée en région administrative du Burkina Faso avec Bogandé pour chef-lieu, la Sirba regroupe les provinces de la Gnagna et de la Komondjari. Cette zone, caractérisée par un climat sahélien, repose sur l'agriculture et l'élevage, avec des ressources en eau cruciales provenant du bassin versant de la rivière Sirba. Son sous-sol, riche en formations du Birimien, présente un potentiel minéral stratégique pour le développement local.</p>
     <div class="trait"></div>
-    <div class="cards-grid">
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌊 Rivière Sirba</strong><br>Source d'irrigation et de vie pour les communautés</div></div>
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌿 Terres fertiles</strong><br>Zones agricoles propices aux cultures vivrières</div></div>
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🦜 Biodiversité</strong><br>Faune et flore typiques de la savane est</div></div>
-    </div>
   </div>
 </div>
 
@@ -224,24 +230,17 @@ Le pont facilite la mobilité des personnes et des biens, réduisant les difficu
 <div class="section" id="agricole">
   <p class="section-label">Potentiel agricole 🌾</p>
   <h2 class="section-titre">Ce que produit la <span>région</span></h2>
+  <p>Le potentiel agricole du bassin de la Sirba repose sur la dualité stratégique entre les cultures céréalières pluviales (mil, sorgho, maïs) complétées par des cultures de rente (niébé, arachide), et une intense activité de maraîchage de saison sèche (oignons, tomates, pastèques, tabac) pratiquée sur les berges après la décrue de la rivière. Cet écosystème agro-pastoral sahélien tire profit d'un réseau de mares semi-permanentes sécurisant l'irrigation, ainsi que de parcs agroforestiers riches en Balanites aegyptiaca et palmiers doums, bien que sa productivité reste fortement soumise aux variations de la pluviométrie et aux défis sécuritaires locaux.</p>
   <div class="trait"></div>
-  <div class="agri-grid">
-    <div class="agri-bloc"><h3>🌱 Cultures principales</h3><ul class="agri-liste"><li>Mil, sorgho, maïs (vivrier)</li><li>Niébé, arachide</li><li>Sésame (culture de rente)</li><li>Coton</li></ul></div>
-    <div class="agri-bloc"><h3>🐄 Élevage</h3><ul class="agri-liste"><li>Bovins (race Gourmantché et Peulh)</li><li>Ovins, caprins</li><li>Élevage lié à la transhumance</li></ul></div>
-    <div class="agri-bloc"><h3>🐟 Pêche</h3><ul class="agri-liste"><li>Pêche dans la Sirba</li><li>Poisson fumé</li></ul></div>
-  </div>
 </div>
 
 <!-- 8. POTENTIEL ÉDUCATIF -->
 <div class="section" id="educatif" style="background:#EEF3FA;">
   <p class="section-label">Potentiel éducatif 🏫</p>
-  <h2 class="section-titre"><span>Former</span> les talents de demain</h2>
+  <h2 class="section-titre"><span>Forme</span> les talents de demain</h2>
+  <p>Le potentiel éducatif de la région de la Sirba s'appuie sur un réseau d'écoles primaires, de collèges et de lycées, soutenu par des centres d'alphabétisation en langues locales et des structures de formation professionnelle. Ce maillage éducatif bénéficie d'investissements publics et de l'appui de partenaires au développement, avec un accent particulier mis sur la scolarisation des filles et la construction d'infrastructures de proximité</p>
   <div class="trait"></div>
-  <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Lycée</strong><br>Enseignement général</div></div>
-    <div class="card"><div class="card-body"><strong>Lycée</strong><br>Formation Techniques Et Professionnelle</div></div>
-    <div class="card"><div class="card-body"><strong>Écoles dans les départements</strong><br>Éducation primaire et Collège</div></div>
-  </div>
+  <div class="cards-grid"></div>
 </div>
 
 <!-- 9. POTENTIEL COMMERCIAL -->
@@ -250,9 +249,9 @@ Le pont facilite la mobilité des personnes et des biens, réduisant les difficu
   <h2 class="section-titre">Échanges et <span>marchés</span></h2>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Marché de Bogandé</strong><br>Samedi — céréales, artisanat, bétail</div></div>
-    <div class="card"><div class="card-body"><strong>Petit commerce transfrontalier</strong><br>Avec les régions voisines</div></div>
-    <div class="card"><div class="card-body"><strong>Coopératives agricoles</strong><br>Exportation de sésame et arachide</div></div>
+    <div class="card"><div class="card-body"><strong>Marché de Bogandé</strong><br>Grand marché hebdomadaire (Céréales, bétail)</div></div>
+    <div class="card"><div class="card-body"><strong>Commerce interrégional</strong><br>Flux d'échanges avec le Sahel et le Centre-Est</div></div>
+    <div class="card"><div class="card-body"><strong>Coopératives rurales</strong><br>Filières de commercialisation du sésame</div></div>
   </div>
 </div>
 
@@ -261,36 +260,44 @@ Le pont facilite la mobilité des personnes et des biens, réduisant les difficu
   <div style="max-width:1100px; margin:0 auto;">
     <p class="section-label" style="color:var(--or);">Artisanat traditionnel</p>
     <h2 class="section-titre" style="color:white;"><span style="color:var(--or);">Savoir-faire</span> ancestraux</h2>
+    <p>La région de la Sirba se distingue à l'échelle nationale par le tissage de son célèbre pagne traditionnel gourmantché, particulièrement incarné par le savoir-faire des tisserands de la localité de Diaka. Ce textile unique se reconnaissance à la précision de ses rayures et à l'usage de teintures artisanales à base de plantes locales et de paille. Le sous-sol argileux de la Gnagna alimente également une poterie traditionnelle dynamique, une activité principalement féminine dédiée à la fabrication de jarres et de canaris indispensables pour la conservation de l'eau. Enfin, les artisans du feu perpétuent une forge héréditaire qui utilise encore des soufflets traditionnels en peau de chèvre pour concevoir des outils agraires comme la daba, tandis que la sculpture sur bois maintient vivante la fabrication de piliers sculptés monoxyles, autrefois utilisés pour structurer les concessions des notables.</p>
     <div class="trait"></div>
-    <div class="cards-grid">
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🎭 Masques Gourmantché</strong><br>Sculptures cérémonielles</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🏺 Poterie</strong><br>Canaris, jarres, ustensiles</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🧺 Vannerie</strong><br>Paniers, nattes, chapeaux</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>⚒️ Forge</strong><br>Outils agricoles, bijoux</div></div>
-    </div>
+    <div class="cards-grid"></div>
   </div>
 </div>
 
-<!-- 14. CARTE DE SITUATION -->
+<!-- 11. CARTE DE SITUATION -->
 <div class="section">
   <p class="section-label">Carte de situation</p>
   <h2 class="section-titre">Localisation de la Sirba</h2>
   <div class="trait"></div>
-  <iframe width="100%" height="350" frameborder="0" style="border:1px solid var(--sable); border-radius:8px;" src="https://www.openstreetmap.org/export/embed.html?bbox=0.0,12.0,1.5,13.0&layer=mapnik&marker=12.5,0.75"></iframe>
+  <iframe width="100%" height="350" frameborder="0" style="border:1px solid var(--sable); border-radius:8px;" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.5,12.4,0.6,13.4&layer=mapnik&marker=12.97,0.15"></iframe>
 </div>
 
-<!-- 2. PROVINCES -->
+<!-- 12. PROVINCES COMPOSANTES -->
 <div class="section">
   <p class="section-label">Provinces</p>
-  <h2 class="section-titre"><span>2 province</span></h2>
+  <h2 class="section-titre">Les <span>2 provinces</span> composantes</h2>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Gnagnan</strong><br>Chef-lieu : Bogandé</div></div>
-    <div class="card"><div class="card-body"><strong>Komandjoari</strong><br>Chef-lieu :  Gayéri.</div></div>
+    <div class="card">
+      <div class="card-body">
+        <strong>Gnagna</strong><br>
+        Chef-lieu : Bogandé<br>
+        <span style="font-size:0.85rem; color:var(--gris);">Également chef-lieu de la région de la Sirba.</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <strong>Komondjari</strong><br>
+        Chef-lieu : Gayéri<br>
+        <span style="font-size:0.85rem; color:var(--gris);">Province stratégique du bassin hydrographique oriental.</span>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- 17. BOUTON RETOUR -->
+<!-- 13. BOUTON RETOUR -->
 <div class="section" style="text-align:center;">
   <a href="../Racine/index.html" class="btn-retour">← Retour à l'accueil</a>
   <a href="../Racine/index.html" class="btn-retour" style="margin-left:1rem; background:var(--nuit);">🏠 Accueil</a>
