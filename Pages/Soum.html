@@ -36,7 +36,6 @@ nav {
 .info-val { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--or); display: block; }
 .info-label { font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
 
-/* SECTION ADMINISTRATION & GÉOGRAPHIE (NOUVELLE) */
 .details-section {
   background: var(--blanc);
   padding: 2.5rem;
@@ -79,17 +78,38 @@ nav {
 .card { background: var(--blanc); border-radius: 10px; border: 1px solid var(--sable); overflow: hidden; transition: transform 0.2s; }
 .card:hover { transform: translateY(-4px); }
 .card-img { height: 150px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; font-size: 3rem; background-color: var(--sable); }
+.card-img img { width: 100%; height: 100%; object-fit: cover; }
 .card-body { padding: 1.2rem; }
 .card-cat { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--rouge); font-weight: 500; }
 .card-titre { font-size: 1rem; font-weight: 600; margin: 0.4rem 0; }
 .card-desc { font-size: 0.85rem; color: var(--gris); }
-.galerie-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; margin-top: 2rem; }
-.galerie-item { height: 180px; background: var(--sable); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2rem; background-size: cover; background-position: center; }
+
+.section img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem auto;
+  border-radius: 6px;
+}
+
+/* Centrage des images dans les cartes */
+.card-img img,
+.cards-grid img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Centrage de la carte (iframe) */
+.section iframe {
+  display: block;
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%;
+}
+
 .agri-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 2rem; }
-.agri-bloc { background: var(--blanc); border-radius: 10px; padding: 1.5rem; border-top: 4px solid var(--vert); }
-.agri-liste { list-style: none; }
-.agri-liste li { padding: 0.5rem 0; border-bottom: 1px solid #f0ebe0; }
-.agri-liste li::before { content: "▸"; color: var(--vert); margin-right: 0.5rem; }
 .btn-retour { display: inline-block; background: var(--rouge); color: var(--blanc); padding: 0.8rem 2rem; border-radius: 3px; text-decoration: none; margin-top: 2rem; }
 .btn-retour:hover { background: #a01f24; }
 footer { background: #0A0805; text-align: center; padding: 2rem; color: rgba(255,255,255,0.35); font-size: 0.78rem; }
@@ -112,82 +132,100 @@ footer span { color: var(--or); }
 <section class="region-hero">
   <div class="hero-badge">Région du Burkina Faso</div>
   <h1 class="hero-titre">Soum</h1>
-  <p class="hero-slogan">« Située dans le nord du Burkina Faso»</p>
+  <p class="hero-slogan">« Au cœur de la tradition pastorale du Sahel »</p>
 </section>
 
 <!-- 2. INFORMATIONS GÉNÉRALES -->
 <div class="infos-section">
   <div class="info-item"><span class="info-val">Djibo</span><span class="info-label">Chef-lieu</span></div>
   <div class="info-item"><span class="info-val">12 205 km²</span><span class="info-label">Superficie</span></div>
-  <div class="info-item"><span class="info-val">363 661 habitants</span><span class="info-label">5ème RGPH</span></div>
+  <div class="info-item"><span class="info-val">~363 661</span><span class="info-label">Population (RGPH)</span></div>
   <div class="info-item"><span class="info-val">2</span><span class="info-label">Provinces</span></div>
 </div>
 
-<!-- ===== NOUVEAU : ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
+<!-- ===== DETAILS : ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
 <div class="details-section">
   <div class="details-grid">
     <!-- Administration -->
     <div class="details-category">
       <h3>🏛️ Administration</h3>
       <p><strong>Pays :</strong> Burkina Faso</p>
-      <p><strong>Statut :</strong> Région</p>
-      <p><strong>Departement:</strong>11</p>
-      <p><strong>Provinces :</strong>Djelgodji(Djibo), Karo_Peli(Arbinda)</p>
+      <p><strong>Statut :</strong> Région administrative</p>
+      <p><strong>Départements :</strong> 11</p>
+      <p><strong>Provinces :</strong> 2 (Djelgodji, Karo-Péli)</p>
       <p><strong>Chef-lieu :</strong> Djibo</p>
+      <p><strong>Création :</strong> 2 juillet 2025</p>
     </div>
     <!-- Démographie -->
     <div class="details-category">
       <h3>👥 Démographie</h3>
-      <p><strong>5ème RGP:</strong> 363 661 habitant</p>
-      <p><strong>Densité :</strong> 32,9 habitants / km²</p>
+      <p><strong>Population :</strong> 363 661 habitants</p>
+      <p><strong>Densité :</strong> 32,9 hab./km²</p>
     </div>
     <!-- Géographie & Divers -->
     <div class="details-category">
       <h3>🗺️ Géographie & Divers</h3>
       <p><strong>Superficie :</strong> 12 205 km²</p>
+      <p><strong>Climat :</strong> Sahélien strict (aride)</p>
     </div>
   </div>
 </div>
+
 <!-- 3. IMAGE PRINCIPALE -->
 <div class="img-principale">
-    <img src="../Images/Soum.jpeg" alt="Carte de la région de Sirba" style="display: block; width: 100%; height: auto;">
+    <img src="../Images/Soum.jpeg" alt="Carte de la région de Soum">
+    <div class="img-legende">Limites administratives de la région du Soum</div>
 </div>
 
 <!-- 4. PRÉSENTATION COURTE -->
 <div class="section">
   <p class="section-label">Présentation</p>
-  <h2 class="section-titre">La <span>Region de Soum</span></h2> 
+  <h2 class="section-titre">La <span>Région du Soum</span></h2> 
   <div class="trait"></div>
-  <p>La région du Soum est l'une des 17 régions administratives du Burkina Faso, 
-    créée par la réorganisation du 2 juillet 2025. Chef-lieu Djibo, cette entité sahélienne 
-    couvre des zones réaménagées du nord du pays, comprenant notamment les provinces du Djelgodji et du Zondoma</p>
-<img src="../Images/SoumPresentation.jpeg" alt="image" width="auto" height="auto"><br>
-<p>La Plaine de Dori</p>
-<p>L'essence géographique de la région de Dori : une vaste plaine aride où l'horizon semble s'étendre à l'infini. Le tapis de graminées séchées et la topographie plate témoignent d'un climat semi-désertique, façonné par les vents et la rareté des pluies. C'est l'image d'un territoire brut, symbole de la résilience du monde pastoral face aux défis climatiques."</p>
-<img src="../Images/img126.jpeg" alt="image" width="auto" height="auto"><br>
-<p>L'Arbre Sahélien</p>
-<p>Au carrefour des pistes sablonneuses, cet arbre majestueux (probablement un Prosopis ou un Acacia) dresse sa silhouette résistante. Avec son feuillage fin adapté pour limiter l'évaporation et ses branches épineuses, il offre une ombre vitale aux voyageurs et au bétail. Sa présence le long de ce chemin de terre illustre comment la flore locale s'adapte pour survivre dans un environnement difficile.</p><br>
-<img src="../Images/img128.jpeg" alt="image" width="auto" height="auto"><br>
-<p>La Mare de Dori (Vue de Vie)</p>
-<p>Cette scène quotidienne sur les berges de la Mare de Dori révèle son rôle central pour la communauté. Abreuvement des troupeaux de zébus, activités domestiques (puisage de l'eau) et transport à moto : le point d'eau est le point de convergence de toutes les activités. Mais l'eau ocre et les berges nues témoignent aussi de sa fragilité et du risque croissant d'ensablement qui menace ce patrimoine vital."</p><br>
-<img src="../Images/img129.jpeg" alt="image" width="auto" height="auto"><br>
+  <p>La région du Soum est l'une des 17 régions administratives du Burkina Faso, consacrée par la réorganisation territoriale du 2 juillet 2025. Avec Djibo comme chef-lieu, cette entité fièrement sahélienne englobe les terres historiques du nord, subdivisées en deux provinces phares : le Djelgodji et le Karo-Péli.</p>
+  
+  <img src="../Images/SoumPresentation.jpeg" alt="Présentation du Soum">
+
+  <h2 class="section-titre">Les Grandes <span>Plaines Sahéliennes</span></h2>
+  <p>L'essence géographique du Soum repose sur d'immenses étendues de savanes arbustives et de plaines arides où l'horizon semble sans fin. Le tapis de graminées séchées et la topographie plane témoignent d'un climat semi-désertique rigoureux, façonné par l'harmattan et la rareté des pluies. C'est le symbole de la résilience du monde pastoral.</p>
+  
+  <img src="../Images/img126.jpeg" alt="Plaine sahélienne">
+
+  <h2 class="section-titre">L'Arbre Sahélien <span>et la Flore</span></h2>
+  <p>Au carrefour des pistes sablonneuses, les acacias et prosopis dressent leurs silhouettes résistantes. Dotés d'un feuillage fin adapté pour limiter l'évaporation et de racines profondes, ils offrent une ombre vitale aux voyageurs et aux grands troupeaux transhumants en quête de fraîcheur.</p>
+  
+  <img src="../Images/img128.jpeg" alt="Végétation du Soum">
+
+  <h2 class="section-titre">Les Points d'Eau <span>et la Vie Pastorale</span></h2>
+  <p>Les mares et retenues d'eau du Soum constituent les véritables poumons de la région. Lieux de convergence quotidiens, elles accueillent des milliers de zébus pour l'abreuvement, tout en abritant les activités domestiques et le maraîchage local. Ces écosystèmes précieux restent cependant très fragiles face aux risques d'ensablement.</p>
+  
+  <img src="../Images/img129.jpeg" alt="Mare et troupeaux au Sahel">
 </div>
 
 <!-- 5. TOURISME & CULTURE -->
 <div class="section" id="tourisme">
   <p class="section-label">Tourisme & Culture</p>
   <h2 class="section-titre">À <span>découvrir</span> absolument</h2>
-  <p>La province du Soum (devenue Djelgodji après la réforme territoriale de juillet 2025),
-     située dans la région du Sahel au Burkina Faso, est une zone riche en potentiel touristique 
-     et culturel, marquée par des paysages sahéliens, un patrimoine archéologique ancien 
-     et une forte tradition pastorale. Djibo en est le chef-lieu</p>
+  <p>La région du Soum possède un riche patrimoine archéologique et immatériel lié à l'histoire du royaume du Djelgodji et aux traditions nomades et sédentaires qui s'y croisent.</p>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div>    <p><strong>Gravures rupestres de Pobé-Mengao :</strong> Sites archéologiques majeurs témoignant de l'occupation ancienne de la région.</p>
-<img src="../Images/Gravure.jpeg" alt="image des gravures" width="auto" height="auto"></div>
-<di><p><strong>paysages sahéliens</strong></p><img src="../Images/Paysage.jpeg" alt="image des paysages" width="auto" height="auto"></di>
+    <div class="card">
+      <div class="card-img"><img src="../Images/Gravure.jpeg" alt="Gravures rupestres"></div>
+      <div class="card-body">
+        <div class="card-cat">Archéologie</div>
+        <div class="card-titre">Gravures de Pobé-Mengao</div>
+        <div class="card-desc">Des œuvres rupestres et des pierres taillées millénaires uniques au Burkina.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img"><img src="../Images/Paysage.jpeg" alt="Paysage Sahélien"></div>
+      <div class="card-body">
+        <div class="card-cat">Nature</div>
+        <div class="card-titre">Dunes et steppes dorées</div>
+        <div class="card-desc">Un panorama typique de l'Afrique sahélienne aux variations de lumières spectaculaires.</div>
+      </div>
+    </div>
   </div>
-
 </div>
 
 <!-- 6. RESSOURCES NATURELLES -->
@@ -195,15 +233,8 @@ footer span { color: var(--or); }
   <div>
     <p class="section-label">Ressources naturelles</p>
     <h2 class="section-titre"><span>Sites</span> et richesses</h2>
-    <p> Le sous-sol de la region de Soum recèle d'importantes réserves aurifères, exploitées 
-      essentiellement par l'orpaillage artisanal traditionnel. Sur le plan patrimonial, la région conserve 
-      l'un des plus riches héritages archéologiques du pays avec les gravures rupestres 
-      millénaires de Pobé-Mengao et d'Arbinda, ainsi qu'un tissu culturel vivant maintenu 
-      par le savoir-faire endogène de ses artisans du cuir, potiers et vanniers</p>
+    <p>Le sous-sol de la région du Soum recèle d'importantes réserves minières, notamment aurifères, exploitées de manière artisanale et industrielle. Sur le plan artisanal, la région brille par le travail séculaire du cuir (maroquinerie peule reconnue) ainsi que la vannerie d'une grande finesse.</p>
     <div class="trait"></div>
-    <div class="cards-grid">
-          
-    </div>
   </div>
 </div>
 
@@ -213,24 +244,29 @@ footer span { color: var(--or); }
   <h2 class="section-titre">Ce que produit la <span>région</span></h2>
   <div class="trait"></div>
   <div class="agri-grid">
-    <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>Élevage et potentiel pastoral </strong><br>La région du Soum (historiquement le Djelgodji) demeure le cœur du pastoralisme sahélien au
-         Burkina Faso. Ses vastes zones de pâturage et ses savanes herbeuses soutiennent un cheptel bovin, ovin et caprin de premier ordre.</div><img src="../Images/betail.jpeg" alt="image de l'élevage" width="auto" height="auto"></div>
-         <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>Agriculture sahélienne :</strong><br> Cultures de mil,maïs, sorgho, niébé et maraîchage autour des points d'eau.
-        </div><img src="../Images/AgricultureSoum.jpg" alt="image de l'agriculture" width="auto" height="auto"></div>
+    <div class="card">
+      <img src="../Images/betail.jpeg" alt="Élevage au Soum" width="700" height="200">
+      <div class="card-body">
+        <strong>Élevage et potentiel pastoral</strong><br>
+        Le Soum est le pilier de l'élevage burkinabè avec ses grands marchés à bétail qui exportent vers toute la sous-région.
+      </div>
+    </div>
+    <div class="card">
+      <img src="../Images/AgricultureSoum.jpg" alt="Agriculture de subsistance">
+      <div class="card-body">
+        <strong>Cultures sahéliennes</strong><br>
+        Cultures adaptées au faible régime pluviométrique : le mil, le sorgho, le niébé et le maraîchage de décrue.
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- 8. POTENTIEL ÉDUCATIF -->
 <div class="section" id="educatif" style="background:#EEF3FA;">
   <p class="section-label">Potentiel éducatif 🏫</p>
-  <h2 class="section-titre"><span>Former</span> les talents de demain</h2>
+  <h2 class="section-titre"><span>Développer</span> les compétences locales</h2>
+  <p>Le potentiel éducatif du Soum repose sur des écoles primaires, des collèges et lycées d'enseignement secondaire général, ainsi que sur des centres d'Éducation Non Formelle (ENF) dédiées à l'alphabétisation en langues locales. Ce réseau est complété par des structures de formation technique et professionnelle axées sur l'apprentissage des métiers agropastoraux et artisanaux de la région</p>
   <div class="trait"></div>
-  <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Université Joseph Ki-Zerbo</strong><br>Principale université publique</div></div>
-    <div class="card"><div class="card-body"><strong>Université Thomas Sankara</strong><br>Sciences, technologies</div></div>
-    <div class="card"><div class="card-body"><strong>2iE</strong><br>Institut international d'ingénierie</div></div>
-    <div class="card"><div class="card-body"><strong>ISIG, ISTIC, CFP</strong><br>Établissements privés et professionnels</div></div>
-  </div>
 </div>
 
 <!-- 9. POTENTIEL COMMERCIAL -->
@@ -239,14 +275,13 @@ footer span { color: var(--or); }
   <h2 class="section-titre">Échanges et <span>marchés</span></h2>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div><img src="../Images/marché.jpeg" alt="image du marché" width="auto" height="auto"></div>
+    <div class="card">
+      <div class="card-body">
+        <img src="../Images/marché.jpeg" alt="Marché de bétail" width="700" height="200">
+        <p style="margin-top:1rem;">Le marché à bétail de <strong>Djibo</strong> constitue l'un des carrefours d’exportation majeurs de l'Afrique de l'Ouest pour les bovins et petits ruminants. Les flux s'articulent également avec les marchés hebdomadaires d'Arbinda et de Koutougou, alimentant les filières de la maroquinerie, de la vannerie et du maraîchage de pointe.</p>
+      </div>
+    </div>
   </div>
-    <p>Le potentiel commercial du Soum repose principalement sur l'élevage et ses circuits 
-      d'échanges dynamiques centrés autour de son chef-lieu. Selon les données de la 
-      Monographie socio-foncière de la province du Soum, le réseau commercial s'articule 
-      autour de grands marchés hebdomadaires comme ceux de Djibo, Pétégoli, Koutougou et 
-      Arbinda, qui attirent régulièrement des acheteurs venus de Ouagadougou, Kaya ou Ouahigouya. Les rapports techniques de la FAO et du réseau FEWS NET soulignent que le marché à bétail de Djibo est l'un des carrefours d’exportation majeurs de la sous-région pour les bovins et les petits ruminants. Ce dynamisme est renforcé par les flux transfrontaliers, le commerce de produits artisanaux manufacturés (maroquinerie et vannerie) et, comme le rapporte l'Agence Information du Burkina (AIB), par une production maraîchère locale en pleine relance qui approvisionne les circuits de consommation provinciaux</p>
-    
 </div>
 
 <!-- 14. CARTE DE SITUATION -->
@@ -254,16 +289,29 @@ footer span { color: var(--or); }
   <p class="section-label">Carte de situation</p>
   <h2 class="section-titre">Localisation de la région de Soum</h2>
   <div class="trait"></div>
-  <iframe width="100%" height="350" frameborder="0" style="border:1px solid var(--sable); border-radius:8px;" src="https://www.openstreetmap.org/export/embed.html?bbox=-2.0,13.9,-1.2,14.4&layer=mapnik&marker=14.1,-1.6"></iframe>
+  <iframe width="100%" height="350" frameborder="0" style="border:1px solid var(--sable); border-radius:8px;" src="https://www.openstreetmap.org/export/embed.html?bbox=-2.5,13.7,-0.9,14.6&layer=mapnik&marker=14.1,-1.6"></iframe>
 </div>
 
 <!-- 15. PROVINCES -->
 <div class="section">
   <p class="section-label">Provinces</p>
-  <h2 class="section-titre"><span>1 province</span></h2>
+  <h2 class="section-titre">Les <span>2 provinces</span> composantes</h2>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Kadiogo</strong><br>Chef-lieu : Ouagadougou</div></div>
+    <div class="card">
+      <div class="card-body">
+        <strong>Djelgodji</strong><br>
+        Chef-lieu : Djibo<br>
+        <span style="font-size:0.85rem; color:var(--gris);">Également chef-lieu de la région du Soum. Centre névralgique et pastoral.</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <strong>Karo-Péli</strong><br>
+        Chef-lieu : Arbinda<br>
+        <span style="font-size:0.85rem; color:var(--gris);">Province orientale de la région, abritant d'importants sites historiques.</span>
+      </div>
+    </div>
   </div>
 </div>
 
