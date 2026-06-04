@@ -26,17 +26,18 @@ nav {
 .nav-links { display: flex; gap: 1.5rem; list-style: none; }
 .nav-links a { color: rgba(255,255,255,0.75); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover { color: var(--or); }
+
 .region-hero { min-height: 60vh; background: linear-gradient(160deg, #1a2a0a, #3a6020); display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: 5rem 3rem 4rem; position: relative; }
 .hero-badge { background: var(--rouge); color: white; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 2px; margin-bottom: 1.2rem; }
 .hero-titre { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 7vw, 5rem); font-weight: 900; color: var(--blanc); line-height: 1.05; }
 .hero-slogan { font-size: 1.1rem; color: var(--or); margin-top: 0.8rem; font-style: italic; }
+
 .infos-section { background: var(--nuit); padding: 2.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); border-bottom: 3px solid var(--rouge); }
 .info-item { padding: 1rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
 .info-item:last-child { border-right: none; }
 .info-val { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--or); display: block; }
 .info-label { font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
 
-/* SECTION ADMINISTRATION & GÉOGRAPHIE (NOUVELLE) */
 .details-section {
   background: var(--blanc);
   padding: 2.5rem;
@@ -72,27 +73,30 @@ nav {
 .section-titre { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
 .section-titre span { color: var(--rouge); }
 .trait { width: 50px; height: 3px; background: var(--or); margin-bottom: 2rem; }
-.img-principale { width: 100%; max-width: 1100px; height: 400px; background: linear-gradient(135deg,#1a2a0a,#3a6020); position: relative; margin: 2rem auto; display: flex; align-items: center; justify-content: center; font-size: 5rem; }
-.img-legende { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: white; padding: 1rem; font-size: 0.8rem; text-align: center; }
+
+.img-container { width: 100%; max-width: 1100px; margin: 2rem auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.img-container img { width: 100%; height: auto; display: block; }
+.img-caption { background: #12100A; color: rgba(255,255,255,0.7); font-size: 0.8rem; padding: 0.8rem; text-align: center; }
+
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1.5rem; }
-.card { background: var(--blanc); border-radius: 10px; border: 1px solid var(--sable); overflow: hidden; transition: transform 0.2s; }
+.card { background: var(--blanc); border-radius: 10px; border: 1px solid var(--sable); overflow: hidden; transition: transform 0.2s; display: flex; flex-direction: column; }
 .card:hover { transform: translateY(-4px); }
-.card-img { height: 150px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; font-size: 3rem; background-color: var(--sable); }
-.card-body { padding: 1.2rem; }
+.card-body { padding: 1.2rem; flex-grow: 1; }
 .card-cat { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--rouge); font-weight: 500; }
 .card-titre { font-size: 1rem; font-weight: 600; margin: 0.4rem 0; }
-.card-desc { font-size: 0.85rem; color: var(--gris); }
-.galerie-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; margin-top: 2rem; }
-.galerie-item { height: 180px; background: var(--sable); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2rem; background-size: cover; background-position: center; }
+.card-desc { font-size: 0.85rem; color: var(--gris); line-height: 1.5; }
+
 .agri-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 2rem; }
 .agri-bloc { background: var(--blanc); border-radius: 10px; padding: 1.5rem; border-top: 4px solid var(--vert); }
 .agri-liste { list-style: none; }
 .agri-liste li { padding: 0.5rem 0; border-bottom: 1px solid #f0ebe0; }
 .agri-liste li::before { content: "▸"; color: var(--vert); margin-right: 0.5rem; }
+
 .btn-retour { display: inline-block; background: var(--rouge); color: var(--blanc); padding: 0.8rem 2rem; border-radius: 3px; text-decoration: none; margin-top: 2rem; }
 .btn-retour:hover { background: #a01f24; }
 footer { background: #0A0805; text-align: center; padding: 2rem; color: rgba(255,255,255,0.35); font-size: 0.78rem; }
 footer span { color: var(--or); }
+
 @media (max-width: 768px) { nav { padding: 0 1rem; } .nav-links { display: none; } .section { padding: 2rem 1rem; } .hero-titre { font-size: 2rem; } .infos-section { grid-template-columns: repeat(2,1fr); } }
 </style>
 </head>
@@ -116,39 +120,38 @@ footer span { color: var(--or); }
 
 <!-- 2. INFORMATIONS GÉNÉRALES -->
 <div class="infos-section">
-  <div class="info-item"><span class="info-val">Tougan / Di</span><span class="info-label">Chef-lieu</span></div>
-  <div class="info-item"><span class="info-val">~12 000 km²</span><span class="info-label">Superficie (est.)</span></div>
-  <div class="info-item"><span class="info-val">~400 000</span><span class="info-label">Population (est.)</span></div>
+  <div class="info-item"><span class="info-val">Tougan</span><span class="info-label">Chef-lieu</span></div>
+  <div class="info-item"><span class="info-val">14 611 km²</span><span class="info-label">Superficie</span></div>
+  <div class="info-item"><span class="info-val">~1 100 000</span><span class="info-label">Population (est.)</span></div>
   <div class="info-item"><span class="info-val">3</span><span class="info-label">Provinces</span></div>
-  <div class="info-item"><span class="info-val">Sourou</span><span class="info-label">Gentilé</span></div>
+  <div class="info-item"><span class="info-val">Sourouais</span><span class="info-label">Gentilé</span></div>
 </div>
 
-<!-- ===== NOUVEAU : ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
+<!-- ===== DETAILS : ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
 <div class="details-section">
   <div class="details-grid">
     <!-- Administration -->
     <div class="details-category">
       <h3>🏛️ Administration</h3>
       <p><strong>Pays :</strong> Burkina Faso</p>
-      <p><strong>Statut :</strong> Région</p>
-      <p><strong>Provinces :</strong> 3 (Kossi, Nayala, Sourou)</p>
-      <p><strong>Chef-lieu :</strong> Tougan (province Sourou) / Di (région)</p>
+      <p><strong>Statut :</strong> Région issue du Découpage 2025</p>
+      <p><strong>Provinces :</strong> Kossi, Nayala, Sourou</p>
+      <p><strong>Chef-lieu :</strong> Tougan</p>
       <p><strong>Création :</strong> 2 juillet 2025</p>
     </div>
     <!-- Démographie -->
     <div class="details-category">
       <h3>👥 Démographie</h3>
-      <p><strong>Population (est.) :</strong> ~400 000 hab.</p>
-      <p><strong>Densité :</strong> ~33 hab./km²</p>
-      <p><strong>Communes clés :</strong> Nouna, Djibasso, Barani, Bomborokui, Tougan, Lanfiéra, Kassoum, Gassan, Toma, Yé, Kougny, Yaba</p>
+      <p><strong>Population (est.) :</strong> ~1 100 000 hab.</p>
+      <p><strong>Densité :</strong> ~75 hab./km²</p>
+      <p><strong>Peuples :</strong> Samo, Marka, Bwa, Peulh, Dogon</p>
     </div>
     <!-- Géographie & Divers -->
     <div class="details-category">
       <h3>🗺️ Géographie & Divers</h3>
-      <p><strong>Coordonnées :</strong> 12°30'N, 3°30'O</p>
-      <p><strong>Superficie :</strong> ~12 000 km²</p>
-      <p><strong>Situation :</strong> Ouest du Burkina Faso</p>
-      <p><strong>Frontières :</strong> Nord (Mali), Est (Yaadga), Sud (Bankui & Nando), Sud-Ouest (Guiriko)</p>
+      <p><strong>Coordonnées :</strong> 12°42'N, 3°04'O</p>
+      <p><strong>Situation :</strong> Nord-Ouest du Burkina Faso</p>
+      <p><strong>Frontières :</strong> Nord/Ouest (Mali), Est (Yaadga), Sud (Bankui)</p>
       <p><strong>Fuseau horaire :</strong> UTC+0</p>
       <p><strong>Indicatif téléphonique :</strong> +226</p>
     </div>
@@ -156,9 +159,9 @@ footer span { color: var(--or); }
 </div>
 
 <!-- 3. IMAGE PRINCIPALE -->
-<div class="img-principale">
-  <img src="../Images/img97.jpeg" alt="Fleuve Mouhoun à Dédougou">
-  <div class="img-legende">Carte de la Region de Sourou</div>
+<div class="img-container">
+  <img src="../Images/img97.jpeg" alt="Vallée et cours d'eau de la région du Sourou">
+  <div class="img-caption">Paysage hydro-agricole le long de la rivière Sourou</div>
 </div>
 
 <!-- 4. PRÉSENTATION COURTE -->
@@ -166,37 +169,44 @@ footer span { color: var(--or); }
   <p class="section-label">Présentation</p>
   <h2 class="section-titre">Une <span>vallée fertile</span> au service du développement</h2>
   <div class="trait"></div>
-  <p>La région du Sourou est l'une des quatre nouvelles entités administratives créées lors du nouveau découpage territorial annoncé en juillet 2025.</p>
-     <p>Cette réforme a porté le nombre de régions du Burkina Faso de 13 à 17, avec pour objectif de rapprocher l'administration des populations et de mieux valoriser les identités locales.</p>
-      <p>Située à l'ouest du pays, la région est connue pour sa vallée fertile du Sourou, propice à l'agriculture irriguée (riz, maïs, légumes).</p>
-       <p>Elle possède un fort potentiel en élevage et en pêche grâce à ses ressources en eau. </p>
-       <p>Le Sourou est traversé par d'importantes ressources en eau favorisant l'agriculture irriguée et les aménagements hydro-agricoles.</p>
-       <p> La région du Sourou est née d'une volonté de décentralisation renforcée, avec l'ambition de devenir un pôle agricole et culturel majeur du Burkina Faso.</p><br>
-       <img src="../Images/img98.jpeg" alt="Image" width="1000" height="700"><br>
-<p>Tradition et culture de la région du Sourou</p>
-<p>
-La province du Sourou, située dans la région de la Boucle du Mouhoun, possède une richesse culturelle façonnée par la diversité de ses peuples, notamment les Marka, Bwa, Peulh, Dogon et Samogo.</p>
-<p> Les chefs coutumiers jouent un rôle central dans la gestion des terres, la résolution des conflits et la préservation des rites.</p><br>
-<img src="../Images/img100.jpeg" alt="Image" width="1000" height="700"><br>
-<p>La Danse des Samo</p>
-<p>La danse des Samo dans le Sourou est une pratique culturelle rituelle et festive, exécutée principalement à la fin de la saison sèche pour appeler les pluies et célébrer le patrimoine communautaire.</p>
-<p> À Sourou, la population Samo est principalement constituée de cultivateurs sédentaires vivant dans des villages organisés hiérarchiquement avec un chef de village, un chef de terre, des griots et des forgerons 
-Overblog
-.</p>
-<img src="../Images/img109.jpeg" alt="Image" width="1000" height="700"><br>
-<p>
-La province du Sourou est traversée par la rivière Sourou, qui est un affluent du Mouhoun.</p>
-<p> Elle est frontalière de la région du Yaadga à l'est, du Mali au nord et à l'ouest, de la province de la Kossi au sud-ouest et de la province du Nayala au sud.</p>
-<img src="../Images/img101.jpeg" alt="Image" width="1000" height="700"><br>
-<p>Culture de Tomate dans la region du Sourou</p>
-<p>
-La vallée du Sourou constitue un espace transfrontalier stratégique entre le Burkina Faso (régions de la Boucle du Mouhoun et provinces de Sourou et Kossi) et le Mali (région de Mopti, cercles de Bankass et Koro)</p>
-<p>La culture de la tomate dans la région du Sourou combine techniques maraîchères adaptées, irrigation, protection phytosanitaire et accès progressivement à la transformation industrielle, faisant de cette vallée un modèle régionale de production maraîchère rentable et résistante aux défis climatiques et économiques</p><br>
-<img src="../Images/img102.jpeg" alt="Image" width="1000" height="700"><br>
-<p>Toma-îl</p>
-<p>Un prestigieux village situé au plein cœur du fleuve sourou dans la commune rurale de Di dans la région de Sourou au Burkina Faso.</p><br>
-<img src="../Images/img99.jpeg" alt="Image" width="1000" height="700"><br>
+  <p>La région du Sourou est l'une des quatre nouvelles entités administratives créées lors du découpage territorial adopté en juillet 2025. Cette réforme historique a porté le nombre de régions du Burkina Faso de 13 à 17, valorisant les identités locales et renforçant la couverture des services publics et la défense stratégique du territoire.</p>
+  
+  <p>Située au nord-ouest du pays, la région est célèbre pour sa grande vallée du Sourou, un bassin exceptionnel propice aux aménagements hydro-agricoles et à l'agriculture irriguée à grande échelle.</p>
 
+  <div class="img-container">
+    <img src="../Images/img98.jpeg" alt="Tradition et culture de la région du Sourou">
+    <div class="img-caption">Tradition et culture de la région du Sourou</div>
+  </div>
+
+  <p>La région possède une mosaïque culturelle unique façonnée par la coexistence pacifique de ses communautés constitutives, notamment les peuples Samo, Marka, Bwa, Peulh, Dogon et Samogo. Les autorités coutumières y maintiennent un rôle central dans le vivre-ensemble et la régulation sociale locale.</p>
+
+  <div class="img-container">
+    <img src="../Images/img100.jpeg" alt="La Danse des Samo dans le Sourou">
+    <div class="img-caption">La Danse des Samo — Rituel de célébration et de cohésion sociale</div>
+  </div>
+
+  <p>Parmi les manifestations coutumières typiques, la danse des Samo est exécutée traditionnellement pour appeler les pluies en fin de saison sèche ou pour sceller les récoltes. Les communautés agricoles locales structurent leurs villages autour de valeurs fortes de solidarité et de transmission artisanale.</p>
+
+  <div class="img-container">
+    <img src="../Images/img109.jpeg" alt="Le fleuve Sourou et ses aménagements">
+    <div class="img-caption">Le réseau hydrographique du Sourou, moteur économique de la région</div>
+  </div>
+
+  <p>Le réseau hydrographique repose sur la rivière Sourou, affluent majeur du fleuve Mouhoun. Cette ressource d'eau permanente sécurise la production maraîchère régionale face aux rigueurs climatiques de la zone subsahélienne.</p>
+
+  <div class="img-container">
+    <img src="../Images/img101.jpeg" alt="Culture de Tomate dans la région du Sourou">
+    <div class="img-caption">Champs maraîchers de tomates dans la vallée du Sourou</div>
+  </div>
+
+  <p>La culture de la tomate, de l'oignon et du riz fait de cette vallée un modèle de production durable. L'irrigation maîtrisée y favorise l'essor économique et le ravitaillement des grands centres urbains burkinabè.</p>
+
+  <div class="img-container">
+    <img src="../Images/img102.jpeg" alt="Village insulaire de Toma-Île">
+    <div class="img-caption">Toma-Île — Village insulaire singulier niché au cœur des eaux du Sourou</div>
+  </div>
+
+  <p>Au cœur de cette nature généreuse se trouve Toma-Île, un village typique situé dans la commune de Di, offrant un panorama unique de l'adaptation des populations à l'écosystème fluvial de la région.</p>
 </div>
 
 <!-- 5. TOURISME & CULTURE -->
@@ -205,22 +215,72 @@ La vallée du Sourou constitue un espace transfrontalier stratégique entre le B
   <h2 class="section-titre">À <span>découvrir</span> absolument</h2>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-img">🌾</div><div class="card-body"><div class="card-cat">Paysage</div><div class="card-titre">Vallée du Sourou</div><div class="card-desc">Périmètre irrigué, paysages agricoles exceptionnels.</div></div></div>
-    <div class="card"><div class="card-img">🏘️</div><div class="card-body"><div class="card-cat">Patrimoine</div><div class="card-titre">Tougan</div><div class="card-desc">Ancien chef-lieu de province, marché animé.</div></div></div>
-    <div class="card"><div class="card-img">🏛️</div><div class="card-body"><div class="card-cat">Architecture</div><div class="card-titre">Cases à étages de Tora</div><div class="card-desc">Patrimoine culturel Bwa dans la province du Nayala.</div></div></div>
+    <div class="card">
+      <div class="card-body">
+        <div class="card-cat">Paysage Naturel</div>
+        <div class="card-titre">La Vallée du Sourou</div>
+        <div class="card-desc">Périmètre irrigué majestueux offrant de riches panoramas de cultures verdoyantes en zone sahélienne.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="card-cat">Patrimoine Urbain</div>
+        <div class="card-titre">Tougan</div>
+        <div class="card-desc">Chef-lieu régional dynamique, célèbre pour son grand marché et son histoire liée au peuple Samo.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="card-cat">Insolite</div>
+        <div class="card-titre">Toma-Île</div>
+        <div class="card-desc">Un village d'agriculteurs et de pêcheurs entouré par les eaux fluviales dans la commune de Di.</div>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- 6. RESSOURCES NATURELLES -->
-<div class="section ressources">
-  <div>
-    <p class="section-label">Ressources naturelles</p>
-    <h2 class="section-titre"><span>Sites</span> et richesses</h2>
-    <div class="trait"></div>
-    <div class="cards-grid">
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌾 Vallée du Sourou</strong><br>Zone agricole irriguée fertile</div></div>
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>💧 Ressources en eau</strong><br>Fleuve Sourou, barrages, lacs</div></div>
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🦛 Mare aux hippopotames</strong><br>Réserve de Bala-Hippos</div></div>
+<div class="section ressources" style="background: #FDF8F0; padding: 5rem 2rem;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <p class="section-label" style="font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rouge); font-weight: 600; margin-bottom: 0.5rem;">Potentiel Écosystémique</p>
+    <h2 class="section-titre" style="font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--nuit); margin-bottom: 1rem;">Les <span>Richesses Naturelles</span> du Sourou</h2>
+    <div class="trait" style="width: 60px; height: 3px; background: var(--or); margin-bottom: 3rem;"></div>
+    
+    <div class="cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      
+      <!-- Bloc 1 : La Plaine et les Sols Alluviaux -->
+      <div class="card" style="background: var(--blanc); border: none; border-top: 4px solid var(--vert); border-radius: 8px; box-shadow: 0 10px 30px rgba(18,16,10,0.04); display: flex; flex-direction: column; transition: transform 0.3s, box-shadow 0.3s;">
+        <div class="card-body" style="padding: 2rem; flex-grow: 1;">
+          <span class="card-cat" style="color: var(--vert); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 0.8rem;">🌾 Sols & Agronomie</span>
+          <h3 class="card-titre" style="font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--nuit); margin-bottom: 0.8rem;">Les Plaines Alluviales de la Vallée</h3>
+          <p class="card-desc" style="font-size: 0.9rem; color: var(--gris); line-height: 1.65;">
+            La région se distingue par d'immenses étendues de sols alluviaux et vertisols d'une fertilité exceptionnelle. Naturellement enrichies par les crues périodiques, ces terres offrent une capacité de rétention d'eau optimale, propice au développement de grands périmètres rizicoles et aux cultures de contre-saison.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Bloc 2 : Le Réseau Fluvial permanent -->
+      <div class="card" style="background: var(--blanc); border: none; border-top: 4px solid var(--or); border-radius: 8px; box-shadow: 0 10px 30px rgba(18,16,10,0.04); display: flex; flex-direction: column; transition: transform 0.3s, box-shadow 0.3s;">
+        <div class="card-body" style="padding: 2rem; flex-grow: 1;">
+          <span class="card-cat" style="color: var(--or); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 0.8rem;">💧 Hydrographie Stratégique</span>
+          <h3 class="card-titre" style="font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--nuit); margin-bottom: 0.8rem;">Le Bassin Fluvial du Sourou</h3>
+          <p class="card-desc" style="font-size: 0.9rem; color: var(--gris); line-height: 1.65;">
+            Le fleuve Sourou constitue le cœur hydrique de la région. Contrairement à la majorité des cours d'eau temporaires du pays, ce réseau hydrographique bénéficie d'un écoulement permanent stabilisé par des infrastructures de régulation. Il sécurise l'approvisionnement en eau brut pour les aménagements hydro-agricoles et l'élevage pastoral.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Bloc 3 : Les Ressources Halieutiques -->
+      <div class="card" style="background: var(--blanc); border: none; border-top: 4px solid var(--terre); border-radius: 8px; box-shadow: 0 10px 30px rgba(18,16,10,0.04); display: flex; flex-direction: column; transition: transform 0.3s, box-shadow 0.3s;">
+        <div class="card-body" style="padding: 2rem; flex-grow: 1;">
+          <span class="card-cat" style="color: var(--terre); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 0.8rem;">🐟 Faune & Biodiversité</span>
+          <h3 class="card-titre" style="font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--nuit); margin-bottom: 0.8rem;">Le Potentiel Halieutique Continental</h3>
+          <p class="card-desc" style="font-size: 0.9rem; color: var(--gris); line-height: 1.65;">
+            Les eaux calmes de la vallée abritent un écosystème aquatique riche et diversifié, propice à une intense activité de pêche. Les populations locales y exploitent des variétés de poissons très prisées, telles que les Tilapias et les Silures, alimentant une importante chaîne logistique de séchage et de fumage artisanale.
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -231,9 +291,30 @@ La vallée du Sourou constitue un espace transfrontalier stratégique entre le B
   <h2 class="section-titre">Ce que produit la <span>région</span></h2>
   <div class="trait"></div>
   <div class="agri-grid">
-    <div class="agri-bloc"><h3>🌱 Cultures principales</h3><ul class="agri-liste"><li>Riz (périmètre irrigué)</li><li>Maïs, sorgho</li><li>Légumes (oignons, tomates)</li><li>Coton, karité</li></ul></div>
-    <div class="agri-bloc"><h3>🐄 Élevage</h3><ul class="agri-liste"><li>Bovins (race Peulh)</li><li>Ovins, caprins</li><li>Aviculture</li></ul></div>
-    <div class="agri-bloc"><h3>🐟 Pêche</h3><ul class="agri-liste"><li>Pêche dans le fleuve Sourou</li><li>Poisson fumé</li></ul></div>
+    <div class="agri-bloc">
+      <h3>🌱 Cultures principales</h3>
+      <ul class="agri-liste">
+        <li>Riz de plaine irriguée</li>
+        <li>Cultures maraîchères (tomates, oignons)</li>
+        <li>Sorgho, maïs, mil blanc</li>
+        <li>Sésame et coton</li>
+      </ul>
+    </div>
+    <div class="agri-bloc">
+      <h3>🐄 Élevage</h3>
+      <ul class="agri-liste">
+        <li>Bovins (Zébus Peulh)</li>
+        <li>Petits ruminants (ovins, caprins)</li>
+        <li>Aviculture locale améliorée</li>
+      </ul>
+    </div>
+    <div class="agri-bloc">
+      <h3>🐟 Pêche</h3>
+      <ul class="agri-liste">
+        <li>Pêche fluviale continentale</li>
+        <li>Transformation locale (poisson séché et fumé)</li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -243,9 +324,22 @@ La vallée du Sourou constitue un espace transfrontalier stratégique entre le B
   <h2 class="section-titre"><span>Former</span> les talents de demain</h2>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Lycée</strong><br>Enseignement général</div></div>
-    <div class="card"><div class="card-body"><strong>Lycée</strong><br>Enseignement Professionnel Et Technique</div></div><br>
-    <img src="../Images/img103.jpeg" alt="Image" width="1000" height="700"><br>
+    <div class="card">
+      <div class="card-body">
+        <strong>Enseignement Secondaire & Général</strong>
+        <p style="font-size:0.85rem; color:var(--gris); margin-top:0.5rem;">Lycées provinciaux assurant la formation générale des élèves de la région.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <strong>Centres de Formation Agro-pastorale</strong>
+        <p style="font-size:0.85rem; color:var(--gris); margin-top:0.5rem;">Établissements techniques dédiés à l'apprentissage des métiers de l'irrigation et du maraîchage.</p>
+      </div>
+    </div>
+  </div>
+  <div class="img-container" style="margin-top: 2rem;">
+    <img src="../Images/img103.jpeg" alt="Infrastructures scolaires dans le Sourou">
+    <div class="img-caption">Développement des infrastructures d'enseignement professionnel</div>
   </div>
 </div>
 
@@ -255,23 +349,65 @@ La vallée du Sourou constitue un espace transfrontalier stratégique entre le B
   <h2 class="section-titre">Échanges et <span>marchés</span></h2>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Marché de Tougan</strong><br>Mercredi — céréales, riz, artisanat</div></div>
-    <div class="card"><div class="card-body"><strong>Marché de Nouna</strong><br>Samedi — poterie, vannerie, bétail</div></div>
-    <div class="card"><div class="card-body"><strong>Commerce transfrontalier</strong><br>Avec le Mali (nord)</div></div>
+    <div class="card"><div class="card-body"><strong>Marché de Tougan</strong><br>Grand carrefour de commercialisation des céréales et du riz de la vallée.</div></div>
+    <div class="card"><div class="card-body"><strong>Marché de Nouna</strong><br>Pôle d'échange majeur pour le bétail et les produits de l'artisanat de la Kossi.</div></div>
+    <div class="card"><div class="card-body"><strong>Flux Transfrontaliers</strong><br>Échanges historiques de produits agro-pastoraux avec la zone frontalière.</div></div>
   </div>
 </div>
 
-<!-- 10. ARTISANAT -->
-<div class="section" style="background:#2A1506; color:white;">
-  <div style="max-width:1100px; margin:0 auto;">
-    <p class="section-label" style="color:var(--or);">Artisanat traditionnel</p>
-    <h2 class="section-titre" style="color:white;"><span style="color:var(--or);">Savoir-faire</span> ancestraux</h2>
-    <div class="trait"></div>
-    <div class="cards-grid">
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🏺 Poterie</strong><br>Canaris, jarres, ustensiles</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🧺 Vannerie</strong><br>Paniers, nattes, chapeaux</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>⚒️ Forge</strong><br>Outils agricoles, bijoux</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🧵 Bogolan</strong><br>Tissu teint traditionnel</div></div>
+<!-- 10. ARTISANAT TRADITIONNEL -->
+<div class="section artisanat" style="background: #2A1506; padding: 5rem 2rem; color: #FFFFFF;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <p class="section-label" style="font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--or); font-weight: 600; margin-bottom: 0.5rem;">Identité & Patrimoine culturel</p>
+    <h2 class="section-titre" style="font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 1rem;"><span style="color: var(--or);">Savoir-Faire</span> Ancestraux du Sourou</h2>
+    <div class="trait" style="width: 60px; height: 3px; background: var(--or); margin-bottom: 3rem;"></div>
+    
+    <div class="cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+      
+      <!-- Bloc 1 : Tissage Traditionnel -->
+      <div class="card" style="background: #3A2516; border: none; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); display: flex; flex-direction: column; transition: transform 0.3s;">
+        <div class="card-body" style="padding: 1.8rem; flex-grow: 1;">
+          <span class="card-cat" style="color: var(--or); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 0.8rem;">🧵 Tissage Samo & Marka</span>
+          <h3 class="card-titre" style="font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.8rem;">Les Pagnes Traditionnels</h3>
+          <p class="card-desc" style="font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.6;">
+            Le tissage est un art identitaire majeur dans la région, particulièrement chez les tisseurs Samo. À l'aide de métiers traditionnels, les artisans transforment le coton local en de lourdes bandes de tissus ornées de motifs géométriques symboliques, hautement prisées pour les cérémonies coutumières et les parures de mariage.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Bloc 2 : Poterie de la Kossi -->
+      <div class="card" style="background: #3A2516; border: none; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); display: flex; flex-direction: column; transition: transform 0.3s;">
+        <div class="card-body" style="padding: 1.8rem; flex-grow: 1;">
+          <span class="card-cat" style="color: var(--or); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 0.8rem;">🏺 Poterie de Terre Cuite</span>
+          <h3 class="card-titre" style="font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.8rem;">Les Canaris de Nouna</h3>
+          <p class="card-desc" style="font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.6;">
+            Portée par un savoir-faire féminin ancestral, la poterie de la province de la Kossi jouit d'une réputation nationale. Les potières façonnent à la main des jarres, des canaris thermorégulateurs et des ustensiles culinaires à partir d'argiles locales sélectionnées, réputées pour leur grande résistance mécanique et thermique.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Bloc 3 : Vannerie Fluviale -->
+      <div class="card" style="background: #3A2516; border: none; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); display: flex; flex-direction: column; transition: transform 0.3s;">
+        <div class="card-body" style="padding: 1.8rem; flex-grow: 1;">
+          <span class="card-cat" style="color: var(--or); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 0.8rem;"> basketry 🧺 Vannerie des Rives</span>
+          <h3 class="card-titre" style="font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.8rem;">L'Art des Fibres Tressées</h3>
+          <p class="card-desc" style="font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.6;">
+            Profitant des plantes aquatiques et des palmiers doums qui longent la vallée et les cours d'eau du Sourou, les vanniers excellent dans le tressage de fibres végétales. Ils confectionnent de magnifiques chapeaux de paille protecteurs, des nattes de couchage étanches et des paniers de récolte indispensables aux activités agricoles.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Bloc 4 : Forge et Métallurgie -->
+      <div class="card" style="background: #3A2516; border: none; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); display: flex; flex-direction: column; transition: transform 0.3s;">
+        <div class="card-body" style="padding: 1.8rem; flex-grow: 1;">
+          <span class="card-cat" style="color: var(--or); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 0.8rem;">⚒️ Forge utilitaire</span>
+          <h3 class="card-titre" style="font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.8rem;">Les Maîtres du Feu</h3>
+          <p class="card-desc" style="font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.6;">
+            La caste des forgerons locaux maintient une métallurgie artisanale indispensable à l'économie de la vallée. En battant le fer à chaud, ils fabriquent les outils aratoires traditionnels (dabas, faucilles, houes) parfaitement adaptés aux exigences culturales du bassin du Sourou, ainsi que des couteaux de cérémonie ouvragés.
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -282,9 +418,9 @@ La vallée du Sourou constitue un espace transfrontalier stratégique entre le B
   <h2 class="section-titre">Les <span>saveurs</span> du Sourou</h2>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>🍲 Tô de maïs</strong><br>Sauce arachide ou gombo</div></div>
-    <div class="card"><div class="card-body"><strong>🍚 Riz à la sauce tomate</strong><br>Spécialité locale</div></div>
-    <div class="card"><div class="card-body"><strong>🥤 Dolo</strong><br>Bierre de mil locale</div></div>
+    <div class="card"><div class="card-body"><strong>🍲 Tô de mil et maïs</strong><br>Accompagné d'une sauce riche aux feuilles de gombo ou d'oseille.</div></div>
+    <div class="card"><div class="card-body"><strong>🍚 Riz local de la vallée</strong><br>Préparé en sauce grasse au poisson frais ou au poulet bicyclette.</div></div>
+    <div class="card"><div class="card-body"><strong>🥤 Dolo du terroir</strong><br>Bière traditionnelle de sorgho rouge, symbole de partage.</div></div>
   </div>
 </div>
 
@@ -293,30 +429,37 @@ La vallée du Sourou constitue un espace transfrontalier stratégique entre le B
   <p class="section-label">Carte de situation</p>
   <h2 class="section-titre">Localisation du Sourou</h2>
   <div class="trait"></div>
-  <iframe width="100%" height="350" frameborder="0" style="border:1px solid var(--sable); border-radius:8px;" src="https://www.openstreetmap.org/export/embed.html?bbox=-3.8,12.0,-2.5,13.2&layer=mapnik&marker=12.8,-3.2"></iframe>
+  <iframe width="100%" height="350" frameborder="0" style="border:1px solid var(--sable); border-radius:8px;" src="https://www.openstreetmap.org/export/embed.html?bbox=-4.3,11.8,-2.5,13.6&layer=mapnik&marker=12.9,-3.1"></iframe>
 </div>
 
 <!-- 15. PROVINCES -->
-<div class="section">
-  <p class="section-label">Provinces</p>
-  <h2 class="section-titre"><span>3 provinces</span></h2>
-  <div class="trait"></div>
-  <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Kossi</strong><br>Chef-lieu : Nouna</div></div>
-    <div class="card"><div class="card-body"><strong>Nayala</strong><br>Chef-lieu : Toma</div></div>
-    <div class="card"><div class="card-body"><strong>Sourou</strong><br>Chef-lieu : Tougan</div></div>
+<div class="section" style="background: #F4ECE1; max-width: 100%; padding: 4rem 0;">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+    <p class="section-label" style="color: var(--vert);">Provinces</p>
+    <h2 class="section-titre" style="color: var(--nuit);">Les <span style="color: var(--vert);">3 provinces</span> de la région</h2>
+    <div class="trait" style="background: var(--vert);"></div>
+    <div class="cards-grid">
+      <div class="card" style="border-left: 4px solid var(--vert); border-top: none; border-right: none; border-bottom: none; color: var(--nuit);">
+        <div class="card-body"><strong>Kossi</strong><br><span style="color: var(--gris);">Chef-lieu : Nouna</span></div>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--vert); border-top: none; border-right: none; border-bottom: none; color: var(--nuit);">
+        <div class="card-body"><strong>Nayala</strong><br><span style="color: var(--gris);">Chef-lieu : Toma</span></div>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--vert); border-top: none; border-right: none; border-bottom: none; color: var(--nuit);">
+        <div class="card-body"><strong>Sourou</strong><br><span style="color: var(--gris);">Chef-lieu : Tougan</span></div>
+      </div>
+    </div>
   </div>
-  <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--gris); text-align: center;">La région du Sourou est composée des provinces de Kossi, Nayala et Sourou.</p>
 </div>
 
 <!-- 17. BOUTON RETOUR -->
-<div class="section" style="text-align:center;">
-  <a href="../Racine/index.html" class="btn-retour">← Retour à l'accueil</a>
-  <a href="../Racine/index.html" class="btn-retour" style="margin-left:1rem; background:var(--nuit);">🏠 Accueil</a>
+<div class="section" style="text-align:center; background: var(--nuit); max-width: 100%; padding: 3rem 2rem;">
+  <a href="../Racine/index.html#regions" class="btn-retour" style="background: var(--or); color: var(--nuit); font-weight: 500; margin-top: 0;">← Retour à l'accueil</a>
+  <a href="../Racine/index.html" class="btn-retour" style="margin-left:1rem; background: transparent; border: 1px solid var(--or); color: var(--or); font-weight: 500; margin-top: 0;">🏠 Accueil</a>
 </div>
 
 <footer>
-  Projet académique 2025-2026 — Vitrine des Régions du <span>Burkina Faso</span>
+  Projet academic 2025-2026 — Vitrine des Régions du <span>Burkina Faso</span>
 </footer>
 </body>
 </html>
