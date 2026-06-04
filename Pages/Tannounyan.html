@@ -36,7 +36,6 @@ nav {
 .info-val { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--or); display: block; }
 .info-label { font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
 
-/* SECTION ADMINISTRATION & GÉOGRAPHIE (NOUVELLE) */
 .details-section {
   background: var(--blanc);
   padding: 2.5rem;
@@ -63,28 +62,29 @@ nav {
   font-size: 0.9rem;
   color: var(--gris);
 }
-.details-category strong {
-  color: var(--nuit);
-}
+.details-category strong { color: var(--nuit); }
 
 .section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
 .section-label { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rouge); font-weight: 500; margin-bottom: 0.5rem; }
 .section-titre { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
 .section-titre span { color: var(--rouge); }
 .trait { width: 50px; height: 3px; background: var(--or); margin-bottom: 2rem; }
-.img-principale { width: 100%; max-width: 1100px; height: 400px; background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Cascades_de_Banfora.jpg/1280px-Cascades_de_Banfora.jpg') center/cover; position: relative; margin: 2rem auto; }
-.img-legende { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: white; padding: 1rem; font-size: 0.8rem; }
+
+/* RE-CONCEPTION SÉMANTIQUE DE L'IMAGE PRINCIPALE */
+.article-figure { width: 100%; max-width: 1100px; margin: 2rem auto; position: relative; border-radius: 8px; overflow: hidden; }
+.img-fluide { width: 100%; height: auto; display: block; }
+.article-figcaption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 1.5rem 1rem; font-size: 0.9rem; }
+
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1.5rem; }
 .card { background: var(--blanc); border-radius: 10px; border: 1px solid var(--sable); overflow: hidden; transition: transform 0.2s; }
 .card:hover { transform: translateY(-4px); }
-.card-img { height: 150px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; font-size: 3rem; background-color: var(--sable); }
+.card-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 3rem; background-color: var(--sable); }
 .card-body { padding: 1.2rem; }
 .card-cat { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--rouge); font-weight: 500; }
 .card-titre { font-size: 1rem; font-weight: 600; margin: 0.4rem 0; }
 .card-desc { font-size: 0.85rem; color: var(--gris); }
-.galerie-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; margin-top: 2rem; }
-.galerie-item { height: 180px; background: var(--sable); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2rem; background-size: cover; background-position: center; }
-.agri-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 2rem; }
+
+.agri-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
 .agri-bloc { background: var(--blanc); border-radius: 10px; padding: 1.5rem; border-top: 4px solid var(--vert); }
 .agri-liste { list-style: none; }
 .agri-liste li { padding: 0.5rem 0; border-bottom: 1px solid #f0ebe0; }
@@ -120,119 +120,136 @@ footer span { color: var(--or); }
   <div class="info-item"><span class="info-val">18 917 km²</span><span class="info-label">Superficie</span></div>
   <div class="info-item"><span class="info-val">945 000</span><span class="info-label">Population (2024)</span></div>
   <div class="info-item"><span class="info-val">2</span><span class="info-label">Provinces</span></div>
-  <div class="info-item"><span class="info-val">Tannounyan</span><span class="info-label">Gentilé</span></div>
 </div>
 
-<!-- ===== NOUVEAU : ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
+<!-- ===== MISE À JOUR : ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
 <div class="details-section">
   <div class="details-grid">
-    <!-- Administration -->
     <div class="details-category">
       <h3>🏛️ Administration</h3>
       <p><strong>Pays :</strong> Burkina Faso</p>
-      <p><strong>Statut :</strong> Région</p>
-      <p><strong>Provinces :</strong> 2</p>
+      <p><strong>Statut :</strong> Région administrative</p>
+      <p><strong>Provinces :</strong> 2 (Comoé, Léraba)</p>
       <p><strong>Départements :</strong> 17</p>
       <p><strong>Chef-lieu :</strong> Banfora</p>
-      <p><strong>Président du conseil régional :</strong> N'Gollo Drissa Ouattara</p>
-      <p><strong>Gouverneur :</strong> Madame Joséphine A. Kouara/Kaboré (depuis 2018)</p>
-      <p><strong>Code ISO 3166-2 :</strong> BF-02</p>
-      <p><strong>Code INSD :</strong> 12</p>
+      <p><strong>Gouverneur :</strong> Patrice Yéyé.é</p>
     </div>
-    <!-- Démographie -->
     <div class="details-category">
       <h3>👥 Démographie</h3>
       <p><strong>Population (2024) :</strong> 945 000 hab.</p>
       <p><strong>Densité :</strong> 50 hab./km²</p>
+      <p><strong>Ethnies principales :</strong> Gouin, Turka, Karaboro, Sénoufo</p>
     </div>
-    <!-- Géographie & Divers -->
     <div class="details-category">
       <h3>🗺️ Géographie & Divers</h3>
       <p><strong>Coordonnées :</strong> 10°15'N, 4°30'O</p>
       <p><strong>Superficie :</strong> 18 917 km²</p>
-      <p><strong>Fuseau horaire :</strong> UTC+0</p>
-      <p><strong>Indicatif téléphonique :</strong> +226</p>
     </div>
   </div>
 </div>
-<!-- 3. IMAGE PRINCIPALE -->
-<div class="img-principale">
-  <img src="../Images/img70.jpeg" alt="Fleuve Mouhoun à Dédougou" width="600" height="400"><br>
-  <div class="img-legende">Tenkodogo</div><br>
-</div>
 
+<!-- 3. IMAGE PRINCIPALE CORRIGÉE -->
+<figure class="article-figure">
+  <img src="../Images/img70.jpeg" alt="Vue aérienne des Cascades de Karfiguéla à Banfora" class="img-fluide">
+  <figcaption class="article-figcaption">Les magnifiques chutes d'eau de Karfiguéla, joyau naturel de la commune de Banfora</figcaption>
+</figure>
 
-<!-- 4. PRÉSENTATION COURTE -->
+<!-- 4. PRÉSENTATION COURTE NETTOYÉE -->
 <div class="section">
   <p class="section-label">Présentation</p>
   <h2 class="section-titre">La région la plus <span>verdoyante</span> du Burkina</h2>
   <div class="trait"></div>
-  <p>Jusqu’au 2 juillet 2025, la région porte l’appellation Cascades. Dans le cadre d’une réforme administrative visant à promouvoir des toponymes endogènes, elle adopte officiellement le nom de Tannounyan[3].</p>
-  <p>Le terme Tannounyan signifie « collines » ou « falaises » dans les langues turka et gouin. Cette désignation renvoie aux formations rocheuses caractéristiques de la région, telles que les dômes de Fabédougou, les pics de Sindou, le mont Ténakourou, ainsi que le piton de Bérégadougou</p>
-  <p>Située à l'extrême sud-ouest, la région de Tannounyan est la plus arrosée du Burkina Faso. Elle abrite les célèbres cascades de Banfora (appelées localement Tannounyan), les dômes de Fabédougou et le lac de Tengréla avec ses hippopotames paisibles. C'est un paradis pour les amoureux de nature.</p>
-<p>Aujourd'hui, la région attire les touristes avec ses cascades majestueuses, ses parcs nationaux et ses sites archéologiques comme les ruines de Loropéni, inscrites au patrimoine mondial de l'UNESCO. Elle célèbre également sa culture vibrante à travers des festivals annuels tels que la fête de la moisson à Banfora et la fête de la culture de la région de Kénédougou à Orodara, faisant de la région du Guiriko une destination incontournable pour découvrir la richesse de l'Afrique de l'Ouest[2].</p><br>
-<img src="../Images/img71.jpeg" alt="Centre Universitaire de Dori"  width="1000" height="700"><br>
-<p>Tradition du peuple de Banfora</p>
-<p>
-La tradition du peuple Banfora au Burkina Faso est un mélange fascinant d'influences africaines, musulmanes et françaises. Les traditions et coutumes de Banfora sont célébrées avec des rites religieux, des festivals, et des cérémonies culturelles qui reflètent la richesse et la diversité de la culture burkinabè. Les habitants de Banfora, issus de diverses ethnies, perpétuent fièrement leurs traditions à travers des festivals, des danses et des rites religieux, offrant aux visiteurs une expérience authentique et dépaysante</p><br>
-<img src="../Images/img73.jpeg" alt="Centre Universitaire de Dori"  width="1000" height="700"><br>
+  <p>Jusqu’au 2 juillet 2025, la région porte l’appellation de Cascades. Dans le cadre d’une réforme administrative nationale visant à promouvoir des toponymes endogènes, elle adopte officiellement le nom de <strong>Tannounyan</strong>.</p>
+  <p>Le terme Tannounyan signifie « collines » ou « falaises » dans les langues turka et gouin. Cette désignation renvoie directement aux formations rocheuses emblématiques de la région, telles que les dômes de Fabédougou, les pics de Sindou, le mont Ténakourou, ainsi que le piton de Bérégadougou.</p>
+  <p>Située à l'extrême sud-ouest, la région de Tannounyan est la plus arrosée du pays. Elle abrite les célèbres cascades de Banfora, les dômes de Fabédougou et le lac de Tengréla avec ses hippopotames paisibles. C'est un véritable sanctuaire pour les amoureux de la nature sauvage.</p>
+  <p>Aujourd'hui, la région capitalise sur ses cascades majestueuses, son artisanat d'art et sa vie culturelle dynamique. Elle célèbre la richesse de son patrimoine à travers divers festivals communautaires et des manifestations annuelles telles que la fête de la moisson à Banfora, faisant de cette entité territoriale une destination incontournable d'Afrique de l'Ouest.</p>
 
-<p>Les maisons traditionnelles de la région de Banfora, Burkina Faso, sont caractérisées par leur utilisation de matériaux locaux tels que le banco, la terre, le bois et le chaume. Ces matériaux sont sélectionnés pour leur capacité à réguler la température intérieure et à offrir une isolation thermique efficace. Les constructions sont souvent entourées d'une enceinte en banco, qui protège les habitants des vents, du sable et des regards extérieurs. Les maisons sont conçues avec une attention particulière aux détails, reflétant une organisation sociale et une culture constructive profondément ancrées dans la communauté</p><br>
+  <figure class="article-figure">
+    <img src="../Images/img71.jpeg" alt="Scène culturelle et danses du terroir de Banfora" class="img-fluide">
+    <figcaption class="article-figcaption">Folklore et danses traditionnelles lors des manifestations locales à Banfora</figcaption>
+  </figure>
 
-<img src="../Images/img72.jpeg" alt="Centre Universitaire de Dori"  width="1000" height="700"><br>
-<p>Les cascades de Banfora, également connues sous le nom de cascades de Karfiguéla, se trouvent à environ 12 km au nord-ouest de la ville de Banfora, au Burkina Faso. Ces chutes d'eau, alimentées par le fleuve Comoé, offrent un spectacle à couper le souffle, surtout durant la saison des pluies, de juin à septembre, lorsque leur débit atteint son apogée. Les bassins naturels au pied des chutes sont propices à la baignade, et le bruissement de l'eau est audible à des centaines de mètres. Les cascades sont une destination prisée des touristes, attirant chaque année des milliers de visiteurs, qu'ils soient locaux ou étrangers, et sont accessibles avec un tarif réglementé</p><br>
-<img src="../Images/img74.jpeg" alt="Centre Universitaire de Dori"  width="1000" height="700"><br>
-<p>Les Dômes de Fabédougou </p>
-<p>Les Dômes de Fabédougou sont l’un des joyaux naturels les plus fascinants du Burkina Faso, situés à environ 15 km de Banfora, dans la région des Cascades.
+  <p><strong>Tradition du peuple de Banfora</strong></p>
+  <p>La tradition des communautés de Banfora au Burkina Faso est un agencement harmonieux d'influences ancestrales africaines. Les coutumes locales se manifestent fièrement à travers des rites agraires, des récits oraux et des cérémonies initiatiques qui traduisent la diversité de la mosaïque ethnique de la région.</p>
 
-Ces formations rocheuses, vieilles de plusieurs centaines de millions d’années, se présentent sous forme de collines arrondies et striées, rappelant des dômes ou des coupoles géantes. Elles ont été sculptées par l’érosion du vent et de l’eau au fil du temps, créant des motifs naturels uniques.
+  <figure class="article-figure">
+    <img src="../Images/img73.jpeg" alt="Architecture rurale en banco de la région des Cascades" class="img-fluide">
+    <figcaption class="article-figcaption">Concessions familiales typiques édifiées avec des matériaux durables</figcaption>
+  </figure>
 
-Depuis leur sommet, on profite d’une vue panoramique sur les champs de canne à sucre, les rizières et la végétation luxuriante environnante. Le site est particulièrement apprécié des randonneurs et des amoureux de la nature pour son calme, sa beauté brute et son atmosphère presque mystique.</p><br>
-<img src="../Images/img75.jpeg" alt="Centre Universitaire de Dori"  width="1000" height="700"><br>
-<p>Le Lac de Tengréla et ses hippopotames paisibles</p>
-<p>Le lac de Tengréla, niché à quelques kilomètres de Banfora, est un véritable havre de sérénité au cœur de la région des Cascades. Entouré de végétation luxuriante et bordé par des collines douces, il offre un miroir d’eau calme où le ciel se reflète avec poésie.
+  <p>Les habitations traditionnelles se caractérisent par l'emploi exclusif de géo-matériaux locaux à l'instar du banco, de la terre crue compactée, du bois de rônier et du chaume. Ces composants régulent de manière optimale le climat intérieur face aux fortes chaleurs.</p>
 
-Ce qui rend ce lieu unique, c’est la présence discrète mais majestueuse de ses hippopotames. Souvent visibles tôt le matin ou en fin d’après-midi, ils émergent lentement de l’eau, laissant apparaître leurs larges dos et leurs yeux curieux. Leur comportement tranquille, presque méditatif, donne au lac une atmosphère apaisante, comme si le temps y coulait plus lentement</p><br>
-<img src="../Images/img76.jpeg" alt="Centre Universitaire de Dori"  width="1000" height="700"><br>
-<p>Les Pics de Sindou </p>
-<p>Au-delà de leur beauté géologique, les Pics de Sindou ont aussi une forte valeur culturelle : ils sont liés à des légendes et traditions locales, et constituent un lieu sacré pour certaines communautés. Les visiteurs peuvent y faire des randonnées, admirer la vue panoramique sur la plaine environnante et découvrir la richesse de la flore et de la faune locales.</p><br>
-<img src="../Images/img77.jpeg" alt="Centre Universitaire de Dori"  width="1000" height="700"><br>
-<p>Mont Ténakourou – Le toit du Burkina Faso</p>
-<p>Le mont Ténakourou est le point culminant du Burkina Faso, avec une altitude de 747 mètres. Situé dans la région des Cascades, non loin de Banfora et à la frontière avec le Mali, il se dresse comme une colline verdoyante au cœur d’un paysage naturel préservé.
+  <figure class="article-figure">
+    <img src="../Images/img72.jpeg" alt="Eaux vives des cascades de Karfiguéla" class="img-fluide">
+    <figcaption class="article-figcaption">L'écoulement continu du fleuve Comoé le long des marches rocheuses de Karfiguéla</figcaption>
+  </figure>
 
-Ce sommet se trouve à proximité de la source de la Volta Noire. Sa hauteur étant presque identique à celle d’un sommet voisin au Mali, un petit amas de pierres a été ajouté à son sommet pour marquer symboliquement la différence et affirmer son statut de point le plus élevé du pays.
+  <p>Les cascades de Banfora (ou cascades de Karfiguéla) se déploient à environ 12 km au nord-ouest de la ville. Alimentées par le fleuve Comoé, elles offrent un panorama saisissant, singulièrement d'août à septembre au pic de la saison humide.</p>
 
-Le Ténakourou offre une vue panoramique sur les plaines environnantes, les forêts et les champs, surtout en saison verte. C’est un lieu apprécié des randonneurs, des amoureux de la nature et de ceux qui souhaitent découvrir un site à la fois géographique, culturel et symbolique pour le Burkina Faso</p><br>
-<<<<<<< Updated upstream
-<img src="../Images/img78.jpeg" alt="Centre Universitaire de Dori"  width="1000" height="700"><br>
-<p>les cavernes de Douna </p>
-<p>Situé dans la province de la Léraba, Douna est à 40 km de Banfora. C'est une commune en majorité peuplée du groupe ethnique turka.</p>
-<p>Le site des Cavernes de Douna s’étend sur une superficie de 1km² et comprend 11 étapes pour une visite de 45min</p>
-<p> Pendant longtemps, la visite du site était interdit au public. Mais depuis le 9 juillet 2011, son accès est autorisé à tout visiteur souhaitant découvrir cette magnifique plateforme géologique chargée d'histoire.</p><br>
-<img src="../Images/img94.jpeg" alt="Centre Universitaire de Dori"  width="1000" height="700"><br>
-<p>SITIENA </p>
-<p>
-Un très beau et magnifique VILLAGE situé dans la commune de Banfora.Il est entouré par de milliers de roniers dégageant une fraîcheur particulière, procurant une certaine sensation de bien être.L'endroit idéal pour s'évader, se ressourcer,se vider l'esprit</p><br>
-<img src="../Images/img121.jpeg" alt="Centre Universitaire de Dori"  width="1000" height="700"><br>
-=======
-<img src="img78.jpeg" alt="Centre Universitaire de Dori"  width="1000" height="700"><br>
-<b>FESTICAS-Festival International des Cascades</b>
-<p>
-Le FESTICAS se déroule à Banfora, dans la région des Cascades du Burkina Faso. Il a été fondé en 2025 par l’opérateur culturel Mamadou Yougos Koné et organisé sous la responsabilité de Douaou DjabiraJABIRA Group </p><br>
-<img src="img90.jpeg" alt="Centre Universitaire de Dori"  width="1000" height="700"><br>
+  <figure class="article-figure">
+    <img src="../Images/img74.jpeg" alt="Formations sédimentaires des dômes de Fabédougou" class="img-fluide">
+    <figcaption class="article-figcaption">Les structures de grès stratifié de Fabédougou, vieilles de millions d'années</figcaption>
+  </figure>
 
->>>>>>> Stashed changes
+  <p><strong>Les Dômes de Fabédougou</strong></p>
+  <p>Situées non loin des cascades, ces formations géologiques sculptées par une érosion hydro-éolienne millénaire évoquent d'immenses coupoles rocheuses dressées au-dessus des plaines environnantes et des champs de canne à sucre.</p>
+
+  <figure class="article-figure">
+    <img src="../Images/img75.jpeg" alt="Pirogue naviguant sur le lac de Tengréla" class="img-fluide">
+    <figcaption class="article-figcaption">Le plan d'eau paisible du Lac de Tengréla au coucher du soleil</figcaption>
+  </figure>
+
+  <p><strong>Le Lac de Tengréla et ses hippopotames paisibles</strong></p>
+  <p>Ce miroir d’eau douce constitue un écosystème remarquable connu pour abriter des groupes de pachydermes marins vénérés par les riverains, rendant toute confrontation rarissime et préservant la sérénité du site.</p>
+
+  <figure class="article-figure">
+    <img src="../Images/img76.jpeg" alt="Aiguilles rocheuses des Pics de Sindou" class="img-fluide">
+    <figcaption class="article-figcaption">Les cheminées de fées et reliefs abrupts des Pics de Sindou</figcaption>
+  </figure>
+
+  <p><strong>Les Pics de Sindou</strong></p>
+  <p>Véritable rempart géologique, la chaîne de Sindou détient une puissante charge mystique et spirituelle pour les populations autochtones, servant historiquement de lieu de protection et d'initiation.</p>
+
+  <figure class="article-figure">
+    <img src="../Images/img77.jpeg" alt="Relief boisé du Mont Ténakourou" class="img-fluide">
+    <figcaption class="article-figcaption">Le sommet du Mont Ténakourou, point culminant de la géographie burkinabè</figcaption>
+  </figure>
+
+  <p><strong>Mont Ténakourou – Le toit du Burkina Faso</strong></p>
+  <p>Avec une altitude de 747 mètres, le mont Ténakourou est le sommet le plus élevé du pays, offrant une vue imprenable sur la ligne frontalière liant le Burkina Faso et le Mali.</p>
+
+  <figure class="article-figure">
+    <img src="../Images/img78.jpeg" alt="Cavités et abris sous roche de Douna" class="img-fluide">
+    <figcaption class="article-figcaption">Les Cavernes historiques de la commune de Douna</figcaption>
+  </figure>
+
+  <p><strong>Les cavernes de Douna</strong></p>
+  <p>Localisées à 40 km du chef-lieu régional au sein de la province de la Léraba, ces structures souterraines naturelles ont abrité la communauté Turka durant les périodes de conflits précoloniaux.</p>
+
+  <figure class="article-figure">
+    <img src="../Images/img94.jpeg" alt="Rôniers s'élevant dans le village de Sitiena" class="img-fluide">
+    <figcaption class="article-figcaption">Le paysage arboré et ombragé unique de Sitiena</figcaption>
+  </figure>
+
+  <p><strong>SITIENA</strong></p>
+  <p>Ce bourg typique entouré de milliers de rôniers offre une fraîcheur constante et alimente une importante filière artisanale d'exploitation de la sève et des palmes.</p>
+
+  <figure class="article-figure">
+    <img src="../Images/img121.jpeg" alt="Artisanat de vannerie locale" class="img-fluide">
+    <figcaption class="article-figcaption">Confection de paniers et nattes tressées à la main</figcaption>
+  </figure>
 </div>
+
 <!-- 5. TOURISME & CULTURE -->
 <div class="section" id="tourisme">
   <p class="section-label">Tourisme & Culture</p>
   <h2 class="section-titre">À <span>découvrir</span> absolument</h2>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-img">🌊</div><div class="card-body"><div class="card-cat">Site naturel</div><div class="card-titre">Tannounyan (Cascades de Banfora)</div><div class="card-desc">Chutes d'eau spectaculaires en pleine saison des pluies.</div></div></div>
-    <div class="card"><div class="card-img">🗻</div><div class="card-body"><div class="card-cat">Site géologique</div><div class="card-titre">Dômes de Fabédougou</div><div class="card-desc">Formations rocheuses sculptées par l'érosion.</div></div></div>
-    <div class="card"><div class="card-img">🦛</div><div class="card-body"><div class="card-cat">Paysage</div><div class="card-titre">Lac de Tengréla</div><div class="card-desc">Hippopotames, pirogues, oiseaux migrateurs.</div></div></div>
-    <div class="card"><div class="card-img">🌿</div><div class="card-body"><div class="card-cat">Spirituel</div><div class="card-titre">Forêt sacrée de Diéfoula</div><div class="card-desc">Site de cérémonies traditionnelles Sénoufo.</div></div></div>
+    <div class="card"><div class="card-img"><img src="../Images/Site_naturel_Tan.jpeg" alt="Cascades de Tannounyan"></div><div class="card-body"><div class="card-cat">Site naturel</div><div class="card-titre">Tannounyan (Cascades)</div><div class="card-desc">Chutes d'eau spectaculaires au cœur d'une zone forestière.</div></div></div>
+    <div class="card"><div class="card-img"><img src="../Images/Dome.jpeg" alt="Dômes de Fabédougou"></div><div class="card-body"><div class="card-cat">Site géologique</div><div class="card-titre">Dômes de Fabédougou</div><div class="card-desc">Formations rocheuses sculptées par l'érosion.</div></div></div>
+    <div class="card"><div class="card-img"><img src="../Images/Lac_Tengrela.jpeg" alt="Lac de Tengréla"></div><div class="card-body"><div class="card-cat">Paysage</div><div class="card-titre">Lac de Tengréla</div><div class="card-desc">Hippopotames, pirogues traditionnelles et nénuphars.</div></div></div>
+    <div class="card"><div class="card-img"><img src="../Images/Foret.jpeg" alt="Forêt classée de Diéfoula"></div><div class="card-body"><div class="card-cat">Spirituel</div><div class="card-titre">Forêt classée de Diéfoula</div><div class="card-desc">Sanctuaire arboré abritant d'importantes traditions locales.</div></div></div>
   </div>
 </div>
 
@@ -241,12 +258,8 @@ Le FESTICAS se déroule à Banfora, dans la région des Cascades du Burkina Faso
   <div>
     <p class="section-label">Ressources naturelles</p>
     <h2 class="section-titre"><span>Sites</span> et richesses</h2>
+    <p>La région de Tannounyan (ayant pour chef-lieu Banfora et englobant les provinces de la Comoé et de la Léraba) tire sa richesse de sa situation géoclimatique exceptionnelle et de son sous-sol. Les rapports officiels de la Direction régionale de l'agriculture et les publications du quotidien d'État Sidwaya mettent en avant ses abondantes ressources en eau de surface, qui alimentent des pôles de production agro-industriels clés comme la canne à sucre (via la SN-SOSUCO), ainsi que les filières stratégiques de l'anacarde, du coton et des mangues. Sur le plan minier, le Ministère de l'Énergie et des Mines encadre une activité d'extraction aurifère structurée, illustrée par la création récente de nouvelles coopératives d'artisans miniers régionales, tandis que le patrimoine géologique reconnu par le Ministère de la Culture et du Tourisme consacre la région comme le premier pôle écotouristique national grâce à ses dômes, cascades, pics et au Mont Ténakourou</p>
     <div class="trait"></div>
-    <div class="cards-grid">
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌊 Fleuve Comoé</strong><br>Cours d'eau permanent</div></div>
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌿 Forêt classée de Diéfoula</strong><br>Sanctuaire de biodiversité</div></div>
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🦛 Lac de Tengréla</strong><br>Hippopotames, crocodiles</div></div>
-    </div>
   </div>
 </div>
 
@@ -254,36 +267,24 @@ Le FESTICAS se déroule à Banfora, dans la région des Cascades du Burkina Faso
 <div class="section" id="agricole">
   <p class="section-label">Potentiel agricole 🌾</p>
   <h2 class="section-titre">Ce que produit la <span>région</span></h2>
+  <p>Le potentiel agricole exceptionnel de la région de Tannounyan repose sur sa pluviométrie abondante, en faisant l'un des principaux greniers du Burkina Faso. Selon les rapports de suivi de la campagne agricole humide du Ministère de l'Agriculture et du quotidien d'État Sidwaya, la région se positionne comme le leader national de la production d'anacarde (noix de cajou) et abrite l'unique pôle de culture industrielle de la canne à sucre du pays à Banfora. Dans le cadre du programme de souveraineté alimentaire (l'Offensive Agro-pastorale et Halieutique), la région se distingue par une production intensive de riz — notamment sur la plaine rizicole de Karfiguéla qui cible un rendement de 5 à 6 tonnes par hectare —, de maïs précoce, de coton (principale culture de rente), ainsi que des vergers de mangues destinés à l'exportation. De plus, les exploitants de la région s'illustrent de plus en plus dans la diversification stratégique, intégrant la production d'alevins et l'expérimentation réussie de la culture du blé en dehors des périmètres aménagés.</p>
   <div class="trait"></div>
-  <div class="agri-grid">
-    <div class="agri-bloc"><h3>🌱 Cultures principales</h3><ul class="agri-liste"><li>Canne à sucre (SN SOSUCO)</li><li>Anacarde (noix de cajou)</li><li>Mangues (exportation)</li><li>Maïs, sorgho, riz</li></ul></div>
-    <div class="agri-bloc"><h3>🐄 Élevage</h3><ul class="agri-liste"><li>Bovins</li><li>Porcins</li><li>Volaille</li></ul></div>
-    <div class="agri-bloc"><h3>🐟 Pêche</h3><ul class="agri-liste"><li>Pêche sur le Comoé</li><li>Pisciculture en développement</li></ul></div>
-  </div>
 </div>
 
 <!-- 8. POTENTIEL ÉDUCATIF -->
 <div class="section" id="educatif" style="background:#EEF3FA;">
   <p class="section-label">Potentiel éducatif 🏫</p>
   <h2 class="section-titre"><span>Former</span> les talents de demain</h2>
+  <p>Le potentiel éducatif de la région de Tannounyan s'appuie sur une politique de modernisation voulue par les autorités, axée sur l'adéquation entre la formation et l'économie agro-industrielle locale. Les rapports de la Direction Régionale de l'Éducation Préscolaire, Primaire et Non Formelle et des services de l'enseignement secondaire mettent en avant un réseau scolaire dynamique, accueillant des milliers d'élèves aux différents examens nationaux. Les autorités ministérielles considèrent la région comme une référence majeure en matière de promotion des métiers et de formation technique, répondant directement aux besoins des unités industrielles basées à Banfora. Cet écosystème intègre également des initiatives sur l'apprentissage par les langues nationales pour renforcer le développement local. Enfin, l'enseignement supérieur y est structuré par le Centre Universitaire Polytechnique de Banfora, rattaché à l’Université Nazi Boni, qui déploie des filières professionnalisantes en Sciences Agro-pastorales, Technologie Alimentaire, Sciences Juridiques, Lettres et filières scientifiques, soutenues par le développement continu de ses infrastructures.</p>
   <div class="trait"></div>
-  <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Lycée technique de Banfora</strong><br>Formation professionnelle</div></div>
-    <div class="card"><div class="card-body"><strong>CFP de Banfora</strong><br>Mécanique, couture, menuiserie</div></div>
-    <div class="card"><div class="card-body"><strong>ENEP de Banfora</strong><br>Formation en santé</div></div>
-  </div>
 </div>
 
 <!-- 9. POTENTIEL COMMERCIAL -->
 <div class="section">
   <p class="section-label">Potentiel commercial 🛒</p>
   <h2 class="section-titre">Échanges et <span>marchés</span></h2>
+  <p>Le potentiel commercial de la région de Tannounyan est solidement ancré par sa position géographique de ville-carrefour, transfrontalière de la Côte d'Ivoire et du Mali, ce qui en fait un corridor stratégique pour les échanges internationaux. Selon les données de la Direction Régionale du Ministère de l'Industrie, du Commerce et de l'Artisanat (MICA), l'activité marchande s'articule autour du Cadre de Concertation Public-Privé, mis en place pour dynamiser le civisme économique et structurer le tissu d'entreprises locales. Le dynamisme des marchés régionaux est alimenté par la commercialisation de produits de grande consommation, renforcé par le déploiement de réseaux officiels de distribution comme les boutiques nationales de vente à prix subventionné. Les services de contrôle du commerce veillent rigoureusement à l'assainissement des circuits de vente et à la lutte contre la fraude pour protéger le pouvoir d'achat des consommateurs. Ce pôle commercial est également boosté par des projets d'accélération de la transition digitale qui visent à désenclaver les zones rurales de communication, facilitant ainsi les transactions financières et la commercialisation directe des productions agricoles et artisanales vers le reste du pays</p>
   <div class="trait"></div>
-  <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Marché de Banfora</strong><br>Samedi — canne à sucre, mangues, artisanat</div></div>
-    <div class="card"><div class="card-body"><strong>Marché de Sindou</strong><br>Vendredi — poterie, tissus Sénoufo</div></div>
-    <div class="card"><div class="card-body"><strong>Zone agro-industrielle SOSUCO</strong><br>Transformation de canne à sucre</div></div>
-  </div>
 </div>
 
 <!-- 10. ARTISANAT -->
@@ -291,12 +292,8 @@ Le FESTICAS se déroule à Banfora, dans la région des Cascades du Burkina Faso
   <div style="max-width:1100px; margin:0 auto;">
     <p class="section-label" style="color:var(--or);">Artisanat traditionnel</p>
     <h2 class="section-titre" style="color:white;"><span style="color:var(--or);">Savoir-faire</span> ancestraux</h2>
+    <p>Le potentiel artisanal de la région de Tannounyan s'appuie sur la richesse de son patrimoine culturel et sur des savoir-faire traditionnels dynamiques, encadrés par les structures de l'État. Selon les orientations de la Direction Régionale de la Culture, des Arts et du Tourisme, l'artisanat local se distingue par la vannerie, la poterie et le tissage traditionnel, des activités fortement stimulées par le flux d'écotouristes visitant les sites naturels de la Comoé et de la Léraba. Les artisans de la région, notamment les sculpteurs et les fabricants d'instruments de musique traditionnelle comme le balafon, bénéficient d'une vitrine nationale lors de grands événements culturels, renforçant le rayonnement de l'identité culturelle locale. De plus, les initiatives du Ministère du Commerce et de l'Artisanat visent à structurer le secteur à travers la formation continue et l'octroi de cartes professionnelles, permettant de formaliser les ateliers et de faciliter l'accès des créateurs aux foires d'exposition. Cet écosystème est complété par l'artisanat de transformation agroalimentaire, où les groupements féminins se spécialisent dans la valorisation des produits locaux, tels que le séchage de la mangue et la transformation de la noix de cajou.</p>
     <div class="trait"></div>
-    <div class="cards-grid">
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🧺 Vannerie Sénoufo</strong><br>Paniers, nattes, chapeaux</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🏺 Poterie de Sindou</strong><br>Canaris, jarres décorées</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🎭 Masques Sénoufo</strong><br>Sculptures cérémonielles</div></div>
-    </div>
   </div>
 </div>
 
@@ -305,13 +302,13 @@ Le FESTICAS se déroule à Banfora, dans la région des Cascades du Burkina Faso
   <p class="section-label">Carte de situation</p>
   <h2 class="section-titre">Localisation du Tannounyan</h2>
   <div class="trait"></div>
-  <iframe width="100%" height="350" frameborder="0" style="border:1px solid var(--sable); border-radius:8px;" src="https://www.openstreetmap.org/export/embed.html?bbox=-5.5,10.2,-4.0,11.5&layer=mapnik&marker=10.638,-4.768"></iframe>
+  <iframe width="100%" height="350" frameborder="0" style="border:1px solid var(--sable); border-radius:8px;" src="https://www.openstreetmap.org/export/embed.html?bbox=-5.5,10.0,-4.0,11.2&layer=mapnik&marker=10.638,-4.768"></iframe>
 </div>
 
 <!-- 15. PROVINCES -->
 <div class="section">
   <p class="section-label">Provinces</p>
-  <h2 class="section-titre"><span>2 provinces</span></h2>
+  <h2 class="section-titre"><span>2 provinces</span> administratives</h2>
   <div class="trait"></div>
   <div class="cards-grid">
     <div class="card"><div class="card-body"><strong>Comoé</strong><br>Chef-lieu : Banfora</div></div>
