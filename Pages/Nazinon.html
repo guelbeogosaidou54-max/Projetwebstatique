@@ -36,7 +36,7 @@ nav {
 .info-val { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--or); display: block; }
 .info-label { font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
 
-/* SECTION ADMINISTRATION & GÉOGRAPHIE (NOUVELLE) */
+/* SECTION ADMINISTRATION & GÉOGRAPHIE */
 .details-section {
   background: var(--blanc);
   padding: 2.5rem;
@@ -72,28 +72,46 @@ nav {
 .section-titre { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
 .section-titre span { color: var(--rouge); }
 .trait { width: 50px; height: 3px; background: var(--or); margin-bottom: 2rem; }
-.img-principale { width: 100%; max-width: 1100px; height: 400px; background: linear-gradient(135deg,#101a0a,#2a5018); position: relative; margin: 2rem auto; display: flex; align-items: center; justify-content: center; font-size: 5rem; }
-.img-legende { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: white; padding: 1rem; font-size: 0.8rem; text-align: center; }
+.img-principale { width: 100%; max-width: 1100px; height: 400px; background: linear-gradient(135deg,#101a0a,#2a5018); position: relative; margin: 2rem auto; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 8px; }
+.img-principale img { width: 100%; height: 100%; object-fit: cover; }
+.img-legende { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 1rem; font-size: 0.8rem; text-align: center; }
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1.5rem; }
 .card { background: var(--blanc); border-radius: 10px; border: 1px solid var(--sable); overflow: hidden; transition: transform 0.2s; }
 .card:hover { transform: translateY(-4px); }
-.card-img { height: 150px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; font-size: 3rem; background-color: var(--sable); }
+.card-img { height: 120px; display: flex; align-items: center; justify-content: center; font-size: 3rem; background-color: var(--sable); }
 .card-body { padding: 1.2rem; }
 .card-cat { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--rouge); font-weight: 500; }
 .card-titre { font-size: 1rem; font-weight: 600; margin: 0.4rem 0; }
 .card-desc { font-size: 0.85rem; color: var(--gris); }
-.galerie-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; margin-top: 2rem; }
-.galerie-item { height: 180px; background: var(--sable); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2rem; background-size: cover; background-position: center; }
 .agri-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 2rem; }
 .agri-bloc { background: var(--blanc); border-radius: 10px; padding: 1.5rem; border-top: 4px solid var(--vert); }
 .agri-liste { list-style: none; }
 .agri-liste li { padding: 0.5rem 0; border-bottom: 1px solid #f0ebe0; }
 .agri-liste li::before { content: "▸"; color: var(--vert); margin-right: 0.5rem; }
-.btn-retour { display: inline-block; background: var(--rouge); color: var(--blanc); padding: 0.8rem 2rem; border-radius: 3px; text-decoration: none; margin-top: 2rem; }
-.btn-retour:hover { background: #a01f24; }
-footer { background: #0A0805; text-align: center; padding: 2rem; color: rgba(255,255,255,0.35); font-size: 0.78rem; }
+  .btn-retour { display: inline-block; background: var(--rouge); color: var(--blanc); padding: 0.8rem 2rem; border-radius: 3px; text-decoration: none; margin-top: 2rem; }
+  .btn-retour:hover { background: #a01f24; }
+  /* Centrage des images de contenu et de la carte */
+  .section img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    object-fit: cover;
+  }
+  .section iframe {
+    display: block;
+    margin: 0 auto;
+    max-width: 900px;
+    width: 100%;
+    border: 1px solid var(--sable);
+    border-radius: 8px;
+  }
+  footer { background: #0A0805; text-align: center; padding: 2rem; color: rgba(255,255,255,0.35); font-size: 0.78rem; }
 footer span { color: var(--or); }
-@media (max-width: 768px) { nav { padding: 0 1rem; } .nav-links { display: none; } .section { padding: 2rem 1rem; } .hero-titre { font-size: 2rem; } .infos-section { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 768px) { nav { padding: 0 1rem; } .nav-links { display: none; } .section { padding: 2rem 1rem; } .hero-titre { font-size: 2.5rem; } .infos-section { grid-template-columns: repeat(2,1fr); } }
 </style>
 </head>
 <body>
@@ -120,10 +138,9 @@ footer span { color: var(--or); }
   <div class="info-item"><span class="info-val">11 321 km²</span><span class="info-label">Superficie</span></div>
   <div class="info-item"><span class="info-val">872 800</span><span class="info-label">Population (2024)</span></div>
   <div class="info-item"><span class="info-val">3</span><span class="info-label">Provinces</span></div>
-  <div class="info-item"><span class="info-val">Nazinon</span><span class="info-label">Gentilé</span></div>
 </div>
 
-<!-- ===== NOUVEAU : ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
+<!-- ===== ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
 <div class="details-section">
   <div class="details-grid">
     <!-- Administration -->
@@ -131,12 +148,9 @@ footer span { color: var(--or); }
       <h3>🏛️ Administration</h3>
       <p><strong>Pays :</strong> Burkina Faso</p>
       <p><strong>Statut :</strong> Région</p>
-      <p><strong>Provinces :</strong> 3</p>
+      <p><strong>Provinces :</strong> 3 (Bazèga, Nahouri, Zoundwéogo)</p>
       <p><strong>Départements :</strong> 19</p>
       <p><strong>Chef-lieu :</strong> Manga</p>
-      <p><strong>Gouverneur :</strong> Casimir Bouraogo Ségueda (depuis décembre 2014)</p>
-      <p><strong>Code ISO 3166-2 :</strong> BF-07</p>
-      <p><strong>Code INSD :</strong> 13</p>
     </div>
     <!-- Démographie -->
     <div class="details-category">
@@ -149,78 +163,54 @@ footer span { color: var(--or); }
       <h3>🗺️ Géographie & Divers</h3>
       <p><strong>Coordonnées :</strong> 11°30'00"N, 1°10'00"O</p>
       <p><strong>Superficie :</strong> 11 321 km²</p>
-      <p><strong>Fuseau horaire :</strong> UTC+0</p>
-      <p><strong>Indicatif téléphonique :</strong> +226</p>
     </div>
   </div>
 </div>
 
 <!-- 3. IMAGE PRINCIPALE -->
 <div class="img-principale">
-  <img src="../Images/img80.jpeg" alt="Kadiogo - Ouagadougou vue aérienne">
-  <div class="img-legende">Capitale du Burkina Faso</div>
+  <img src="../Images/img80.jpeg" alt="Paysage naturel de la région du Nazinon">
+  <div class="img-legende">Panorama de la région du Nazinon</div>
 </div>
+
 <!-- 4. PRÉSENTATION COURTE -->
 <div class="section">
   <p class="section-label">Présentation</p>
   <h2 class="section-titre">Le <span>patrimoine</span> vivant du Burkina</h2>
   <div class="trait"></div>
-  <p>Nazinon (anciennement région du Centre-Sud) est l'une des 17 régions administratives du Burkina Faso selon le découpage territorial révisé adopté le 2 juillet 2025. La région porte le nom du fleuve Nazinon (anciennement appelé Volta Rouge), un hydronyme adopté durant la Révolution démocratique et populaire. Elle abrite les célèbres ruines de Loropéni, classées au patrimoine mondial de l'UNESCO. C'est une région de transition entre la savane et les premières forêts du sud. Les ethnies Kasséna, Nankana et Mossi y perpétuent des traditions séculaires comme les fêtes des masques.</p>
-<<<<<<< Updated upstream
-  <img src="../Images/img112.jpeg" alt="Kadiogo - Ouagadougou vue aérienne"><br>
-  <p>La Region de Nazinon </p>
-  <p>La région de Nazinon a connu des avancées significatives dans les domaines de l'agriculture et de l'infrastructure.</p>
-<img src="../Images/img113.jpeg" alt="Kadiogo - Ouagadougou vue aérienne"><br>
-  <p>La réserve de Nazinga</p>
-<p>La réserve de Nazinga, ou Ranch de Nazinga, est un espace protégé de 913 km2, situé près de Pô dans le sud du Burkina.</p>
-<p>Elle est organisée en plusieurs zones (conservation, tampon et chasse) et s’étend à proximité de la forêt de la Sissili et du parc Kaboré-Tambi.</p>
-<p>Elle se distingue aujourd’hui par sa richesse faunique remarquable.</p><br>
-<img src="../Images/img96.jpeg" alt="Kadiogo - Ouagadougou vue aérienne">
-              <p>Le parc Tambi Kaboré</p>
-<p>À proximité de Pô, aux portes du Nazinon et à seulement 120 kilomètres au sud de Ouagadougou, s'étend l'un des sanctuaires naturels les plus précieux d'Afrique de l'Ouest : le Parc national Kaboré-Tambi, qui couvre 2 427 km² de savanes préservées, à mi-chemin entre Pô, Manga et Sapouy, traversé par le fleuve Nazinon dont les eaux dessinent les contours de cet écrin de vie sauvage.</p>
-<p>La flore y est d'une diversité remarquable, composée d'espèces végétales typiques de la forêt sèche africaine — acacias, baobabs, buissons épineux, grandes essences soudano-zambéziennes qui offrent au visiteur une succession de paysages changeants au fil des saisons.</p>
-<img src="../Images/img114.jpeg" alt="Parc Tambi Kaboré">
-<P> La cours Royal de Tiébélé</P>
-<p>
-La Cour royale de Tiebélé se trouve dans la région du Nazinon au Burkina Faso, plus précisément dans la province du Nahouri</p>
-<p>La cour royale de Tiébélé a été inscrite sur la liste indicative du Patrimoine mondial de l'Unesco en 2012. Les « ménages » sont constitués d'un ensemble de cases, en terre façonnée, construites autour d'une maison mère (en forme de huit) où habitent les aïeuls, d'une maison rectangulaire où habite la famille, et de cases individuelles circulaires où vivent les célibataires toutes reliées entre elles par les toits-terrasses ou des passages intérieurs bas[4]. L'ensemble des ménages constituent une « concession ». La construction des cases est faite par les hommes ; les décors des murs – peintures murales (blanc en talc, noir en graphite, réserve sur latérite rouge) géométriques sur des couches d'enduits de latérite et de terre protecteurs contre les pluies – réservés aux femmes</p><br>
-<img src="../Images/img115.jpeg" alt="Parc Tambi Kaboré">
-
-=======
-<p>La culture des Mossis à Manga se caractérise par une société structurée autour de la royauté, de cérémonies traditionnelles, de pratiques agricoles et esthétiques comme les scarifications, et un riche patrimoine oral et rituel.</p><br>
-<img src="img81.jpeg" alt="image" width="1000" height="800"><br>
-<p>
-L’histoire du développement agricole dans la région montre l’introduction d’outils adaptés, comme la fameuse « Houe Manga » inventée au Burkina Faso et adaptée pour les conditions locales, qui a facilité le travail des cultivateurs avec des animaux de trait et amélioré l’efficacité des labours 
-peresblancs.org
-+1
-. Bien que cette innovation soit initialement burkinabé, elle illustre les pratiques adaptatives de nombreux cultivateurs en Afrique de l’Ouest</p><br>
-<img src="img82.jpeg" alt="image" width="1000" height="800"><br>
-<p>
-Manga est une ville en pleine croissance, ayant bénéficié d’un programme structuré d’urbanisation et de développement socio-économique inspirant pour les villes africaines:Bitumage des voiries, création de nouvelles rues et infrastructures urbaines, installation de lampadaires solaires, drainage des eaux pluviales; Développement de logements sociaux et économiques, réalisation de villas et d’immeubles modernes sur des quartiers auparavant non urbanisés; Rénovation et construction d’infrastructures culturelles, sportives, administratives, ainsi que de marchés et de services sanitaires</p><br>
-<img src="img83.jpeg" alt="image" width="1000" height="800"><br>
-<p>
-La salle polyvalente de Manga est principalement utilisée pour l’organisation d’événements académiques et pédagogiques. Elle a notamment accueilli la cérémonie officielle d’ouverture des activités académiques et pédagogiques du Centre Universitaire de Manga, le 18 février 2020, en présence de personnalités ministérielles, d’autorités régionales et universitaires, ainsi que des représentants du secteur privé et du commerce local </p><br>
-<img src="img84.jpeg" alt="image" width="1000" height="800"><br>
-<p>Le pic de Nahouri est un sommet isolé de type inselberg situé dans le département de Pô, au Burkina Faso, culminant à 447 mètres d'altitude. Il est considéré comme l'un des plus hauts sommets du pays, avec des caractéristiques géologiques uniques formées d'anciennes roches granitiques. Ce site est non seulement un lieu de tourisme, mais aussi un symbole culturel important, représentant la richesse et la tradition des peuples kasséna. Le pic est également le point culminant de la région et attire des visiteurs chaque année, notamment grâce à des événements sportifs comme l'Altitude Nahouri, un semi-marathon qui se termine par l'ascension du pic.</p><br>
-<img src="img85.jpeg" alt="image" width="1000" height="800"><br>
-<p>La réserve de Nazinga</p>
-<p>La réserve de Nazinga, ou Ranch de Nazinga, est un espace protégé de 913 km2, situé près de Pô dans le sud du Burkina.</p>
-<p>La réserve de Nazinga est issue de la nationalisation d’un ranch de gibier créé en 1979, fondé sur un modèle novateur de gestion de la faune combinant tourisme et chasse contrôlée</p>
-<p>Elle est organisée en plusieurs zones (conservation, tampon et chasse) et s’étend à proximité de la forêt de la Sissili et du parc Kaboré-Tambi. Elle se distingue aujourd’hui par sa richesse faunique remarquable.</p><br>
-<img src="img88.jpeg" alt="image" width="1000" height="800"><br>
->>>>>>> Stashed changes
+  <p>Nazinon (anciennement région du Centre-Sud) est l'une des 17 régions administratives du Burkina Faso selon le découpage territorial révisé adopté le 2 juillet 2025. La région porte le nom du fleuve Nazinon (anciennement appelé Volta Rouge), un hydronyme hautement symbolique. Territoire de transition savanière aux portes du Ghana, elle abrite une mosaïque culturelle forte où les communautés Kasséna, Nankana, Gourounsi et Mossi perpétuent des traditions architecturales et rituelles séculaires.</p>
+  
+  <img src="../Images/img112.jpeg" alt="Développement des infrastructures urbaines à Manga">
+  
+  <p>La région de Nazinon a connu des avancées significatives ces dernières années dans les domaines des infrastructures routières et du développement agricole durable.</p>
+  
+  <img src="../Images/img113.jpeg" alt="Faune sauvage protégée au Ranch de Nazinga">
+  
+  <p><strong>La réserve de Nazinga :</strong> La réserve de Nazinga, ou Ranch de Nazinga, est un espace protégé d’envergure de 913 km², situé près de Pô dans le sud de la région. Organisé de façon éco-responsable en plusieurs zones (conservation, tampon et chasse contrôlée), ce parc s’étend à proximité de la forêt de la Sissili et se distingue par sa faune remarquable, abritant l’une des plus importantes populations d’éléphants sauvages d'Afrique de l’Ouest.</p>
+  
+  <img src="../Images/img96.jpeg" alt="Paysage du Parc National Kaboré-Tambi">
+  
+  <p><strong>Le parc national Kaboré-Tambi :</strong> S'étendant sur 2 427 km² de savanes arbustives protégées, ce sanctuaire naturel majeur est à cheval sur les provinces du Nahouri, du Zoundwéogo et du Bazèga. Traversé de part en part par le fleuve Nazinon, il offre des paysages soudano-zambéziens changeants composés de baobabs, d'acacias et de forêts galeries abritant un écosystème aviaire et animalier d'une richesse exceptionnelle.</p>
+  
+  <img src="../Images/img114.jpeg" alt="Architecture traditionnelle de la Cour Royale de Tiébélé">
+  
+  <p><strong>La Cour Royale de Tiébélé :</strong> Joyau architectural situé dans la province du Nahouri, la cour royale de Tiébélé illustre parfaitement les savoir-faire traditionnels du peuple Kasséna. Les concessions y sont composées de structures anthropomorphes en terre façonnée : des maisons en forme de huit pour les anciens et des complexes rectangulaires pour les familles. Les murs sont entièrement recouverts de fresques géométriques réalisées manuellement par les femmes de la communauté à l'aide d'enduits locaux naturels (talc blanc, graphite noir, latérite rouge) assurant la protection contre les intempéries.</p>
+  
+  <img src="../Images/img115.jpeg" alt="Peintures murales anthropomorphes faites à la main à Tiébélé">
 </div>
-
 
 <!-- 5. TOURISME & CULTURE -->
 <div class="section" id="tourisme">
   <p class="section-label">Tourisme & Culture</p>
   <h2 class="section-titre">À <span>découvrir</span> absolument</h2>
+  <p>La région du Nazinon (chef-lieu Manga) abrite un patrimoine culturel et naturel exceptionnel, porté par la richesse de la province du Nahouri. Au cœur de ce territoire se dresse la Cour royale de Tiébélé, un chef-d'œuvre architectural unique inscrit au patrimoine mondial de l'UNESCO, où les concessions en terre façonnée sont ornées de magnifiques fresques géométriques peintes à la main par les femmes Kasséna. Cette identité culturelle vibrante s'exprime également à travers les danses et masques Kasséna, des cérémonies rituelles traditionnelles rythmées par des chants et des percussions ancestrales. Sur le plan de l'éco-tourisme, la région brille à l'échelle internationale grâce au Ranch de Nazinga, une réserve protégée de premier plan qui offre une expérience d'observation privilégiée des grands pachydermes et des safaris écologiques rigoureusement surveillés.</p>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-img">🏛️</div><div class="card-body"><div class="card-cat">Patrimoine UNESCO</div><div class="card-titre">Ruines de Loropéni</div><div class="card-desc">Forteresse en pierre du XIᵉ siècle, mieux conservée d'Afrique subsaharienne.</div></div></div>
-    <div class="card"><div class="card-img">🎭</div><div class="card-body"><div class="card-cat">Tradition</div><div class="card-titre">Fête des masques Kasséna</div><div class="card-desc">Cérémonies spectaculaires, rites initiatiques.</div></div></div>
-    <div class="card"><div class="card-img">🦛</div><div class="card-body"><div class="card-cat">Site naturel</div><div class="card-titre">Mare aux caïmans sacrés</div><div class="card-desc">Lieu de culte et d'observation.</div></div></div>
+    <div class="cards-grid">
+      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><img src="../Images/Cour_royale_Tiébélé.jpeg" alt="Cour Royale de Tiébélé" width="auto" height="auto"><strong>Patrimoine Unique, Cour royale de Tiébélé</strong><br>Chef-d'œuvre de l'architecture Kasséna aux fresques murales géométriques peintes par les femmes.</div></div>
+      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><img src="../Images/Danses_Masques_Kasséna.jpeg" alt="Danses et Masques Kasséna" width="auto" height="auto"><strong>Tradition, Danses et Masques Kasséna</strong><br>Cérémonies rituelles rythmées par les percussions et chants ancestraux au Nahouri.</div></div>
+      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><img src="../Images/Ranch_de_Nazinga.jpeg" alt="Ranch de Nazinga" width="auto" height="auto"><strong>Ranch de Nazinga, Écotourisme</strong><br>Observation privilégiée des grands pachydermes et safaris écologiques surveillés.</div></div>
+    </div>
   </div>
 </div>
 
@@ -229,12 +219,8 @@ La salle polyvalente de Manga est principalement utilisée pour l’organisation
   <div>
     <p class="section-label">Ressources naturelles</p>
     <h2 class="section-titre"><span>Sites</span> et richesses</h2>
+    <p>La région du Nazinon (chef-lieu Manga) dispose d'un important capital de ressources naturelles et de sites écologiques stratégiques, encadrés par le Ministère de l'Environnement, de l'Eau et de l'Assainissement. Le potentiel environnemental et écotouristique de la région repose principalement sur ses grandes aires protégées, notamment le Ranch de Nazinga (913 km²), le Parc National Kaboré-Tambi (2 427 km²) et la forêt classée de la Sissili, qui préservent une riche biodiversité de savane. Le réseau hydrographique, dominé par le cours d'eau du Nazinon (320 km), alimente de vastes plaines alluviales propices aux aménagements hydro-agricoles indispensables à la sécurité alimentaire locale. Enfin, sur le plan géologique et industriel, les données du Ministère de l'Énergie, des Mines et des Carrières confirment de réelles opportunités minières avec des gisements d'or exploités de manière artisanale, complétés par d'abondantes réserves de matériaux de construction (granite et latérite) essentielles pour le développement des infrastructures régionales.</p>
     <div class="trait"></div>
-    <div class="cards-grid">
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌊 Fleuve Nazinon</strong><br>Ressource en eau agricole, anciennement Volta Rouge</div></div>
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌿 Forêt de Tiéfora</strong><br>Biodiversité riche, sentiers de randonnée</div></div>
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🦌 Antilopes</strong><br>Faune des savanes protégée</div></div>
-    </div>
   </div>
 </div>
 
@@ -242,37 +228,24 @@ La salle polyvalente de Manga est principalement utilisée pour l’organisation
 <div class="section" id="agricole">
   <p class="section-label">Potentiel agricole 🌾</p>
   <h2 class="section-titre">Ce que produit la <span>région</span></h2>
+  <p>La région du Nazinon (chef-lieu Manga) bénéficie d'un potentiel agropastoral remarquable soutenu par un climat nord-soudanien propice et un réseau de bas-fonds hautement stratégique. L'essor agricole territorial repose prioritairement sur la riziculture, fortement stimulée par des aménagements hydro-agricoles gouvernementaux comme les aménagements rizicoles de Nobéré et de Gogo, qui mobilisent massivement les producteurs locaux pour la souveraineté alimentaire. Parallèlement à la production des céréales de base telles que le maïs, le sorgho et le mil, la région se positionne comme un pôle d'excellence pour l'arboriculture fruitière, particulièrement mise en valeur lors du Salon Régional des Agrumes et Dérivés (SRAD) à Manga. Ce secteur de production végétale est soutenu par un élevage dynamique et l'introduction d'assurances agricoles paramétriques souveraines destinées à sécuriser durablement les investissements des exploitants face aux variations pluviométriques.</p>
   <div class="trait"></div>
-  <div class="agri-grid">
-    <div class="agri-bloc"><h3>🌱 Cultures principales</h3><ul class="agri-liste"><li>Sésame (exportation Asie)</li><li>Karitié (beurre de qualité)</li><li>Sorgho, mil, maïs</li><li>Anacarde, mangues</li></ul></div>
-    <div class="agri-bloc"><h3>🐄 Élevage</h3><ul class="agri-liste"><li>Bovins, ovins</li><li>Caprins</li><li>Aviculture</li></ul></div>
-    <div class="agri-bloc"><h3>🐟 Pêche</h3><ul class="agri-liste"><li>Pêche fluviale sur le Nazinon</li><li>Pisciculture</li></ul></div>
-  </div>
 </div>
 
 <!-- 8. POTENTIEL ÉDUCATIF -->
 <div class="section" id="educatif" style="background:#EEF3FA;">
   <p class="section-label">Potentiel éducatif 🏫</p>
   <h2 class="section-titre"><span>Former</span> les talents de demain</h2>
+  <p>La région du Nazinon (chef-lieu Manga) affiche une dynamique éducative en pleine expansion, structurée par un maillage d'établissements scolaires répartis sur l'ensemble de ses provinces et Circonscriptions d'Éducation de Base (CEB). Le système scolaire régional assure la scolarisation d'un large effectif d'élèves dès le préscolaire et le primaire, grâce à l'engagement d'un important corps d'enseignants et d'encadreurs pédagogiques. Afin de répondre aux orientations stratégiques du gouvernement burkinabè et d'accroître l'employabilité des jeunes, les infrastructures de la région intègrent un réseau renforcé de collèges d'enseignement général (CEG) ainsi que des centres d'Enseignement et de Formation Technique et Professionnelle (EFTP). Ces efforts, soutenus par des partenariats internationaux majeurs, visent à moderniser continuellement les conditions d'apprentissage, à sécuriser les espaces scolaires et à promouvoir une éducation inclusive et de qualité pour toute la jeunesse du territoire.</p>
   <div class="trait"></div>
-  <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Lycée technique de Banfora</strong><br>Formation professionnelle</div></div>
-    <div class="card"><div class="card-body"><strong>Centre Universitaire de Manga</strong><br>Agro-sylvo-pastorale
-Socio-anthropologie et philosophie</div></div><br>
-    <img src="img86.jpeg" alt="image" width="1000" height="800"><br>
-  </div>
 </div>
 
 <!-- 9. POTENTIEL COMMERCIAL -->
 <div class="section">
   <p class="section-label">Potentiel commercial 🛒</p>
   <h2 class="section-titre">Échanges et <span>marchés</span></h2>
+  <p>La région du Nazinon (chef-lieu Manga) occupe une position géographique stratégique le long de la frontière avec le Ghana, ce qui facilite les flux de transit et l'import-export. Le commerce local s'anime principalement au rythme des marchés cycliques (les jours de marché) de Manga, Pô et Kombissiri, où s'échangent le bétail, la volaille locale et des produits du cru comme le sésame, les agrumes et le beurre de karité. Cependant, ce potentiel reste freiné par un manque important d'investissements et des infrastructures logistiques encore insuffisantes. Pour tenter de structurer ces échanges à l'avenir, le gouvernement a récemment identifié et sécurisé une réserve foncière de 42 hectares à Manga afin d'y planifier une future zone industrielle et logistique, même si le tissu industriel de la région demeure pour l'instant très limité.</p>
   <div class="trait"></div>
-  <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Marché de Manga</strong><br>Samedi — sésame, karité, artisanat</div></div>
-    <div class="card"><div class="card-body"><strong>Marché de Pô</strong><br>Mercredi — bétail, céréales</div></div>
-    <div class="card"><div class="card-body"><strong>Exportation sésame</strong><br>Vers l'Asie et l'Europe</div></div>
-  </div>
 </div>
 
 <!-- 10. ARTISANAT -->
@@ -280,12 +253,8 @@ Socio-anthropologie et philosophie</div></div><br>
   <div style="max-width:1100px; margin:0 auto;">
     <p class="section-label" style="color:var(--or);">Artisanat traditionnel</p>
     <h2 class="section-titre" style="color:white;"><span style="color:var(--or);">Savoir-faire</span> ancestraux</h2>
+    <p>La région du Nazinon (chef-lieu Manga) possède un artisanat d'art et utilitaire profondément lié à ses traditions communautaires, bien qu'il s'exerce encore de manière essentiellement informelle et saisonnière pendant la saison sèche. Au cœur de ce savoir-faire se distinguent les peintures murales d'art, des fresques géométriques à base de pigments naturels appliquées manuellement par les femmes Kasséna sur les architectures en terre de la province du Nahouri. La région est également reconnue pour sa poterie traditionnelle, une activité féminine de subsistance permettant de façonner à la main des jarres et des canaris indispensables aux ménages ruraux pour la conservation de l'eau. Enfin, la vannerie fine s'appuie sur l'exploitation des herbes et fibres végétales de la savane pour tresser des nattes, des paniers d'usage courant et des chapeaux traditionnels. Ces productions, majoritairement destinées à l'autoconsommation locale, constituent un complément de revenus essentiel pour les familles de la région en dehors des périodes de travaux champêtres.</p>
     <div class="trait"></div>
-    <div class="cards-grid">
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🎭 Sculpture</strong><br>Masques, statues en bois</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🏺 Poterie</strong><br>Canaris, jarres, ustensiles</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🧺 Vannerie</strong><br>Paniers, nattes, chapeaux</div></div>
-    </div>
   </div>
 </div>
 
