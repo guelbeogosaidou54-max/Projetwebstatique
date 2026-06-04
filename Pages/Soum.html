@@ -72,7 +72,8 @@ nav {
 .section-titre { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
 .section-titre span { color: var(--rouge); }
 .trait { width: 50px; height: 3px; background: var(--or); margin-bottom: 2rem; }
-.img-principale { width: 100%; height: 400px; background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Ouagadougou_vue_aerienne.jpg/1280px-Ouagadougou_vue_aerienne.jpg') center/cover; position: relative; margin: 2rem 0; }
+.img-principale { width: 100%; max-width: 1100px; height: auto; position: relative; margin: 2rem auto; }
+.img-principale img { width: 100%; height: auto; display: block; }
 .img-legende { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: white; padding: 1rem; font-size: 0.8rem; }
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1.5rem; }
 .card { background: var(--blanc); border-radius: 10px; border: 1px solid var(--sable); overflow: hidden; transition: transform 0.2s; }
@@ -149,8 +150,7 @@ footer span { color: var(--or); }
 </div>
 <!-- 3. IMAGE PRINCIPALE -->
 <div class="img-principale">
-  tt
-    <img src="../Images/Soum.jpeg" alt="Carte de la région de Sirba" style="display: block; margin: 0 auto; width: auto; max-width: 100%; height: auto;">
+    <img src="../Images/Soum.jpeg" alt="Carte de la région de Sirba" style="display: block; width: 100%; height: auto;">
 </div>
 
 <!-- 4. PRÉSENTATION COURTE -->
@@ -252,9 +252,9 @@ footer span { color: var(--or); }
 <!-- 14. CARTE DE SITUATION -->
 <div class="section">
   <p class="section-label">Carte de situation</p>
-  <h2 class="section-titre">Localisation du Grand Ouaga</h2>
+  <h2 class="section-titre">Localisation de la région de Soum</h2>
   <div class="trait"></div>
-  <iframe width="100%" height="350" frameborder="0" style="border:1px solid var(--sable); border-radius:8px;" src="https://www.openstreetmap.org/export/embed.html?bbox=-1.8,12.2,-1.0,12.6&layer=mapnik&marker=12.364,-1.533"></iframe>
+  <iframe width="100%" height="350" frameborder="0" style="border:1px solid var(--sable); border-radius:8px;" src="https://www.openstreetmap.org/export/embed.html?bbox=-2.0,13.9,-1.2,14.4&layer=mapnik&marker=14.1,-1.6"></iframe>
 </div>
 
 <!-- 15. PROVINCES -->
