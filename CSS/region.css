@@ -119,6 +119,13 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+.section img {
+    display: block;
+    margin: 1.5rem auto;
+    max-width: 100%;
+    height: auto;
+}
+
 .img-legende {
     text-align: center;
     margin-top: 0.75rem;
