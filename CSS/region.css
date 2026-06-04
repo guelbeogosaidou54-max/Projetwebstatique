@@ -95,33 +95,40 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-/* ===== S03 · IMAGE PRINCIPALE ===== */
+/* ==== IMAGE PRINCIPALE CENTRÉE POUR TOUTES LES RÉGIONS ==== */
+
 .img-principale {
-  width: 100%;
-  max-width: 800px;
-  margin: 2rem auto;
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(135deg, #1a0a06, #604020);
+    padding: 1.5rem 0;
 }
 
 .img-principale img {
-  width: 100%;
-  height: auto;
-  display: block;
+    display: block;
+    margin: 0 auto;
+    max-width: 90%;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .img-legende {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
-  color: white;
-  padding: 1rem 1.5rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  text-align: center;
+    text-align: center;
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    background: transparent;
+    position: relative;
+    letter-spacing: 0.05em;
 }
 /* ===== SECTIONS COMMUNES ===== */
 .section {
@@ -258,14 +265,59 @@
 /* ===== S06 · RESSOURCES NATURELLES ===== */
 .ressources {
   background: #0D2B1A;
+  color: white;
+  text-align: center;
 }
 
 .ressources .section-titre {
   color: var(--blanc);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ressources .section-label {
   color: var(--vert);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ressources p {
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+}
+
+.ressources .trait {
+  background: var(--vert);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ressources .cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.ressources .card {
+  max-width: 360px;
+  width: 100%;
+}
+
+.ressources .card-img-dark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.ressources .card-img-dark img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .ressources .trait {
