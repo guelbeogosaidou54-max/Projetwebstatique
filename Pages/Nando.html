@@ -36,7 +36,6 @@ nav {
 .info-val { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--or); display: block; }
 .info-label { font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
 
-/* SECTION ADMINISTRATION & GÉOGRAPHIE (NOUVELLE) */
 .details-section {
   background: var(--blanc);
   padding: 2.5rem;
@@ -72,8 +71,11 @@ nav {
 .section-titre { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
 .section-titre span { color: var(--rouge); }
 .trait { width: 50px; height: 3px; background: var(--or); margin-bottom: 2rem; }
-.img-principale { width: 100%; max-width: 1100px; height: 400px; background: linear-gradient(135deg,#1a0a1a,#50205a); position: relative; margin: 2rem auto; display: flex; align-items: center; justify-content: center; font-size: 5rem; }
-.img-legende { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: white; padding: 1rem; font-size: 0.8rem; text-align: center; }
+
+.img-container { width: 100%; max-width: 900px; margin: 1.5rem auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.img-container img { width: 100%; height: auto; display: block; }
+.img-caption { background: #12100A; color: rgba(255,255,255,0.7); font-size: 0.8rem; padding: 0.6rem; text-align: center; }
+
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1.5rem; }
 .card { background: var(--blanc); border-radius: 10px; border: 1px solid var(--sable); overflow: hidden; transition: transform 0.2s; }
 .card:hover { transform: translateY(-4px); }
@@ -82,8 +84,7 @@ nav {
 .card-cat { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--rouge); font-weight: 500; }
 .card-titre { font-size: 1rem; font-weight: 600; margin: 0.4rem 0; }
 .card-desc { font-size: 0.85rem; color: var(--gris); }
-.galerie-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; margin-top: 2rem; }
-.galerie-item { height: 180px; background: var(--sable); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2rem; background-size: cover; background-position: center; }
+
 .agri-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 2rem; }
 .agri-bloc { background: var(--blanc); border-radius: 10px; padding: 1.5rem; border-top: 4px solid var(--vert); }
 .agri-liste { list-style: none; }
@@ -100,7 +101,7 @@ footer span { color: var(--or); }
 <nav>
   <a href="../Racine/index.html" class="nav-logo">🇧🇫 Burkina Faso</a>
   <ul class="nav-links">
-    <li><a href="../Racine/index.html#regions">← Toutes les régions</a></li>
+    <li><a href="../Racine/index.html#regions">Toutes les régions</a></li>
     <li><a href="#tourisme">Tourisme</a></li>
     <li><a href="#agricole">Agriculture</a></li>
     <li><a href="#educatif">Éducation</a></li>
@@ -111,44 +112,43 @@ footer span { color: var(--or); }
 <section class="region-hero">
   <div class="hero-badge">Région du Burkina Faso</div>
   <h1 class="hero-titre">Nando</h1>
-  <p class="hero-slogan">« Entre traditions et modernité »</p>
+  <p class="hero-slogan">« Entre traditions et modernité — Berceau du Faso Danfani »</p>
 </section>
 
 <!-- 2. INFORMATIONS GÉNÉRALES -->
 <div class="infos-section">
   <div class="info-item"><span class="info-val">Koudougou</span><span class="info-label">Chef-lieu</span></div>
-  <div class="info-item"><span class="info-val">21 722 km²</span><span class="info-label">Superficie</span></div>
-  <div class="info-item"><span class="info-val">1 866 300</span><span class="info-label">Population (2024)</span></div>
-  <div class="info-item"><span class="info-val">4</span><span class="info-label">Provinces</span></div>
-  <div class="info-item"><span class="info-val">Koudougoulais(e)</span><span class="info-label">Gentilé</span></div>
+  <div class="info-item"><span class="info-val">~16 500 km²</span><span class="info-label">Superficie</span></div>
+  <div class="info-item"><span class="info-val">~1 420 000</span><span class="info-label">Population</span></div>
+  <div class="info-item"><span class="info-val">3</span><span class="info-label">Provinces</span></div>
+  <div class="info-item"><span class="info-val">Nandolais</span><span class="info-label">Gentilé</span></div>
 </div>
 
-<!-- ===== NOUVEAU : ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
+<!-- ===== HARMOMISATION : ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
 <div class="details-section">
   <div class="details-grid">
     <!-- Administration -->
     <div class="details-category">
       <h3>🏛️ Administration</h3>
       <p><strong>Pays :</strong> Burkina Faso</p>
-      <p><strong>Statut :</strong> Région</p>
-      <p><strong>Provinces :</strong> 4</p>
-      <p><strong>Départements :</strong> 38</p>
+      <p><strong>Région :</strong> Nando (Nouveau découpage)</p>
+      <p><strong>Provinces :</strong> Boulkiemdé, Sanguié, Ziro</p>
+      <p><strong>Départements :</strong> 28</p>
       <p><strong>Chef-lieu :</strong> Koudougou</p>
-      <p><strong>Gouverneur :</strong> Irène Coulibaly (depuis 2017)</p>
-      <p><strong>Code ISO 3166-2 :</strong> BF-06</p>
-      <p><strong>Code INSD :</strong> 07</p>
+      <p><strong>Code ISO 3166-2 :</strong> BF-06 (Historique)</p>
     </div>
     <!-- Démographie -->
     <div class="details-category">
       <h3>👥 Démographie</h3>
-      <p><strong>Population (2024) :</strong> 1 866 300 hab.</p>
-      <p><strong>Densité :</strong> 86 hab./km²</p>
+      <p><strong>Gentilé :</strong> Nandolaise / Nandolais</p>
+      <p><strong>Population :</strong> ~1 420 000 hab.</p>
+      <p><strong>Ethnies dominantes :</strong> Gourounssi (Lyéla, Nuni), Mossi</p>
     </div>
     <!-- Géographie & Divers -->
     <div class="details-category">
       <h3>🗺️ Géographie & Divers</h3>
-      <p><strong>Coordonnées :</strong> 11°45'N, 2°15'O</p>
-      <p><strong>Superficie :</strong> 21 722 km²</p>
+      <p><strong>Coordonnées (Koudougou) :</strong> 12°15'N, 2°22'O</p>
+      <p><strong>Hydrographie :</strong> Bassin du Fleuve Mouhoun</p>
       <p><strong>Fuseau horaire :</strong> UTC+0</p>
       <p><strong>Indicatif téléphonique :</strong> +226</p>
     </div>
@@ -156,53 +156,51 @@ footer span { color: var(--or); }
 </div>
 
 <!-- 3. IMAGE PRINCIPALE -->
-<div class="img-principale">
-  <img src="../Images/img16.jpeg" alt="Fleuve Mouhoun à Dédougou" width="600" height="400"><br>
-  <div class="img-legende">Koudougou</div><br>
+<div class="img-container">
+  <img src="../Images/img16.jpeg" alt="Vue urbaine de Koudougou">
+  <div class="img-caption">Koudougou — La Cité du Cavalier Rouge, cœur administratif de Nando</div>
 </div>
 
 <!-- 4. PRÉSENTATION COURTE -->
 <div class="section">
   <p class="section-label">Présentation</p>
-  <h2 class="section-titre">La <span>Citée du Cavalier Rouge</span> et son dynamisme</h2>
+  <h2 class="section-titre">La <span>Cité du Cavalier Rouge</span> et son dynamisme</h2>
   <div class="trait"></div>
-  <p>Koudougou, surnommée la "Citée du Cavalier Rouge" pour ses terres latéritiques, est la troisième ville du Burkina Faso. C'est un carrefour industriel et culturel majeur entre Ouagadougou et Bobo-Dioulasso. La région est réputée pour son coton, son Université et son célèbre Festival Hudo.</p>
-  <p>Nando, nouvelle région du Burkina Faso : un carrefour culturel entre traditions et modernité.
-La région de Nando, anciennement connue sous le nom de Koudougou, s’impose comme un bastion majeur de la culture burkinabè. Elle regroupe trois provinces clés : le Boulkiemdé, le Sanguié (avec Réo pour chef-lieu), et le Ziro (capitale Sapouy). Ce territoire, au cœur du pays, se distingue par une identité culturelle forte, un dynamisme artistique remarquable et une richesse patrimoniale vivante.
-</p><br>
-<p>Le nom “Nando”, d’origine gourounssi, signifie “ancien”. Il désignait autrefois la zone actuelle de Koudougou, considérée comme l’une des premières terres d’installation du peuple lyélé. L’expression populaire « Alla Nando », qui se traduit par « Je vais dans notre ancienne ville », témoigne de cet enracinement historique profond. Ce retour à l’appellation traditionnelle illustre la volonté des autorités de renforcer l’identité culturelle locale et de valoriser le patrimoine des peuples Gourounssi.</p><br>
-<img src="../Images/img17.jpeg" alt="image" width="1000" height="800"><br>
-<p>Un carrefour culturel enraciné dans l’histoire Gourounssi</p><br>
-<p>La région de Nando est une véritable plaque tournante culturelle. Ses festivals sont des vitrines vivantes de la créativité burkinabè. Chaque fin novembre, les Nuits Atypiques de Koudougou (NAK) attirent des milliers de festivaliers venus découvrir des spectacles de musique, théâtre, danse, arts visuels et artisanat. Ce rendez-vous, lancé en 1996, reste l’un des plus prestigieux du pays.
-D’autres événements viennent enrichir ce paysage culturel :
-Le Festirhuk, dédié à l’humour burkinabè, professionnalise le secteur en mettant en avant les jeunes talents ;
-Le Festival Gues Yiiga, célébré en avril, rend hommage au mérite féminin à travers concerts, panels et actions sociales ;
-Le M’Bayiir Teedo (ex-Danfani Days), met en lumière le Faso Danfani, textile emblématique du Burkina Faso ;
-Le Festival Racines du Sanguié, organisé principalement à Réo, valorise les traditions ancestrales, les artistes locaux et l’artisanat
-</p><br>
-<img src="../Images/img18.jpeg" alt="image" width="1000" height="800"><br>
-<p>Nando est aussi le territoire des peuples Lyéla et Nuni, répartis respectivement dans les communes de Réo, Didyr, Dassa, Godyr, Kyon, Kordié, Ténado (pour les Lyéla) et dans les communes de Zawara et Pouni (pour les Nuni). Ces communautés sont les gardiennes de coutumes ancestrales qui s’expriment à travers des danses rituelles comme le Binon, des cérémonies traditionnelles, et des objets sacrés tels que les masques de Pouni.
-Le mont Sanguié, point culminant de la région situé dans le village de Sandié, ainsi que les grottes du secteur 7, les maisons traditionnelles Gurunsi, les collines et bosquets sacrés de Poéssi, Sourgou, Lallé et Latodin, sont autant de sites naturels et spirituels qui témoignent de la richesse patrimoniale de la région.
-</p><br>
-<img src="../Images/img19.jpeg" alt="image" width="1000" height="800"><br>
-<p>La Ville de Koudougou</p>
-<p>Koudougou, est une ville du Burkina Faso, la troisième après Ouagadougou, Bobo-Dioulasso, également préfecture et chef-lieu du département et la commune urbaine de même nom et de la Province du Boulkiemdé, et la capitale de la région du Nando. L'emblème de la ville est le baobab.</p><br>
-<img src="../Images/img120.jpeg" alt="image" width="1000" height="800"><br>
+  <p>Koudougou, surnommée la "Cité du Cavalier Rouge" pour ses terres latéritiques, est la troisième ville du Burkina Faso. C'est un carrefour industriel et culturel majeur entre Ouagadougou et Bobo-Dioulasso. La région est réputée pour son coton, son Université et son tissu associatif vibrant.</p>
+  <br>
+  <p>Nando, région émanant du réalignement territorial, s’impose comme un bastion majeur de la culture burkinabè. Elle regroupe trois provinces clés : le **Boulkiemdé**, le **Sanguié** (avec Réo pour chef-lieu), et le **Ziro** (capitale Sapouy). Ce territoire, au cœur du pays, se distingue par une identité culturelle forte, un dynamisme artistique remarquable et une richesse patrimoniale vivante.</p>
+  <br>
+  <p>Le nom “Nando”, d’origine gourounssi, signifie “ancien”. Il désignait autrefois la zone actuelle de Koudougou, considérée comme l’une des premières terres d’installation du peuple lyélé. L’expression populaire « Alla Nando », qui se traduit par « Je vais dans notre ancienne ville », témoigne de cet enracinement historique profond. Ce retour à l’appellation traditionnelle illustre la volonté de renforcer l’identité culturelle locale et de valoriser le patrimoine des peuples Gourounssi.</p>
+  
+  <div class="img-container">
+    <img src="../Images/img17.jpeg" alt="Identité culturelle de Nando">
+    <div class="img-caption">Un carrefour culturel enraciné dans l’histoire Gourounssi</div>
+  </div>
 
-<p>Artisanat et patrimoine architectural : des savoir-faire à préserver</p><br>
-<p>L’artisanat traditionnel est un pilier fort de l’économie culturelle locale. Les métiers du kokodunda, de la poterie, du cuir, de la bijouterie en bronze ou perles perdurent grâce aux savoirs transmis de génération en génération. De jeunes créateurs réinventent aujourd’hui ces traditions, notamment lors des grands festivals et à travers des coopératives d’artisans.
-Le patrimoine bâti complète cette richesse. La cathédrale Saint-Augustin de Koudougou, édifiée au XXe siècle, est un joyau architectural. Le palais royal d’Issouka, quant à lui, symbolise le pouvoir coutumier et les fondements de la chefferie traditionnelle gourounssi
+  <p>La région de Nando est une véritable plaque tournante culturelle. Ses festivals sont des vitrines vivantes de la créativité burkinabè. Chaque fin novembre, les Nuits Atypiques de Koudougou (NAK) attirent des milliers de festivaliers venus découvrir des spectacles de musique, théâtre, danse, arts visuels et artisanat. Ce rendez-vous, lancé en 1996, reste l’un des plus prestigieux du pays.</p>
+  <br>
+  <p>D’autres événements viennent enrichir ce paysage culturel : le Festirhuk dédié à l’humour, le Festival Gues Yiiga célébrant le mérite féminin en avril, le M’Bayiir Teedo (ex-Danfani Days) mettant en lumière le Faso Danfani, et le Festival Racines du Sanguié, organisé principalement à Réo pour valoriser les traditions ancestrales.</p>
 
-</p><br>
-<img src="../Images/img20.jpeg" alt="image" width="1000" height="800"><br>
-<p>Une destination touristique en pleine effervescence</p><br>
-<p>La région de Nando séduit également par la qualité de son accueil. Des établissements tels que Maison des Projets, Dima Hôtel, Excellence Hôtel, Splendid Hôtel ou encore le Centre Abbé Pierre proposent des solutions d’hébergement variées, adaptées à tous les types de visiteurs. L’ancienne Cité des Arts, reconvertie en espace culturel et touristique, est un lieu de rencontres pour les artistes, voyageurs et porteurs de projets.
-Des villes comme Sourgou, Réo, Sapouy ou encore Sissili participent à l’animation culturelle régionale, chacune avec ses spécificités : traditions culinaires, savoir-faire artisanaux, rites spirituels et danses communautaires
-</p><br>
-<img src="../Images/img21.jpeg" alt="image" width="1000" height="800"><br>
-<p>Nando : une région stratégique pour le développement culturel et touristique
-La création de la région de Nando ouvre une nouvelle ère pour le Burkina Faso. En mettant en valeur les festivals, les savoir-faire artisanaux, les lieux sacrés et l’hospitalité locale, elle devient une destination touristique stratégique, capable d’attirer aussi bien les visiteurs nationaux qu’étrangers
-</p><br>
+  <div class="img-container">
+    <img src="../Images/img18.jpeg" alt="Patrimoine Lyéla et Nuni">
+    <div class="img-caption">Patrimoine vivant des communautés Lyéla et Nuni</div>
+  </div>
+
+  <p>Nando est aussi le territoire des peuples Lyéla et Nuni, répartis respectivement dans les communes de Réo, Didyr, Dassa, Godyr, Kyon, Kordié, Ténado (pour les Lyéla) et dans les communes de Zawara et Pouni (pour les Nuni). Ces communautés sont les gardiennes de coutumes ancestrales qui s’expriment à travers des danses rituelles comme le Binon, des cérémonies traditionnelles, et des objets sacrés tels que les masques de Pouni.</p>
+  <br>
+  <p>Le mont Sanguié (point culminant situé dans le village de Sandié), ainsi que les grottes anthropiques du secteur 7, les maisons traditionnelles Gurunsi à motifs géométriques, et les collines sacrées de Poéssi et Sourgou, sont autant de sites spirituels et naturels phares du secteur.</p>
+
+  <div class="img-container">
+    <img src="../Images/img19.jpeg" alt="Ville de Koudougou">
+    <div class="img-caption">Koudougou — Capitale régionale de Nando, symbolisée par le Baobab</div>
+  </div>
+
+  <p>L’artisanat traditionnel est un pilier fort de l’économie culturelle locale. Les métiers du kokodunda, de la poterie, du cuir, de la bijouterie en bronze ou perles perdurent grâce aux savoirs transmis de génération en génération. Le patrimoine bâti complète cette richesse. La cathédrale Saint-Augustin de Koudougou, édifiée au XXe siècle, est un joyau architectural tandis que le palais royal d’Issouka symbolise la pérennité du pouvoir coutumier et de la chefferie traditionnelle gourounssi.</p>
+
+  <div class="img-container">
+    <img src="../Images/img20.jpeg" alt="Palais d'Issouka">
+    <div class="img-caption">Le Palais Royal d'Issouka — Gardien des traditions coutumières</div>
+  </div>
 </div>
 
 <!-- 5. TOURISME & CULTURE -->
@@ -211,9 +209,9 @@ La création de la région de Nando ouvre une nouvelle ère pour le Burkina Faso
   <h2 class="section-titre">À <span>découvrir</span> absolument</h2>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-img">🎭</div><div class="card-body"><div class="card-cat">Festival</div><div class="card-titre">Festival Hudo</div><div class="card-desc">Festival des masques et traditions Koudougou.</div></div></div>
-    <div class="card"><div class="card-img">🪨</div><div class="card-body"><div class="card-cat">Site naturel</div><div class="card-titre">Grottes de Karfiguela</div><div class="card-desc">Formations rocheuses spectaculaires.</div></div></div>
-    <div class="card"><div class="card-img">🏛️</div><div class="card-body"><div class="card-cat">Musée</div><div class="card-titre">Musée régional</div><div class="card-desc">Art et traditions du Centre-Ouest.</div></div></div>
+    <div class="card"><div class="card-img"><img src="../Images/nuits-atypiques.jpeg" alt="Nuits Atypiques NAK"></div><div class="card-body"><div class="card-cat">Festival</div><div class="card-titre">Nuits Atypiques (NAK)</div><div class="card-desc">Grand rassemblement des arts de la scène en novembre à Koudougou.</div></div></div>
+    <div class="card"><div class="card-img"><img src="../Images/grottes-secteur7.jpeg" alt="Grottes du Secteur 7"></div><div class="card-body"><div class="card-cat">Site naturel</div><div class="card-titre">Grottes du Secteur 7</div><div class="card-desc">Formations rocheuses et refuges historiques locaux.</div></div></div>
+    <div class="card"><div class="card-img"><img src="../Images/Palais_Royal.jpeg" alt="Palais Royal"></div><div class="card-body"><div class="card-cat">Musée & Tradition</div><div class="card-titre">Palais Royal</div><div class="card-desc">Monument et mémoire historique de la région.</div></div></div>
   </div>
 </div>
 
@@ -221,12 +219,11 @@ La création de la région de Nando ouvre une nouvelle ère pour le Burkina Faso
 <div class="section ressources">
   <div>
     <p class="section-label">Ressources naturelles</p>
-    <h2 class="section-titre"><span>Sites</span> et richesses</h2>
+    <h2 class="section-titre"><span>Espaces</span> et biodiversité</h2>
     <div class="trait"></div>
     <div class="cards-grid">
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌊 Fleuve Mouhoun</strong><br>Frontière naturelle à l'ouest</div></div>
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌿 Forêt de Tiogo</strong><br>Forêt classée, biodiversité riche</div></div>
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🦛 Réserve d'hippopotames</strong><br>Sur les berges du Mouhoun</div></div>
+      <div class="card" style="background:rgba(0,0,0,0.02);"><div class="card-img"><img src="../Images/mont-sanguie.jpeg" alt="Mont Sanguié"></div><div class="card-body"><strong>⛰️ Mont Sanguié</strong><br>Point culminant situé à Sandié, haut lieu spirituel</div></div>
+      <div class="card" style="background:rgba(0,0,0,0.02);"><div class="card-img"><img src="../Images/foret-tiogo.jpeg" alt="Forêt de Tiogo"></div><div class="card-body"><strong>🌿 Forêt de Tiogo</strong><br>Forêt classée majeure pour la biodiversité sylvestre</div></div>
     </div>
   </div>
 </div>
@@ -237,9 +234,9 @@ La création de la région de Nando ouvre une nouvelle ère pour le Burkina Faso
   <h2 class="section-titre">Ce que produit la <span>région</span></h2>
   <div class="trait"></div>
   <div class="agri-grid">
-    <div class="agri-bloc"><h3>🌱 Cultures principales</h3><ul class="agri-liste"><li>Coton (2ᵉ région productrice)</li><li>Maïs, sorgho, mil</li><li>Karitié, sésame</li><li>Mangues, anacarde</li></ul></div>
-    <div class="agri-bloc"><h3>🐄 Élevage</h3><ul class="agri-liste"><li>Bovins, ovins, caprins</li><li>Volaille (poulet bicyclette)</li><li>Apiculture</li></ul></div>
-    <div class="agri-bloc"><h3>🐟 Pêche</h3><ul class="agri-liste"><li>Pêche sur le Mouhoun</li><li>Pisciculture en développement</li></ul></div>
+    <div class="agri-bloc"><h3>🌱 Cultures principales</h3><ul class="agri-liste"><li>Coton (Bassin cotonnier historique)</li><li>Sorgho, maïs, mil rouge</li><li>Karité, sésame</li><li>Produits maraîchers</li></ul></div>
+    <div class="agri-bloc"><h3>🐄 Élevage</h3><ul class="agri-liste"><li>Bovins, ovins, caprins</li><li>Volaille locale (Poulet bicyclette de renom)</li><li>Apiculture traditionnelle</li></ul></div>
+    <div class="agri-bloc"><h3>🧵 Agro-industrie</h3><ul class="agri-liste"><li>Égrenage de coton</li><li>Tissage artisanal (Faso Danfani)</li></ul></div>
   </div>
 </div>
 
@@ -249,10 +246,9 @@ La création de la région de Nando ouvre une nouvelle ère pour le Burkina Faso
   <h2 class="section-titre"><span>Former</span> les talents de demain</h2>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Université Norbert Zongo</strong><br>Université publique de Koudougou</div></div>
-    <div class="card"><div class="card-body"><strong>Lycée technique de Koudougou</strong><br>Formation professionnelle</div></div>
-    <div class="card"><div class="card-body"><strong>CFP de Koudougou</strong><br>Mécanique, électricité, bâtiment</div></div>
-    <div class="card"><div class="card-body"><strong>École normale supérieure</strong><br>Formation des enseignants</div></div>
+    <div class="card"><div class="card-body"><strong>Université Norbert Zongo</strong><br>Deuxième pôle universitaire public du pays, pôle d'excellence en Lettres et Sciences.</div></div>
+    <div class="card"><div class="card-body"><strong>ENS (École Normale Supérieure)</strong><br>Institution phare de formation des enseignants du secondaire du Burkina Faso.</div></div>
+    <div class="card"><div class="card-body"><strong>Lycée Technique de Koudougou</strong><br>Référence historique pour les formations industrielles et de génie civil.</div></div>
   </div>
 </div>
 
@@ -262,9 +258,8 @@ La création de la région de Nando ouvre une nouvelle ère pour le Burkina Faso
   <h2 class="section-titre">Échanges et <span>marchés</span></h2>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Marché central de Koudougou</strong><br>Vendredi — coton, céréales, artisanat</div></div>
-    <div class="card"><div class="card-body"><strong>Zone industrielle</strong><br>Usines d'égrenage de coton, minoteries</div></div>
-    <div class="card"><div class="card-body"><strong>Gare routière de Koudougou</strong><br>Carrefour commercial régional</div></div>
+    <div class="card"><div class="card-body"><strong>Marché Central de Koudougou</strong><br>Pôle de commerce de textiles, produits manufacturés et bétail.</div></div>
+    <div class="card"><div class="card-body"><strong>Axe Ferroviaire</strong><br>Ligne de chemin de fer stratégique reliant Abidjan à Ouagadougou.</div></div>
   </div>
 </div>
 
@@ -275,10 +270,9 @@ La création de la région de Nando ouvre une nouvelle ère pour le Burkina Faso
     <h2 class="section-titre" style="color:white;"><span style="color:var(--or);">Savoir-faire</span> ancestraux</h2>
     <div class="trait"></div>
     <div class="cards-grid">
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🧵 Bogolan</strong><br>Tissu teint à l'argile, motifs géométriques</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🎭 Masques Nioniossé</strong><br>Sculptures cérémonielles</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>⚒️ Forge</strong><br>Outils agricoles, bijoux</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🏺 Poterie</strong><br>Canaris, jarres décorées</div></div>
+      <div class="card" style="background:#3A2516; border:none; color:white;"><div class="card-img"><img src="../Images/faso-danfani.jpeg" alt="Faso Danfani & Kokodunda"></div><div class="card-body"><strong style="color:var(--or);">🧵 Faso Danfani & Kokodunda</strong><br>Tissage et teinture de pagnes emblématiques.</div></div>
+      <div class="card" style="background:#3A2516; border:none; color:white;"><div class="card-img"><img src="../Images/masques-bois-gurunsi.jpeg" alt="Masques en bois Gurunsi"></div><div class="card-body"><strong style="color:var(--or);">🎭 Masques en bois Gurunsi</strong><br>Sculptures rituelles de Pouni et Zawara.</div></div>
+      <div class="card" style="background:#3A2516; border:none; color:white;"><div class="card-img"><img src="../Images/poterie-terre-cuite.jpeg" alt="Poterie de terre cuite"></div><div class="card-body"><strong style="color:var(--or);">🏺 Poterie de terre cuite</strong><br>Jarres et canaris traditionnels décorés.</div></div>
     </div>
   </div>
 </div>
@@ -286,27 +280,26 @@ La création de la région de Nando ouvre une nouvelle ère pour le Burkina Faso
 <!-- 14. CARTE DE SITUATION -->
 <div class="section">
   <p class="section-label">Carte de situation</p>
-  <h2 class="section-titre">Localisation du Centre-Ouest</h2>
+  <h2 class="section-titre">Localisation de la région de <span>Nando</span></h2>
   <div class="trait"></div>
   <iframe width="100%" height="350" frameborder="0" style="border:1px solid var(--sable); border-radius:8px;" src="https://www.openstreetmap.org/export/embed.html?bbox=-2.8,11.8,-1.5,12.8&layer=mapnik&marker=12.248,-2.363"></iframe>
 </div>
 
-<!-- 15. PROVINCES -->
+<!-- 15. PROVINCES (MISES À JOUR À 3 PROVINCES) -->
 <div class="section">
   <p class="section-label">Provinces</p>
-  <h2 class="section-titre"><span>4 provinces</span></h2>
+  <h2 class="section-titre">Les <span>3 provinces</span> composantes</h2>
   <div class="trait"></div>
   <div class="cards-grid">
     <div class="card"><div class="card-body"><strong>Boulkiemdé</strong><br>Chef-lieu : Koudougou</div></div>
     <div class="card"><div class="card-body"><strong>Sanguié</strong><br>Chef-lieu : Réo</div></div>
-    <div class="card"><div class="card-body"><strong>Sissili</strong><br>Chef-lieu : Léo</div></div>
     <div class="card"><div class="card-body"><strong>Ziro</strong><br>Chef-lieu : Sapouy</div></div>
   </div>
 </div>
 
 <!-- 17. BOUTON RETOUR -->
 <div class="section" style="text-align:center;">
-  <a href="../Racine/index.html" class="btn-retour">← Retour à l'accueil</a>
+  <a href="../Racine/index.html" class="btn-retour">← Toutes les régions</a>
   <a href="../Racine/index.html" class="btn-retour" style="margin-left:1rem; background:var(--nuit);">🏠 Accueil</a>
 </div>
 
