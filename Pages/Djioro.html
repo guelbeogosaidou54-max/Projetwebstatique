@@ -36,7 +36,7 @@ nav {
 .info-val { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--or); display: block; }
 .info-label { font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
 
-/* SECTION ADMINISTRATION & GÉOGRAPHIE (NOUVELLE) */
+/* SECTION ADMINISTRATION & GÉOGRAPHIE */
 .details-section {
   background: var(--blanc);
   padding: 2.5rem;
@@ -66,14 +66,23 @@ nav {
 .details-category strong {
   color: var(--nuit);
 }
+.card-img { height: 150px; background-color: var(--sable); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
+.section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; clear: both; }
 .section-label { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rouge); font-weight: 500; margin-bottom: 0.5rem; }
 .section-titre { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
 .section-titre span { color: var(--rouge); }
 .trait { width: 50px; height: 3px; background: var(--or); margin-bottom: 2rem; }
-.img-principale { width: 100%; height: 400px; background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Loropeni.jpg/1280px-Loropeni.jpg') center/cover; position: relative; margin: 2rem 0; }
-.img-legende { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: white; padding: 1rem; font-size: 0.8rem; }
+
+.img-container { width: 100%; margin: 1.5rem 0; text-align: center; clear: both; }
+.img-container img { max-width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto; }
+
+/* CORRECTION DE LA STRUCTURE DE L'IMAGE PRINCIPALE */
+.img-principale { width: 100%; max-width: 1100px; height: 450px; position: relative; margin: 2rem auto; border-radius: 8px; overflow: hidden; clear: both; }
+.img-principale img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.img-legende { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 1.5rem 1rem; font-size: 0.85rem; z-index: 2; }
+
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1.5rem; }
 .card { background: var(--blanc); border-radius: 10px; border: 1px solid var(--sable); overflow: hidden; transition: transform 0.2s; }
 .card:hover { transform: translateY(-4px); }
@@ -82,8 +91,7 @@ nav {
 .card-cat { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--rouge); font-weight: 500; }
 .card-titre { font-size: 1rem; font-weight: 600; margin: 0.4rem 0; }
 .card-desc { font-size: 0.85rem; color: var(--gris); }
-.galerie-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; margin-top: 2rem; }
-.galerie-item { height: 180px; background: var(--sable); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2rem; background-size: cover; background-position: center; }
+
 .agri-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 2rem; }
 .agri-bloc { background: var(--blanc); border-radius: 10px; padding: 1.5rem; border-top: 4px solid var(--vert); }
 .agri-liste { list-style: none; }
@@ -93,7 +101,7 @@ nav {
 .btn-retour:hover { background: #a01f24; }
 footer { background: #0A0805; text-align: center; padding: 2rem; color: rgba(255,255,255,0.35); font-size: 0.78rem; }
 footer span { color: var(--or); }
-@media (max-width: 768px) { nav { padding: 0 1rem; } .nav-links { display: none; } .section { padding: 2rem 1rem; } .hero-titre { font-size: 2rem; } .infos-section { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 768px) { nav { padding: 0 1rem; } .nav-links { display: none; } .section { padding: 2rem 1rem; } .hero-titre { font-size: 2rem; } .infos-section { grid-template-columns: repeat(2,1fr); } .img-principale { height: 300px; } }
 </style>
 </head>
 <body>
@@ -111,93 +119,86 @@ footer span { color: var(--or); }
 <section class="region-hero">
   <div class="hero-badge">Région du Burkina Faso</div>
   <h1 class="hero-titre">Djôrô</h1>
-  <p class="hero-slogan">« Pics, masques et forêts sacrées »</p>
+  <p class="hero-slogan">« Terre des Soukala, traditions séculaires et collines sacrées »</p>
 </section>
 
 <!-- 2. INFORMATIONS GÉNÉRALES -->
 <div class="infos-section">
   <div class="info-item"><span class="info-val">Gaoua</span><span class="info-label">Chef-lieu</span></div>
-  <div class="info-item"><span class="info-val">16 202 km²</span><span class="info-label">Superficie</span></div>
-  <div class="info-item"><span class="info-val">986 700</span><span class="info-label">Population (2024)</span></div>
+  <div class="info-item"><span class="info-val">16 533 km²</span><span class="info-label">Superficie</span></div>
+  <div class="info-item"><span class="info-val">874 030</span><span class="info-label">Population (RGPH)</span></div>
   <div class="info-item"><span class="info-val">4</span><span class="info-label">Provinces</span></div>
-  <div class="info-item"><span class="info-val">Djôrô</span><span class="info-label">Gentilé</span></div>
 </div>
 
-<!-- ===== NOUVEAU : ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
+<!-- ===== ADMINISTRATION, DÉMOGRAPHIE, GÉOGRAPHIE ===== -->
 <div class="details-section">
   <div class="details-grid">
     <!-- Administration -->
     <div class="details-category">
       <h3>🏛️ Administration</h3>
       <p><strong>Pays :</strong> Burkina Faso</p>
-      <p><strong>Statut :</strong> Région</p>
+      <p><strong>Statut :</strong> Région administrative</p>
       <p><strong>Provinces :</strong> 4</p>
       <p><strong>Départements :</strong> 28</p>
       <p><strong>Chef-lieu :</strong> Gaoua</p>
-      <p><strong>Gouverneur :</strong> Siaka BARRO (depuis 2025)</p>
-      <p><strong>Code ISO 3166-2 :</strong> BF-13</p>
-      <p><strong>Code INSD :</strong> 05</p>
     </div>
     <!-- Démographie -->
     <div class="details-category">
       <h3>👥 Démographie</h3>
-      <p><strong>Population (2024) :</strong> 986 700 hab.</p>
-      <p><strong>Densité :</strong> 61 hab./km²</p>
+      <p><strong>Population :</strong> 874 030 hab. (Recensement)</p>
+      <p><strong>Densité :</strong> 53 hab./km²</p>
     </div>
     <!-- Géographie & Divers -->
     <div class="details-category">
       <h3>🗺️ Géographie & Divers</h3>
       <p><strong>Coordonnées :</strong> 10°19'00"N, 3°10'00"O</p>
-      <p><strong>Superficie :</strong> 16 202 km²</p>
-      <p><strong>Fuseau horaire :</strong> UTC+0</p>
-      <p><strong>Indicatif téléphonique :</strong> +226</p>
+      <p><strong>Superficie :</strong> 16 533 km²</p>
     </div>
   </div>
 </div>
 
-<!-- 3. IMAGE PRINCIPALE -->
+<!-- 3. IMAGE PRINCIPALE CORRIGÉE -->
 <div class="img-principale">
-  <img src="../Images/img104.jpeg" alt="capitale du Burkina Faso"  width="700" height="400"><br>
-  <div class="img-legende">Ville de Gaoua dans la region de Djioro</div><br>
+   <img src="../Images/img104.jpeg" alt="Vue de la ville de Gaoua">
+   <div class="img-legende">Ville de Gaoua dans la région de Djôrô</div>
 </div>
 
 <!-- 4. PRÉSENTATION COURTE -->
 <div class="section">
   <p class="section-label">Présentation</p>
-  <h2 class="section-titre">Le <span>Region de </span> Gaoua</h2>
+  <h2 class="section-titre">La région de <span>Djôrô</span></h2>
   <div class="trait"></div>
-  <p>Gaoua est une ville riche en traditions et en histoire, située dans la région du Sud-Ouest du Burkina Faso. Elle est le chef-lieu de la province du Poni et est connue pour son patrimoine culturel vivant, ses festivals traditionnels, et ses sites historiques. La ville est un centre économique en pleine expansion, avec un secteur agricole dynamique et des opportunités dans le commerce et l'artisanat. Gaoua est également un lieu d'immersion culturelle, attirant des visiteurs intéressés par l'authenticité des traditions africaines.</p>
-  <p>Djôrô (anciennement région du Sud-Ouest) est l'une des 17 régions administratives du Burkina Faso selon le découpage territorial révisé adopté le 2 juillet 2025. Cette région abrite les célèbres ruines de Loropéni, classées au patrimoine mondial de l'UNESCO. C'est une région de transition entre la savane et les premières forêts du sud. Les ethnies Lobi, Dagara et Birifor y perpétuent des traditions séculaires comme les fêtes des masques.</p><br>
-<img src="../Images/img42.jpeg" alt="Image" width="1000" height="700"><br>
-<p>La tradition du peuple Dagara, lobi au Burkina Faso, est profondément ancrée dans leur culture et leur histoire. Les Dagara, qui se considèrent comme des descendants du Dagomba, ont une organisation sociale lignagère et un système de pouvoir basé sur le chef de village ou de terre. Ils pratiquent des rites comme le zién et le bOg, et participent à des fêtes traditionnelles comme le Daguéo, qui est une fête commune aux Dagara, Lobi et Birifor. La terre est un symbole central de leur vie et de leurs rituels, et ils offrent des sacrifices lors du Tégan dàà, le grand rituel agraire. 
-NetAfrique.net
+  <p>Gaoua est une ville riche en traditions et en histoire, située dans la région du Sud-Ouest du Burkina Faso. Elle est le chef-lieu de la province du Poni et est connue pour son patrimoine culturel vivant, ses festivals traditionnels, et ses sites historiques. La ville est un centre économique en pleine expansion, avec un secteur agricole dynamique et des opportunités dans le commerce et l'artisanat. Gaoua est également un lieu d'immersion culturelle, attirant des visiteurs interested par l'authenticité des traditions africaines.</p>
+  <p style="margin-top: 1rem;">Djôrô (anciennement région du Sud-Ouest) est l'une des 17 régions administratives du Burkina Faso selon le découpage territorial révisé adopté le 2 juillet 2025. Cette région abrite les célèbres ruines de Loropéni, classées au patrimoine mondial de l'UNESCO. C'est une région de transition entre la savane et les premières forêts du sud. Les ethnies Lobi, Dagara et Birifor y perpétuent des traditions séculaires comme les fêtes des masques.</p>
+  <p style="margin-top: 1rem;">La tradition du peuple Dagara et Lobi au Burkina Faso est profondément ancrée dans leur culture et leur histoire. Les Dagara ont une organisation sociale lignagère et un système de pouvoir basé sur le chef de village ou de terre. Ils pratiquent des rites comme le zién et le bOg, et participent à des fêtes traditionnelles comme le Daguéo, qui est une fête commune aux Dagara, Lobi et Birifor. La terre est un symbole central de leur vie et de leurs rituels, et ils offrent des sacrifices lors du Tégan dàà, le grand rituel agraire. Les Dagara sont également connus pour leur art sculptural, qui réflechit leur tradition ancestrale et leur adaptation à la modernité. Le bateba, un type de sculpture traditionnelle, en est un exemple éloquent. La tradition d'initiation reste essentielle pour la cohésion sociale et la transmission des savoirs.</p>
+  
+  <div class="img-container">
+    <img src="../Images/img45.jpeg" alt="Traditions de Djôrô">
+  </div>
+  <div class="img-container">
+    <img src="../Images/img105.jpeg" alt="Patrimoine culturel">
+  </div>
 
-Les Dagara sont également connus pour leur art sculptural, qui reflète leur tradition ancestrale et leur adaptation à la modernité. Le bateba, un type de sculpture traditionnelle, est un exemple de leur art contemporain, qui combine des éléments traditionnels avec des influences modernes. 
-Wikipedia
+  <h3 style="margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">Un territoire aux paysages et sites touristiques variés</h3>
+  <p>La région de Gaoua, au Burkina Faso, est un véritable joyau aux paysages variés et aux sites touristiques fascinants. Elle offre aux visiteurs une immersion authentique dans la culture africaine. Les sites touristiques incluent des villages traditionnels (les Soukala), des ruines anciennes et des lieux sacrés, témoignant d'un patrimoine matériel et immatériel précieux. L'ensemble des murs fortifiés de Loropéni daterait au moins du IXe siècle, dans une zone où les ethnies Lohron et Koulango contrôlaient l'extraction et le commerce de l'or du XIVe siècle au XVIIe siècle.</p>
+  
+  <div class="img-container">
+    <img src="../Images/img43.jpeg" alt="Ruines historiques">
+  </div>
 
-La tradition Dagara d'initiation et de soins chamaniques est partiellement décrite par Malidoma Patrice Somé, qui a été formé à la fois dans des traditions occidentales et villageoises. Cette tradition est essentielle pour la cohésion sociale et la transmission des savoirs</p><br>
-<img src="../Images/img45.jpeg" alt="Image" width="1000" height="700"><br>
-<img src="../Images/img105.jpeg" alt="Image" width="1000" height="700"><br>
-<p>Un territoire aux paysages et sites touristiques variés</p>
-<p>La region de Gaoua, au Burkina Faso, est un véritable joyau aux paysages variés et aux sites touristiques fascinants. Elle offre aux visiteurs une immersion authentique dans la culture africaine, avec des paysages pittoresques et des habitants accueillants. Les sites touristiques incluent des villages traditionnels, des ruines anciennes, des sites archéologiques, et des lieux sacrés, témoignant d'un patrimoine matériel et immatériel précieux. Les festivals traditionnels et les danses folkloriques sont également une partie intégrante de la culture locale, offrant aux visiteurs une expérience vivante et immersive. </p>
-<p>L'ensemble des murs fortifiés dateraient au moins du IXe siècle, dans une zone où les ethnies Lohron et Koulango contrôlaient l'extraction et le commerce de l'or du XIVe siècle au XVIIe siècle[2]. Le site est « redécouvert » lors de la conquête coloniale française en 1902 par une expédition militaire qui en fait les premiers relevés.
-  La forteresse de Loropéni est la mieux préservée des dix forteresses que compte la région peuplée désormais principalement par l'ethnie Lobi sans qu'il soit possible de leur attribuer la construction[2].
+  <h3 style="margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">Transformation des mosaïques de la forêt-savane par des pratiques agricoles</h3>
+  <p>Ces pratiques ont conduit à l'émergence de systèmes de culture agroforestiers, combinant cultures pérennes et végétation sub-spontanée. Ces agroforêts ont été développés dans des zones traditionnellement dévolues aux cultures annuelles vivrières, ce qui a contribué à la constitution d'un écosystème "forestier cultivé" au cœur de la savane.</p>
+  
+  <div class="img-container">
+    <img src="../Images/img44.jpeg" alt="Écosystème forestier cultivé">
+  </div>
 
-Il s'agit de murailles de blocs de pierre rouge non taillés et de moellons de latérite s'élevant jusqu'à six mètres de hauteur et sur une surface de 11 130 m2. En l'état des connaissances scientifiques, il n'existe aucune certitude quant à leur bâtisseur[3],[4],. Ces ruines s'inscrivent dans un ensemble plus large comptant une centaine d'enceintes en pierre[5].
-</p>
-<img src="../Images/img43.jpeg" alt="Image" width="1000" height="700"><br>
-<p>Transformation des mosaïques de la forêt-savane par des pratiques agricoles</p><br>
-<p>
-La transformation des mosaïques de forêt-savane par des pratiques agricoles a été observée dans la région de Gaoua, au Burkina Faso. Ces pratiques ont conduit à l'émergence de systèmes de culture agroforestiers, combinant cultures pérennes et végétation sub-spontanée. Ces agroforêts ont été développés dans des zones traditionnellement dévolues aux cultures annuelles vivrières, ce qui a contribué à la constitution d'un écosystème "forestier cultivé" dans des zones originellement dominées par la savane et la forêt secondair</p><br>
-<p><img src="../Images/img44.jpeg" alt="Image" width="1000" height="1000"><br></p><br>
-<p>𝐋𝐚 𝐠𝐫𝐨𝐭𝐭𝐞 𝗱𝗲 𝗹𝗮 𝗴𝘂𝗲𝗿𝗿𝗲 𝗼𝘂 𝗺𝗶𝗹𝗶𝘁𝗮𝗶𝗿𝗲 𝐝𝐞 𝐃𝐢𝐞́𝐛𝐨𝐮𝐠𝐨𝐮</p><br>
-<p>Elle est située dans la région du Djôrô. La grotte de la guerre ou militaire de Diébougou est un site historique qui témoigne d’un passé chargé d’ingéniosité et de stratégie.
-D’après certaines sources, elle a été aménagée à l’époque coloniale. Cette grotte, servait de poste militaire, offrant un point d’observation et de défense grâce à sa position stratégique. 
-Elle impressionne par son architecture souterraine, ses galeries et ses ouvertures permettant de surveiller les environs sans être vu.
-Au-delà de son rôle militaire, ce site est aujourd’hui un patrimoine touristique, attirant, des  passionnés d’histoire et amoureux de découvertes.
-La grotte de Diébougou nous rappelle que notre territoire regorge de trésors, parfois méconnus, qui méritent d’être valorisés et préservés.</p><br>
-<p></p><br>
-<p><img src="../Images/img69.jpeg" alt="Image" width="1000" height="700"><br></p><br>
+  <h3 style="margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">La grotte de la guerre ou militaire de Diébougou</h3>
+  <p>Aménagée à l’époque coloniale, cette grotte servait de poste militaire, offrant un point d’observation et de défense grâce à sa position stratégique. Elle impressionne par son architecture souterraine, ses galeries et ses ouvertures permettant de surveiller les environs sans être vu. Au-delà de son rôle militaire historique, ce site est aujourd’hui un patrimoine touristique majeur de la province de la Bougouriba.</p>
+  
+  <div class="img-container">
+    <img src="../Images/img69.jpeg" alt="Grotte de Diébougou">
+  </div>
 </div>
 
 <!-- 5. TOURISME & CULTURE -->
@@ -206,10 +207,10 @@ La grotte de Diébougou nous rappelle que notre territoire regorge de trésors, 
   <h2 class="section-titre">À <span>découvrir</span> absolument</h2>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-img">🏛️</div><div class="card-body"><div class="card-cat">Patrimoine UNESCO</div><div class="card-titre">Ruines de Loropéni</div><div class="card-desc">Forteresse en pierre du XIᵉ siècle, mieux conservée d'Afrique subsaharienne.</div></div></div>
-    <div class="card"><div class="card-img">🗻</div><div class="card-body"><div class="card-cat">Site géologique</div><div class="card-titre">Pics de Sindou</div><div class="card-desc">Formations rocheuses spectaculaires, site sacré.</div></div></div>
-    <div class="card"><div class="card-img">🎭</div><div class="card-body"><div class="card-cat">Tradition</div><div class="card-titre">Fêtes des masques Lobi</div><div class="card-desc">Cérémonies spectaculaires, rites initiatiques.</div></div></div>
-    <div class="card"><div class="card-img">🏛️</div><div class="card-body"><div class="card-cat">Musée</div><div class="card-titre">Musée de Gaoua</div><div class="card-desc">Art et traditions du Sud-Ouest.</div></div></div>
+    <div class="card"><div class="card-img"><img src="../Images/Ruine de Loropéni.jpeg" alt="Ruines de Loropéni"></div><div class="card-body"><div class="card-cat">Patrimoine UNESCO</div><div class="card-titre">Ruines de Loropéni</div><div class="card-desc">Forteresse en pierre du XIᵉ siècle, la mieux conservée d'Afrique subsaharienne.</div></div></div>
+    <div class="card"><div class="card-img"><img src="../Images/Soukala.jpeg" alt="Les Soukala Lobis"></div><div class="card-body"><div class="card-cat">Architecture</div><div class="card-titre">Les Soukala Lobis</div><div class="card-desc">Habitations traditionnelles fortifiées en terre fort d'une identité unique.</div></div></div>
+    <div class="card"><div class="card-img"><img src="../Images/Masque.jpeg" alt="Fêtes des masques"></div><div class="card-body"><div class="card-cat">Tradition</div><div class="card-titre">Fêtes des masques</div><div class="card-desc">Cérémonies rituelles spectaculaires et rites initiatiques de passage.</div></div></div>
+    <div class="card"><div class="card-img"><img src="../Images/Musée-Gaoua.jpeg" alt="Musée de Gaoua"></div><div class="card-body"><div class="card-cat">Musée</div><div class="card-titre">Musée de Gaoua</div><div class="card-desc">Conservatoire exceptionnel des arts, secrets et traditions du peuple Lobi.</div></div></div>
   </div>
 </div>
 
@@ -220,9 +221,9 @@ La grotte de Diébougou nous rappelle que notre territoire regorge de trésors, 
     <h2 class="section-titre" style="color:white;"><span style="color:var(--vert);">Sites</span> et richesses</h2>
     <div class="trait" style="background:var(--vert);"></div>
     <div class="cards-grid">
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌊 Fleuve Bougouriba</strong><br>Ressource en eau agricole</div></div>
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🌿 Forêts galerie</strong><br>Biodiversité riche, sentiers de randonnée</div></div>
-      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-body"><strong>🦌 Antilopes</strong><br>Faune des savanes protégée</div></div>
+      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-img-dark"><img src="../Images/fleuve_Bougouriba.jpeg" alt="Fleuve Bougouriba"></div><div class="card-body"><strong>🌊 Fleuve Bougouriba</strong><br>Ressource en eau précieuse pour le développement agricole régional.</div></div>
+      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-img-dark"><img src="../Images/Forêt.jpeg" alt="Forêts galeries"></div><div class="card-body"><strong>🌿 Forêts galeries</strong><br>Biodiversité riche, flore médicinale sauvage et sentiers de randonnée.</div></div>
+      <div class="card" style="background:rgba(255,255,255,0.05);"><div class="card-img-dark"><img src="../Images/Faunes.jpeg" alt="Faune sauvage"></div><div class="card-body"><strong>🦌 Faune sauvage</strong><br>Antilopes et petites espèces de savanes au cœur de zones préservées.</div></div>
     </div>
   </div>
 </div>
@@ -233,9 +234,9 @@ La grotte de Diébougou nous rappelle que notre territoire regorge de trésors, 
   <h2 class="section-titre">Ce que produit la <span>région</span></h2>
   <div class="trait"></div>
   <div class="agri-grid">
-    <div class="agri-bloc"><h3>🌱 Cultures principales</h3><ul class="agri-liste"><li>Anacarde (noix de cajou)</li><li>Café, cacao (petite production)</li><li>Sorgho, mil, maïs</li><li>Karitié, mangues</li></ul></div>
-    <div class="agri-bloc"><h3>🐄 Élevage</h3><ul class="agri-liste"><li>Bovins, ovins</li><li>Caprins</li><li>Aviculture</li></ul></div>
-    <div class="agri-bloc"><h3>🐟 Pêche</h3><ul class="agri-liste"><li>Pêche fluviale</li><li>Pisciculture</li></ul></div>
+    <div class="agri-bloc"><h3>🌱 Cultures principales</h3><ul class="agri-liste"><li>Anacarde (noix de cajou)</li><li>Sorgho, mil, maïs</li><li>Karité, mangues</li></ul></div>
+    <div class="agri-bloc"><h3>🐄 Élevage</h3><ul class="agri-liste"><li>Bovins, ovins</li><li>Caprins</li><li>Aviculture traditionnelle</li></ul></div>
+    <div class="agri-bloc"><h3>🐟 Pêche</h3><ul class="agri-liste"><li>Pêche fluviale sur la Bougouriba</li><li>Pisciculture en développement</li></ul></div>
   </div>
 </div>
 
@@ -245,9 +246,11 @@ La grotte de Diébougou nous rappelle que notre territoire regorge de trésors, 
   <h2 class="section-titre"><span>Former</span> les talents de demain</h2>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Centre Universitaire de Gaoua</strong><br>Domaines de formation: Gestion du Patrimoine Culturel et Touristique; Sciences Biologique et appliquées; Géographie Générale; Géographie appliquées</div></div>
-    <div class="card"><div class="card-body"><strong>Lycée</strong><br>Formation Technique,Professionnel et Générale</div></div><br>
-    <img src="../Images/img46.jpeg" alt="Image" width="1000" height="700"><br>
+    <div class="card"><div class="card-body"><strong>Centre Universitaire de Gaoua</strong><br>Gestion du Patrimoine Culturel, Sciences Biologiques, Géographie Appliquée.</div></div>
+    <div class="card"><div class="card-body"><strong>Lycées de la région</strong><br>Enseignements techniques, professionnels et cursus généraux.</div></div>
+  </div>
+  <div class="img-container">
+    <img src="../Images/img46.jpeg" alt="Éducation au Djôrô">
   </div>
 </div>
 
@@ -257,9 +260,9 @@ La grotte de Diébougou nous rappelle que notre territoire regorge de trésors, 
   <h2 class="section-titre">Échanges et <span>marchés</span></h2>
   <div class="trait"></div>
   <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>Marché de Gaoua</strong><br>Samedi — anacarde, karité, artisanat</div></div>
-    <div class="card"><div class="card-body"><strong>Marché de Diébougou</strong><br>Mercredi — bétail, céréales</div></div>
-    <div class="card"><div class="card-body"><strong>Exportation anacarde</strong><br>Vers l'Asie et l'Europe</div></div>
+    <div class="card"><div class="card-img"><img src="../Images/Marché_de_Gaoua.jpeg" alt="Marché de Gaoua"></div><div class="card-body"><strong>Marché de Gaoua</strong><br>Grand marché.</div></div>
+    <div class="card"><div class="card-img"><img src="../Images/marche-diebougou.jpeg" alt="Marché de Diébougou"></div><div class="card-body"><strong>Marché de Diébougou</strong></div></div>
+    <div class="card"><div class="card-img"><img src="../Images/anacarde.jpeg" alt="Filière Anacarde"></div><div class="card-body"><strong>Filière Anacarde</strong><br>Exportations stratégiques de noix brutes vers l'international.</div></div>
   </div>
 </div>
 
@@ -270,45 +273,11 @@ La grotte de Diébougou nous rappelle que notre territoire regorge de trésors, 
     <h2 class="section-titre" style="color:white;"><span style="color:var(--or);">Savoir-faire</span> ancestraux</h2>
     <div class="trait"></div>
     <div class="cards-grid">
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🎭 Masques Lobi</strong><br>Sculptures rituelles</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🏺 Poterie</strong><br>Canaris, jarres, ustensiles</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>🧺 Vannerie</strong><br>Paniers, nattes, chapeaux</div></div>
-      <div class="card" style="background:#3A2516;"><div class="card-body"><strong>⚒️ Forge traditionnelle</strong><br>Outils agricoles, bijoux</div></div>
+      <div class="card" style="background:#3A2516;"><div class="card-img-dark"><img src="../Images/Statuettes.jpeg" alt="Masques & Statuettes Bateba"></div><div class="card-body"><strong>🎭 Masques & Statuettes</strong><br>Sculptures sacrées en bois (Bateba).</div></div>
+      <div class="card" style="background:#3A2516;"><div class="card-img-dark"><img src="../Images/Poterie.jpeg" alt="Poterie d'art"></div><div class="card-body"><strong>🏺 Poterie d'art</strong><br>Canaris, jarres et ustensiles domestiques.</div></div>
+      <div class="card" style="background:#3A2516;"><div class="card-img-dark"><img src="../Images/Vannerie.jpeg" alt="Vannerie fine"></div><div class="card-body"><strong>🧺 Vannerie fine</strong><br>Paniers, chapeaux traditionnels et nattes.</div></div>
+      <div class="card" style="background:#3A2516;"><div class="card-img-dark"><img src="../Images/Forge_traditionnelle.jpeg" alt="Forge traditionnelle"></div><div class="card-body"><strong>⚒️ Forge traditionnelle</strong><br>Fabrication d'outils aratoires et bijoux.</div></div>
     </div>
-  </div>
-</div>
-
-<!-- 11. SPÉCIALITÉS CULINAIRES -->
-<div class="section">
-  <p class="section-label">Spécialités culinaires</p>
-  <h2 class="section-titre">Les <span>saveurs</span> du Djôrô</h2>
-  <div class="trait"></div>
-  <div class="cards-grid">
-    <div class="card"><div class="card-body"><strong>🍲 Tô de sorgho</strong><br>Sauce gombo ou arachide</div></div>
-    <div class="card"><div class="card-body"><strong>🍗 Poulet bicyclette</strong><br>Grillé à la braise</div></div>
-    <div class="card"><div class="card-body"><strong>🥤 Dolo</strong><br>Bierre de mil traditionnelle</div></div>
-  </div>
-</div>
-
-<!-- 12. CHIFFRES CLÉS -->
-<div class="section" style="background:var(--rouge); text-align:center; color:white;">
-  <h2 class="section-titre" style="color:white;"><span style="color:var(--or);">Chiffres</span> clés</h2>
-  <div style="display:flex; justify-content:center; gap:3rem; flex-wrap:wrap;">
-    <div><span style="font-size:2rem; font-weight:bold;">📏 16 202 km²</span><br>Superficie</div>
-    <div><span style="font-size:2rem; font-weight:bold;">👥 986 700</span><br>Habitants (2024)</div>
-    <div><span style="font-size:2rem; font-weight:bold;">🗻 1 site UNESCO</span><br>Loropéni</div>
-  </div>
-</div>
-
-<!-- 13. GALERIE PHOTOS -->
-<div class="section">
-  <p class="section-label">Galerie photos</p>
-  <h2 class="section-titre">Images de la <span>région</span></h2>
-  <div class="trait"></div>
-  <div class="galerie-grid">
-    <div class="galerie-item" style="background: linear-gradient(135deg,#1a1206,#5a4010);">🏛️ Ruines de Loropéni</div>
-    <div class="galerie-item" style="background: linear-gradient(135deg,#0a2a18,#1a6040);">🗻 Pics de Sindou</div>
-    <div class="galerie-item" style="background: linear-gradient(135deg,#2a1a06,#6b3a12);">🎭 Masques Lobi</div>
   </div>
 </div>
 
@@ -323,7 +292,7 @@ La grotte de Diébougou nous rappelle que notre territoire regorge de trésors, 
 <!-- 15. PROVINCES -->
 <div class="section">
   <p class="section-label">Provinces</p>
-  <h2 class="section-titre"><span>4 provinces</span></h2>
+  <h2 class="section-titre">Les <span>4 provinces</span> de la région</h2>
   <div class="trait"></div>
   <div class="cards-grid">
     <div class="card"><div class="card-body"><strong>Bougouriba</strong><br>Chef-lieu : Diébougou</div></div>
@@ -333,17 +302,9 @@ La grotte de Diébougou nous rappelle que notre territoire regorge de trésors, 
   </div>
 </div>
 
-<!-- 16. LE SAVIEZ-VOUS ? -->
-<div class="section" style="background:var(--or); text-align:center;">
-  <p class="section-label" style="color:var(--nuit);">Le saviez-vous ?</p>
-  <h2 class="section-titre" style="color:var(--nuit);">Anecdote <span>surprenante</span></h2>
-  <div class="trait" style="margin:0 auto 1.5rem;"></div>
-  <p style="font-size:1.2rem; font-style:italic; max-width:700px; margin:0 auto;">Les ruines de Loropéni sont les vestiges d'une forteresse en pierre datant du XIᵉ siècle, mieux conservées d'Afrique subsaharienne. Classées à l'UNESCO en 2009, elles étaient un maillon de la route commerciale transsaharienne reliant le Ghana au Mali. Djôrô est le nouveau nom de la région depuis juillet 2025.</p>
-</div>
-
 <!-- 17. BOUTON RETOUR -->
 <div class="section" style="text-align:center;">
-  <a href="../index.html#regions" class="btn-retour">← Retour à l'accueil</a>
+  <a href="../index.html#regions" class="btn-retour">← Toutes les régions</a>
   <a href="../index.html" class="btn-retour" style="margin-left:1rem; background:var(--nuit);">🏠 Accueil</a>
 </div>
 
